@@ -1,0 +1,43 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-rabbitmq-api
+  tag: latest
+
+nameOverride: "bg-rabbitmq-api"
+
+serviceAccount:
+  name: "bg-rabbitmq-api-sa"
+
+secrets:
+  - name: bg-rabbitmq-api
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: ""
+  MessageBroker__Consumer: ""
+  MessageBroker__RoutingKey: ""
+
+ingress:
+  enabled: true
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:418541840646:certificate/ed922e6e-6b95-4fdf-a10c-1a7253d35313
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+
+  hosts:
+  - host: bg-rmq-api.dev.song88.com
+    paths:
+      - path: /

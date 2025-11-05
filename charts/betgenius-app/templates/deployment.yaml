@@ -50,11 +50,13 @@ spec:
             value: {{ $value | quote }}
           {{- end }}
           {{- range $secret := .Values.secrets }}
-          - name: {{ $secret.envVariable }}
+          {{- range $entry := $secret.data }}
+          - name: {{ $entry.envVariable }}
             valueFrom:
               secretKeyRef:
                 name: {{ $secret.name }}
-                key: {{ $secret.key }}
+                key: {{ $entry.key }}
+          {{- end }}
           {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:

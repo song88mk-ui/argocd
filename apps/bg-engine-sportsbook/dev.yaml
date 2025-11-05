@@ -1,0 +1,32 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-engine-sportsbook
+  tag: latest
+
+nameOverride: "bg-engine-sportsbook"
+
+serviceAccount:
+  name: "bg-engine-sportsbook-sa"
+
+secrets:
+  - name: bg-engine-sportsbook
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mongodb-connection-string
+      remoteKey: /dev/apps/mongodb/connection-string
+      envVariable: Custom__MongoDB-Trading
+    - key: mssql-connection-string
+      remoteKey: /dev/apps/mssql/connection-string
+      envVariable: Trading
+
+env:
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bg.engine.sportsbook"
+  MessageBroker__Consumer: "BG.Engine.Sportsbook"
+  MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"

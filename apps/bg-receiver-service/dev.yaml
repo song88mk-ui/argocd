@@ -1,0 +1,29 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-receiver-service
+  tag: latest
+
+nameOverride: "bg-receiver-service"
+
+serviceAccount:
+  name: "bg-receiver-service-sa"
+
+secrets:
+  - name: bg-receiver-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mongodb-connection-string
+      remoteKey: /dev/apps/mongodb/connection-string
+      envVariable: Custom__MongoDB-Trading
+
+env:
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bg.receiver"
+  MessageBroker__Consumer: "BG.Receiver.Service"
+  MessageBroker__RoutingKey: "r.bg.onprocessmessage"

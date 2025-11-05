@@ -3,7 +3,7 @@
 The repository contains Helm charts and configuration files used by the application deployed on the
 EKS clusters.
 
-- The `env` directory contains environment specific values for each application.
+- The `apps` directory contains environment specific values for each application.
 - The `charts` directory contain generic Helm charts that the apps use. The goal is to try to make
   them as generic as possible so we can keep duplication to a minimum.
 
