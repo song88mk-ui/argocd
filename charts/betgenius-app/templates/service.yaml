@@ -13,3 +13,21 @@ spec:
       name: http
   selector:
     {{- include "bet-genius-app.selectorLabels" . | nindent 4 }}
+
+{{- if .Values.metrics.enabled }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "bet-genius-app.fullname" . }}-metrics
+  labels:
+    {{- include "bet-genius-app.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+  - port: {{.Values.metrics.port }}
+    name: metrics
+    targetPort: {{ .Values.metrics.port }}
+  selector:
+    {{- include "bet-genius-app.selectorLabels" . | nindent 4 }}
+{{- end }}
