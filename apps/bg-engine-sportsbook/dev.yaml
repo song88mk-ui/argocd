@@ -30,3 +30,4 @@ env:
   MessageBroker__Queue: "q.bg.engine.sportsbook"
   MessageBroker__Consumer: "BG.Engine.Sportsbook"
   MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"
+  Telemetry__Enabled: "true"

@@ -10,6 +10,7 @@ serviceAccount:
 env:
   API__RabbitMqAPI__Uri: http://bg-rabbitmq-api:80
   Logging__LogLevel__Default: Debug
+  Telemetry__Enabled: "true"
 
 replicaCount: 1
 

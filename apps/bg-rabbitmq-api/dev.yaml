@@ -24,6 +24,7 @@ env:
   MessageBroker__Queue: ""
   MessageBroker__Consumer: ""
   MessageBroker__RoutingKey: ""
+  Telemetry__Enabled: "true"
 
 ingress:
   enabled: true
