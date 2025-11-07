@@ -56,3 +56,7 @@ tolerations: []
 affinity: {}
 
 secrets: []
+
+metrics:
+  enabled: false
+  port: 8000
