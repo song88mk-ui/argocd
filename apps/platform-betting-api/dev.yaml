@@ -1,0 +1,20 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-betting-api
+  tag: latest
+
+nameOverride: "platform-betting-api"
+
+serviceAccount:
+  name: "platform-betting-api-sa"
+
+secrets:
+  - name: platform-betting-api
+    data:
+    - key: mssql-connection-string
+      remoteKey: /dev/apps/mssql/connection-string/betting
+      envVariable: ConnectionStrings__Betting
+
+env:
+  API__RabbitMQAPI: platform-rabbitmq-api.svc
+  API__PlatformSportsbookAPI: platform-sportsbook-api.svc
+  Custom__IsMTSEnabled: false
