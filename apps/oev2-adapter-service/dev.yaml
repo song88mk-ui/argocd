@@ -1,0 +1,32 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-adapter-service
+  tag: main-sha-776847b
+
+nameOverride: "oe-adapter-service"
+
+serviceAccount:
+  name: "oe-adapter-service-sa"
+
+secrets:
+  - name: oe-adapter-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.oe.adapter"
+  MessageBroker__Consumer: "OE.Adapter.Service"
+  MessageBroker__RoutingKey: "r.bg.receiver.#"
+
+service:
+  create: false
+
+livenessProbe:
+readinessProbe:
