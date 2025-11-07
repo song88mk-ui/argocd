@@ -1,0 +1,36 @@
+---
+# auth is on separate repo, but included as part of the platform services
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/auth-api
+  tag: latest
+
+nameOverride: "platform-auth-api"
+
+serviceAccount:
+  name: "platform-auth-api-sa"
+
+secrets:
+  - name: platform-auth-api
+    data:
+    - key: security-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: Security__ApiKey
+    - key: jwt-key
+      remoteKey: /dev/apps/auth/jwt-key
+      envVariable: JWT__Key
+    - key: mssql-connection-string
+      remoteKey: /dev/apps/mssql/connection-string/auth
+      envVariable: Context__Auth
+
+env:
+  JWT__Issuer: bo.auth.api
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Telemetry__Collector: http://otel-collector:4418
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+readinessProbe:
+  httpGet:
+    path: /healthz
