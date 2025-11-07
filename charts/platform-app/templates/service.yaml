@@ -16,3 +16,22 @@ spec:
   selector:
     {{- include "platform-app.selectorLabels" . | nindent 4 }}
 {{- end }}
+
+{{- if .Values.metrics.enabled}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "platform-app.fullname" . }}-metrics
+  labels:
+    {{- include "platform-app.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: metrics
+      port: {{ .Values.metrics.port }}
+      targetPort: {{ .Values.metrics.port }}
+      protocol: TCP
+  selector:
+    {{- include "platform-app.selectorLabels" . | nindent 4 }}
+{{- end }}
