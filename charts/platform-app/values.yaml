@@ -24,6 +24,7 @@ podSecurityContext: {}
 securityContext: {}
 
 service:
+  create: true
   type: ClusterIP
   port: 80
 

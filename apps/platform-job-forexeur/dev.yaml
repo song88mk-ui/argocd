@@ -1,0 +1,23 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-job-forexeur
+  tag: main-sha-27538ad
+
+nameOverride: "platform-job-forexeur"
+
+serviceAccount:
+  name: "platform-job-forexeur-sa"
+
+secrets:
+  - name: platform-job-forexeur
+    data:
+    - key: mssql-connection-string
+      remoteKey: /dev/apps/mssql/connection-string/platform
+      envVariable: ConnectionStrings__Platform
+
+service:
+  create: false
+
+# TODO:  create probes for services
+livenessProbe:
+readinessProbe:
+
