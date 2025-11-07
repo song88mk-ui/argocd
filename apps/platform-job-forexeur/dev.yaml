@@ -1,6 +1,6 @@
 image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-job-forexeur
-  tag: main-sha-27538ad
+  tag: latest
 
 nameOverride: "platform-job-forexeur"
 
@@ -21,3 +21,5 @@ service:
 livenessProbe:
 readinessProbe:
 
+metrics:
+  enabled: true

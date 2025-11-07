@@ -1,6 +1,6 @@
 image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-adapter-service
-  tag: main-sha-776847b
+  tag: latest
 
 nameOverride: "oe-adapter-service"
 
