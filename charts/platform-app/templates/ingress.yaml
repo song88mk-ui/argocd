@@ -28,10 +28,10 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
-            {{- with .pathType }}
-            pathType: {{ .pathType }}
+          {{- range $p := .paths }}
+          - path: {{ $p.path }}
+            {{- with $p.pathType }}
+            pathType: {{ $p.pathType }}
             {{- end }}
             backend:
               service:
