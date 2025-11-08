@@ -1,0 +1,6 @@
+nameOverride: "oe-sportsbook-service-04"
+
+env:
+  MessageBroker__Queue: "q.sb.engine.04"
+  MessageBroker__Consumer: "OE.Sportsbook.Service.04"
+  MessageBroker__RoutingKey: "r.oe.adapter.#.04"
