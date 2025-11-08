@@ -2,19 +2,6 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-sportsbook-service
   tag: latest
 
-serviceAccount:
-  name: "oe-sportsbook-service-sa"
-
-secrets:
-  - name: oe-sportsbook-service
-    data:
-    - key: rabbitmq-username
-      remoteKey: /dev/apps/rabbitmq/username
-      envVariable: MessageBroker__Username
-    - key: rabbitmq-password
-      remoteKey: /dev/apps/rabbitmq/password
-      envVariable: MessageBroker__Password
-
 env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"

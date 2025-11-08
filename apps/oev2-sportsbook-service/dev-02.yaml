@@ -1,5 +1,18 @@
 nameOverride: "oe-sportsbook-service-02"
 
+serviceAccount:
+  name: "oe-sportsbook-service-02-sa"
+
+secrets:
+  - name: oe-sportsbook-service-02
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
 env:
   MessageBroker__Queue: "q.sb.engine.02"
   MessageBroker__Consumer: "OE.Sportsbook.Service.02"
