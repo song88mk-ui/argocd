@@ -12,6 +12,9 @@ secrets:
     - key: rabbitmq-password
       remoteKey: /dev/apps/rabbitmq/password
       envVariable: MessageBroker__Password
+    - key: mongodb-connection-string
+      remoteKey: /dev/apps/mongodb/connection-string/sportsbook
+      envVariable: ConnectionStrings__MongoDB-Sportsbook
 
 env:
   MessageBroker__Queue: "q.sb.engine.07"
