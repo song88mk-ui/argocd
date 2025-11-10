@@ -60,3 +60,5 @@ secrets: []
 metrics:
   enabled: false
   port: 8080
+  interval: 30s
+  path: /metrics
