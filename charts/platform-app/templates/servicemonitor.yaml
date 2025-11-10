@@ -7,8 +7,7 @@ metadata:
     {{- include "platform-app.labels" . | nindent 4 }}
 spec:
   endpoints:
-  - interval: {{ .Values.metrics.interval }}
-    path: {{ .Values.metrics.path }}
+  - path: {{ .Values.metrics.path }}
     port: metrics
 {{- if .Values.metrics.relabelings }}
     relabelings:
