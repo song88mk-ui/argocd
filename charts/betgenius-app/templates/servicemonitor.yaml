@@ -5,6 +5,7 @@ metadata:
   name: {{ include "bet-genius-app.fullname" . }}
   labels:
     {{- include "bet-genius-app.labels" . | nindent 4 }}
+    release: prometheus-operator # Required by Prometheus Operator to discover the ServiceMonitor
 spec:
   endpoints:
   - path: {{ .Values.metrics.path }}
