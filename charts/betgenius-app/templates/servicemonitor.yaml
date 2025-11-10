@@ -16,5 +16,5 @@ spec:
 {{- end }}
   selector:
     matchLabels:
-      {{- include "bet-genius-app.labels" . | nindent 6 }}
+      {{- include "bet-genius-app.selectorLabels" . | nindent 6 }}
 {{- end }}
