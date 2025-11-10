@@ -12,3 +12,7 @@ service:
 
 livenessProbe:
 readinessProbe:
+
+metrics:
+  enabled: true
+  port: 8080
