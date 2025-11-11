@@ -47,3 +47,6 @@ ingress:
   - host: bg-rmq-api.dev.song88.com
     paths:
       - path: /
+
+metrics:
+  enabled: true
