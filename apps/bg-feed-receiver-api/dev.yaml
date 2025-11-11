@@ -38,3 +38,6 @@ ingress:
   - host: bg-feed-receiver-api.dev.song88.com
     paths:
       - path: /
+
+metrics:
+  enabled: true
