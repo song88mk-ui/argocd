@@ -20,8 +20,8 @@ secrets:
       remoteKey: /dev/apps/mongodb/connection-string/trading
       envVariable: Custom__MongoDB-Trading
     - key: mssql-connection-string
-      remoteKey: /dev/apps/mssql/connection-string
-      envVariable: Trading
+      remoteKey: /dev/apps/mssql/connection-string/trading
+      envVariable: Custom__Trading
 
 env:
   Logging__Console__IncludeScopes: true
