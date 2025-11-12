@@ -13,7 +13,7 @@ env:
   Logging__Console__FormatterOptions__SingleLine: true
   Logging__Console__FormatterOptions__UseUtcTimestamp: true
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
-  API__RabbitMqAPI__Uri: http://bg-rabbitmq-api:80
+  API__RabbitMqAPI__Uri: http://bg-rabbitmq-api:3000
   Logging__LogLevel__Default: Debug
   Telemetry__Enabled: "true"
 
