@@ -15,8 +15,8 @@ secrets:
       envVariable: ConnectionStrings__Platform
 
 env:
-  API__PlatformBettingAPI: platform-betting-api.svc
-  API__PlatformSportsbookAPI: platform-sportsbook-api.svc
+  API__PlatformBettingAPI: http://platform-betting-api:3000
+  API__PlatformSportsbookAPI: http://platform-sportsbook-api:3000
   Telemetry__Enabled: true
 
 ingress:

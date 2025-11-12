@@ -15,6 +15,6 @@ secrets:
       envVariable: ConnectionStrings__Betting
 
 env:
-  API__RabbitMQAPI: platform-rabbitmq-api.svc
-  API__PlatformSportsbookAPI: platform-sportsbook-api.svc
+  API__RabbitMQAPI: http://platform-rabbitmq-api:3000
+  API__PlatformSportsbookAPI: http://platform-sportsbook-api:3000
   Custom__IsMTSEnabled: false

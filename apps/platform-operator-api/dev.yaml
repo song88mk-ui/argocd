@@ -15,9 +15,9 @@ secrets:
       envVariable: ConnectionStrings__Platform
 
 env:
-  API__AuthAPI: http://platform-auth-api.svc
-  API__WalletAPI: http://wallet-api.svc
-  API__PlatformAgentReportsAPI: http://platform-agent-reports-api.svc
+  API__AuthAPI: http://platform-auth-api:3000
+  API__WalletAPI: http://wallet-api:3000
+  API__PlatformAgentReportsAPI: http://platform-agent-reports-api:3000
 
 ingress:
   enabled: true

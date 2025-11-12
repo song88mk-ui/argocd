@@ -18,4 +18,4 @@ secrets:
       envVariable: ConnectionStrings__Sportsbook
 
 env:
-  API__RabbitMQAPI: platform-rabbitmq-api.svc
+  API__RabbitMQAPI: http://platform-rabbitmq-api:3000
