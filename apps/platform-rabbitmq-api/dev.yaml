@@ -20,4 +20,4 @@ secrets:
 env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
-  MessageBroker__Exchange: "e.central"
+  MessageBroker__Exchange: "e.old.central"

@@ -11,10 +11,10 @@ secrets:
   - name: platform-sportsbook-api
     data:
     - key: mongodb-connection-string
-      remoteKey: /dev/apps/mongodb/connection-string/sportsbook
+      remoteKey: /dev/apps/mongodb/connection-string/sportsbook-old
       envVariable: ConnectionStrings__MongoDB-Sportsbook
     - key: mssql-connection-string
-      remoteKey: /dev/apps/mssql/connection-string/sportsbook
+      remoteKey: /dev/apps/mssql/connection-string/sportsbook-old
       envVariable: ConnectionStrings__Sportsbook
 
 env:
