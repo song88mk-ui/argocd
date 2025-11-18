@@ -11,7 +11,7 @@ secrets:
   - name: platform-betting-api
     data:
     - key: mssql-connection-string
-      remoteKey: /dev/apps/mssql/connection-string/betting
+      remoteKey: /dev/apps/mssql/connection-string/betting-old
       envVariable: ConnectionStrings__Betting
 
 env:
