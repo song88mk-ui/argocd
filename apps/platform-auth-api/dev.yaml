@@ -24,9 +24,7 @@ secrets:
 
 env:
   JWT__Issuer: bo.auth.api
-  Telemetry__Enabled: true
-  Telemetry__Environment: dev
-  Telemetry__Collector: http://otel-collector:4418
+  Telemetry__Enabled: false
 
 livenessProbe:
   httpGet:
