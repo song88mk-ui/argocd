@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-cancellation-service
     forcestring: true
   - name: image.tag
-    value: main-sha-295af74
+    value: main-sha-9adef4e
     forcestring: true
