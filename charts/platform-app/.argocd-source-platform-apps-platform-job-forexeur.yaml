@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.repository
+    value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-job-forexeur
+    forcestring: true
+  - name: image.tag
+    value: main-sha-295af74
+    forcestring: true
