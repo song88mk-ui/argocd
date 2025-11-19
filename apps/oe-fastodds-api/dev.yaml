@@ -1,0 +1,29 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oe-fastodds-api
+  tag: latest
+
+fullnameOverride: "oe-fastodds-api"
+
+serviceAccount:
+  name: "fastodds-api-sa"
+
+secrets:
+  - name: fastodds-api
+    data:
+    - key: mongodb-connection-string-fastodds
+      remoteKey: /dev/apps/mongodb/connection-string/fastodds-old
+      envVariable: Custom__MongoDB-FastOdds
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  API__PlatformSportsbookAPI: http://platform-api.platform-apps.svc:3000
+
+service:
+  create: true
+
+metrics:
+  enabled: false
