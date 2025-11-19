@@ -1,4 +1,4 @@
-nameOverride: "oe-sportsbook-service-09"
+fullnameOverride: "oe-sportsbook-service-09"
 
 serviceAccount:
   name: "oe-sportsbook-service-09-sa"

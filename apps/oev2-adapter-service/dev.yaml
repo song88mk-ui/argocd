@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-adapter-service
   tag: latest
 
-nameOverride: "oe-adapter-service"
+fullnameOverride: "oe-adapter-service"
 
 serviceAccount:
   name: "oe-adapter-service-sa"
