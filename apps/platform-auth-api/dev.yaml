@@ -4,7 +4,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/auth-api
   tag: latest
 
-nameOverride: "platform-auth-api"
+fullnameOverride: "platform-auth-api"
 
 serviceAccount:
   name: "platform-auth-api-sa"

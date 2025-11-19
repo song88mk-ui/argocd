@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-betting-api
   tag: latest
 
-nameOverride: "platform-betting-api"
+fullnameOverride: "platform-betting-api"
 
 serviceAccount:
   name: "platform-betting-api-sa"

@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-job-forexeur
   tag: latest
 
-nameOverride: "platform-job-forexeur"
+fullnameOverride: "platform-job-forexeur"
 
 serviceAccount:
   name: "platform-job-forexeur-sa"
