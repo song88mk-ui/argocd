@@ -8,6 +8,8 @@ metadata:
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
+    alb.ingress.kubernetes.io/actions.response-404: >
+      {"type":"fixed-response","fixedResponseConfig":{"contentType":"text/plain","statusCode":"404","messageBody":"Not found"}}
   {{- end }}
 spec:
   {{- with .Values.ingress.className }}
@@ -28,6 +30,20 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
+          - path: /metrics
+            pathType: Exact
+            backend:
+              service:
+                name: response-404
+                port:
+                  number: use-annotation
+          - path: /healthz
+            pathType: Exact
+            backend:
+              service:
+                name: response-404
+                port:
+                  number: use-annotation
           {{- range .paths }}
           - path: {{ .path }}
             pathType: Prefix
