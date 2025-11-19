@@ -36,3 +36,6 @@ env:
 
 service:
   create: false
+
+livenessProbe:
+readinessProbe:
