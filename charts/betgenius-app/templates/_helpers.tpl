@@ -2,7 +2,7 @@
 Expand the name of the chart.
 */}}
 {{- define "bet-genius-app.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- default .Chart.Name (default .Values.nameOverride .Values.fullnameOverride) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -46,8 +46,8 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "bet-genius-app.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "bet-genius-app.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/instance: {{ include "bet-genius-app.name" . }}
+app.kubernetes.io/chartName: {{ .Release.Name }}
 {{- end }}
 
 {{/*
