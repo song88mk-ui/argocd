@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-feed-receiver-api
   tag: latest
 
-nameOverride: "bg-feed-receiver-api"
+fullnameOverride: "bg-feed-receiver-api"
 
 serviceAccount:
   name: "bg-feed-receiver-api-sa"

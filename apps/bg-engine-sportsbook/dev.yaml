@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-engine-sportsbook
   tag: latest
 
-nameOverride: "bg-engine-sportsbook"
+fullnameOverride: "bg-engine-sportsbook"
 
 serviceAccount:
   name: "bg-engine-sportsbook-sa"

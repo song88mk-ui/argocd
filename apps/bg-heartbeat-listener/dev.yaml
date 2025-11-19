@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-heartbeat-listener
   tag: latest
 
-nameOverride: "bg-heartbeat-listener"
+fullnameOverride: "bg-heartbeat-listener"
 
 serviceAccount:
   name: "bg-heartbeat-listener-sa"

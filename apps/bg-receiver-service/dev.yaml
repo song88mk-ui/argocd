@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-receiver-service
   tag: latest
 
-nameOverride: "bg-receiver-service"
+fullnameOverride: "bg-receiver-service"
 
 serviceAccount:
   name: "bg-receiver-service-sa"

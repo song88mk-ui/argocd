@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-feed-logger-service
   tag: latest
 
-nameOverride: "bg-feedlogger-service"
+fullnameOverride: "bg-feedlogger-service"
 
 serviceAccount:
   name: "bg-feedlogger-service-sa"
