@@ -20,6 +20,3 @@ service:
 # TODO:  create probes for services
 livenessProbe:
 readinessProbe:
-
-metrics:
-  enabled: true
