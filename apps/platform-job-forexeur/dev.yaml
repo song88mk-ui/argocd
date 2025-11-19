@@ -11,7 +11,7 @@ secrets:
   - name: platform-job-forexeur
     data:
     - key: mssql-connection-string
-      remoteKey: /dev/apps/mssql/connection-string/platform
+      remoteKey: /dev/apps/mssql/connection-string/platform-old
       envVariable: ConnectionStrings__Platform
 
 service:
