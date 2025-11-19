@@ -22,9 +22,9 @@ env:
   Logging__Console__FormatterOptions__UseUtcTimestamp: true
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
-  MessageBroker__VirtualHost: "/"
-  MessageBroker__Exchange: "e.old.central"
-  MessageBroker__Queue: "q.oe.adapter"
+  MessageBroker__VirtualHost: "/old"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.oe.adapter.old"
   MessageBroker__Consumer: "OE.Adapter.Service"
   MessageBroker__RoutingKey: "r.bg.receiver.#"
   Telemetry__Enabled: true

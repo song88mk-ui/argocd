@@ -22,11 +22,8 @@ env:
   Logging__Console__FormatterOptions__UseUtcTimestamp: true
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
-  MessageBroker__VirtualHost: "/"
-  MessageBroker__Exchange: "e.old.central"
-  MessageBroker__Queue: ""
-  MessageBroker__Consumer: ""
-  MessageBroker__RoutingKey: ""
+  MessageBroker__VirtualHost: "/old"
+  MessageBroker__Exchange: "e.central"
   Telemetry__Enabled: "true"
 
 metrics:
