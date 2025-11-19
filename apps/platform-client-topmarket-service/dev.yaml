@@ -1,0 +1,21 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-client-topmarket-service
+  tag: latest
+
+fullnameOverride: "platform-client-topmarket-service"
+
+serviceAccount:
+  name: "platform-client-topmarket-service-sa"
+
+secrets:
+  - name: platform-client-topmarket
+    data:
+    - key: mssql-connection-string-betting
+      remoteKey: /dev/apps/mssql/connection-string/betting-old
+      envVariable: ConnectionStrings__Betting
+
+service:
+  create: false
+
+livenessProbe:
+readinessProbe:
