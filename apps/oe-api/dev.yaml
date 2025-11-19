@@ -35,6 +35,8 @@ env:
   API__FastOddsAPI: http://oe-fastodds-api:3000
   Custom__APIKey: xgB3eM5b8FDn9msu
   IsStaging: true
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
 
 service:
   create: true
