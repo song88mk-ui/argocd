@@ -2,6 +2,8 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oe-adapter-service
   tag: latest
 
+fullnameOverride: "oe-adapter-service"
+
 serviceAccount:
   name: "adapter-service-sa"
 
@@ -14,6 +16,9 @@ secrets:
     - key: rabbitmq-password
       remoteKey: /dev/apps/rabbitmq/password
       envVariable: MessageBroker__Password
+    - key: mongodb-connection-string
+      remoteKey: /dev/apps/mongodb/connection-string/trading-old
+      envVariable: Custom__MongoDB-Trading
 
 env:
   Logging__Console__IncludeScopes: true

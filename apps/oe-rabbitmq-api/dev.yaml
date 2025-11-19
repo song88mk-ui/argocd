@@ -2,6 +2,8 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oe-rabbitmq-api
   tag: latest
 
+fullnameOverride: "oe-rabbitmq-api"
+
 serviceAccount:
   name: "rabbitmq-api-sa"
 
