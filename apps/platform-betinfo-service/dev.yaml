@@ -8,7 +8,7 @@ serviceAccount:
   name: "platform-betinfo-service-sa"
 
 secrets:
-  - name: platform-job-forexeur
+  - name: betinfo-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
