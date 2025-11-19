@@ -36,14 +36,14 @@ spec:
               service:
                 name: response-404
                 port:
-                  number: use-annotation
+                  name: use-annotation
           - path: /healthz
             pathType: Exact
             backend:
               service:
                 name: response-404
                 port:
-                  number: use-annotation
+                  name: use-annotation
           {{- range .paths }}
           - path: {{ .path }}
             pathType: Prefix
