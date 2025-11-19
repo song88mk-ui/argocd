@@ -46,8 +46,8 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "bet-genius-app.selectorLabels" -}}
-app.kubernetes.io/instance: {{ include "bet-genius-app.name" . }}
-app.kubernetes.io/chartName: {{ .Release.Name }}
+app.kubernetes.io/name: {{ include "bet-genius-app.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
