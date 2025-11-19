@@ -10,9 +10,26 @@ serviceAccount:
 secrets:
   - name: platform-client-topmarket
     data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
     - key: mssql-connection-string-betting
       remoteKey: /dev/apps/mssql/connection-string/betting-old
       envVariable: ConnectionStrings__Betting
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/old"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__PrefetchCount: 1000
 
 service:
   create: false
