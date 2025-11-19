@@ -22,4 +22,4 @@ secrets:
 env:
   MessageBroker__Queue: "q.sb.engine.04"
   MessageBroker__Consumer: "OE.Engine.Sportsbook.04"
-  MessageBroker__RoutingKey: "r.bg.receiver.#"
+  MessageBroker__RoutingKey: "r.oe.adapter.#.04"

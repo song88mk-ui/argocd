@@ -1,0 +1,22 @@
+fullnameOverride: "oe-engine-service-03"
+
+serviceAccount:
+  name: "engine-service-03-sa"
+
+secrets:
+  - name: engine-service-03
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mongodb-connection-string-trading
+      remoteKey: /dev/apps/mongodb/connection-string/trading-old
+      envVariable: Custom__MongoDB-Trading
+
+env:
+  MessageBroker__Queue: "q.oe.engine.03"
+  MessageBroker__Consumer: "OE.Engine.03"
+  MessageBroker__RoutingKey: "r.oe.adapter.#.03"

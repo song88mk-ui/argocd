@@ -11,7 +11,6 @@ env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/old"
   MessageBroker__Exchange: "e.central"
-  MessageBroker__RoutingKey: "r.oe.adapter.#.#"
   Telemetry__Enabled: true
 
 service:
