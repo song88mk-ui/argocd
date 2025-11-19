@@ -39,7 +39,7 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-path: /v1/probe
 
   hosts:
-  - host: clientplatform-api.dev.song88.com
+  - host: clientsportsbook-api.dev.song88.com
     paths:
       - path: /
         pathType: Prefix
