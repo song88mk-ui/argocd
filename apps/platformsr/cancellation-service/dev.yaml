@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-cancellation-service
   tag: latest
 
-fullnameOverride: "platform-cancellation-service"
+fullnameOverride: "cancellation-service"
 
 serviceAccount:
-  name: "platform-cancellation-service-sa"
+  name: "cancellation-service-sa"
 
 secrets:
   - name: cancellation-service
