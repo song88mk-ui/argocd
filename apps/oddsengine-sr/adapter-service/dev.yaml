@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oe-adapter-service
   tag: latest
 
-fullnameOverride: "oe-adapter-service"
+fullnameOverride: "adapter-service"
 
 serviceAccount:
   name: "adapter-service-sa"
@@ -20,7 +20,7 @@ secrets:
       remoteKey: /dev/apps/mongodb/connection-string/trading-old
       envVariable: Custom__MongoDB-Trading
     - key: mongodb-connection-string-sportsbook
-      remoteKey: /dev/apps/mongodb/connection-string/trading-old
+      remoteKey: /dev/apps/mongodb/connection-string/sportsbook-old
       envVariable: Custom__MongoDB-Sportsbook
     - key: mssql-connection-string-trading
       remoteKey: /dev/apps/mssql/connection-string/trading
