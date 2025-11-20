@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-cashout-service
   tag: latest
 
-fullnameOverride: "platform-cashout-service"
+fullnameOverride: "cashout-service"
 
 serviceAccount:
-  name: "platform-cashout-service-sa"
+  name: "cashout-service-sa"
 
 secrets:
   - name: cashout-service
@@ -32,7 +32,7 @@ env:
   MessageBroker__PrefetchCount: 1000
   Custom__IsMTSEnabled: false
   Custom__Delay: 7000
-  API__PlatformBettingAPI: http://platform-betting-api:3000
+  API__PlatformBettingAPI: http://betting-api:3000
   Telemetry__Enabled: "true"
 
 
