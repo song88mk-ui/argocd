@@ -2,13 +2,13 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-rabbitmq-api
   tag: latest
 
-fullnameOverride: "platform-rabbitmq-api"
+fullnameOverride: "rabbitmq-api"
 
 serviceAccount:
-  name: "platform-rabbitmq-api-sa"
+  name: "rabbitmq-api-sa"
 
 secrets:
-  - name: platform-rabbitmq-api
+  - name: rabbitmq-api
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
@@ -19,5 +19,5 @@ secrets:
 
 env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
-  MessageBroker__VirtualHost: "/"
-  MessageBroker__Exchange: "e.old.central"
+  MessageBroker__VirtualHost: "/old"
+  MessageBroker__Exchange: "e.central"
