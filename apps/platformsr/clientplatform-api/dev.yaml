@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-clientplatform-api
   tag: latest
 
-fullnameOverride: "platform-clientplatform-api"
+fullnameOverride: "clientplatform-api"
 
 serviceAccount:
-  name: "platform-clientplatform-api-sa"
+  name: "clientplatform-api-sa"
 
 env:
   API__PlatformAPI: http://platform-api:3000
