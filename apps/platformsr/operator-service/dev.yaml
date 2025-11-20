@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-operator-service
   tag: latest
 
-fullnameOverride: "platform-operator-service"
+fullnameOverride: "operator-service"
 
 serviceAccount:
-  name: "platform-operator-service-sa"
+  name: "operator-service-sa"
 
 secrets:
   - name: operator-service
