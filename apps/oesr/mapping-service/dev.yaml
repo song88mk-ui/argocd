@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oe-mapping-service
   tag: latest
 
-fullnameOverride: "oe-mapping-service"
+fullnameOverride: "mapping-service"
 
 serviceAccount:
   name: "mapping-service-sa"

@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oe-adapter-translation-service
   tag: latest
 
-fullnameOverride: "oe-adapter-translation-service"
+fullnameOverride: "adapter-translation-service"
 
 serviceAccount:
   name: "adapter-translation-service-sa"

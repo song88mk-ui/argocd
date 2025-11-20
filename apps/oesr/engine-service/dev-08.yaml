@@ -1,10 +1,10 @@
-fullnameOverride: "oe-engine-service-06"
+fullnameOverride: "engine-service-08"
 
 serviceAccount:
-  name: "engine-service-06-sa"
+  name: "engine-service-08-sa"
 
 secrets:
-  - name: engine-service-06
+  - name: engine-service-08
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
@@ -17,6 +17,6 @@ secrets:
       envVariable: Custom__MongoDB-Trading
 
 env:
-  MessageBroker__Queue: "q.oe.engine.06"
-  MessageBroker__Consumer: "OE.Engine.06"
-  MessageBroker__RoutingKey: "r.oe.adapter.#.06"
+  MessageBroker__Queue: "q.oe.engine.08"
+  MessageBroker__Consumer: "OE.Engine.08"
+  MessageBroker__RoutingKey: "r.oe.adapter.08"

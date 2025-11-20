@@ -1,4 +1,4 @@
-fullnameOverride: "oe-engine-service-04"
+fullnameOverride: "engine-service-04"
 
 serviceAccount:
   name: "engine-service-04-sa"
