@@ -4,13 +4,13 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/auth-api
   tag: latest
 
-fullnameOverride: "platform-auth-api"
+fullnameOverride: "auth-api"
 
 serviceAccount:
-  name: "platform-auth-api-sa"
+  name: "auth-api-sa"
 
 secrets:
-  - name: platform-auth-api
+  - name: auth-api
     data:
     - key: security-api-key
       remoteKey: /dev/apps/auth/security-api-key
@@ -18,7 +18,7 @@ secrets:
     - key: jwt-key
       remoteKey: /dev/apps/auth/jwt-key
       envVariable: JWT__Key
-    - key: mssql-connection-string
+    - key: mssql-connection-string-auth
       remoteKey: /dev/apps/mssql/connection-string/auth
       envVariable: Context__Auth
 
