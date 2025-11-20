@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-settlement-service
   tag: latest
 
-fullnameOverride: "platform-settlement-service"
+fullnameOverride: "settlement-service"
 
 serviceAccount:
-  name: "platform-settlement-service-sa"
+  name: "settlement-service-sa"
 
 secrets:
   - name: settlement-service

@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-websocket-api
   tag: latest
 
-fullnameOverride: "platform-websocket-api"
+fullnameOverride: "websocket-api"
 
 serviceAccount:
-  name: "platform-websocket-api-sa"
+  name: "websocket-api-sa"
 
 env:
   Logging__Console__IncludeScopes: true
