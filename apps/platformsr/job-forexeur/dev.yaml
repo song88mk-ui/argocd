@@ -2,15 +2,15 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-job-forexeur
   tag: latest
 
-fullnameOverride: "platform-job-forexeur"
+fullnameOverride: "job-forexeur"
 
 serviceAccount:
-  name: "platform-job-forexeur-sa"
+  name: "job-forexeur-sa"
 
 secrets:
-  - name: platform-job-forexeur
+  - name: job-forexeur
     data:
-    - key: mssql-connection-string
+    - key: mssql-connection-string-platform
       remoteKey: /dev/apps/mssql/connection-string/platform-old
       envVariable: ConnectionStrings__Platform
 
