@@ -2,13 +2,13 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-client-topmarket-service
   tag: latest
 
-fullnameOverride: "platform-client-topmarket-service"
+fullnameOverride: "client-topmarket-service"
 
 serviceAccount:
-  name: "platform-client-topmarket-service-sa"
+  name: "client-topmarket-service-sa"
 
 secrets:
-  - name: platform-client-topmarket
+  - name: client-topmarket
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
