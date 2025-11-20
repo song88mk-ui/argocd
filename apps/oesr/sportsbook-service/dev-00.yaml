@@ -1,10 +1,10 @@
-fullnameOverride: "oe-sportsbook-service-07"
+fullnameOverride: "sportsbook-service-00"
 
 serviceAccount:
-  name: "sportsbook-service-07-sa"
+  name: "sportsbook-service-00-sa"
 
 secrets:
-  - name: sportsbook-service-07
+  - name: sportsbook-service-00
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
@@ -20,6 +20,6 @@ secrets:
       envVariable: Custom__MongoDB-Sportsbook
 
 env:
-  MessageBroker__Queue: "q.sb.engine.07"
-  MessageBroker__Consumer: "OE.Engine.Sportsbook.07"
-  MessageBroker__RoutingKey: "r.oe.adapter.#.07"
+  MessageBroker__Queue: "q.sb.engine.00"
+  MessageBroker__Consumer: "OE.Engine.Sportsbook.00"
+  MessageBroker__RoutingKey: "r.oe.adapter.#.00"
