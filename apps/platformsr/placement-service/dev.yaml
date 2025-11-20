@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-placement-service
   tag: latest
 
-fullnameOverride: "platform-placement-service"
+fullnameOverride: "placement-service"
 
 serviceAccount:
-  name: "platform-placement-service-sa"
+  name: "placement-service-sa"
 
 secrets:
   - name: placement-service
