@@ -1,0 +1,17 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-websocket-api
+  tag: latest
+
+fullnameOverride: "platform-websocket-api"
+
+serviceAccount:
+  name: "platform-websocket-api-sa"
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Custom__UseMessagePack: "true"
+  Telemetry__Enabled: "true"
