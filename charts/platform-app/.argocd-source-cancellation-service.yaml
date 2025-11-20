@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.repository
+    value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-cancellation-service
+    forcestring: true
+  - name: image.tag
+    value: main-sha-e80c834
+    forcestring: true
