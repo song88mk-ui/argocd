@@ -2,13 +2,13 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-operator-cashout-service
   tag: latest
 
-fullnameOverride: "platform-operator-cashout-service"
+fullnameOverride: "operator-cashout-service"
 
 serviceAccount:
-  name: "platform-operator-cashout-service-sa"
+  name: "operator-cashout-service-sa"
 
 secrets:
-  - name: operator-cashout
+  - name: operator-cashout-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
