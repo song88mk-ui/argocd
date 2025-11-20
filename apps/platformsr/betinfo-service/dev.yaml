@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-betinfo-service
   tag: latest
 
-fullnameOverride: "platform-betinfo-service"
+fullnameOverride: "betinfo-service"
 
 serviceAccount:
-  name: "platform-betinfo-service-sa"
+  name: "betinfo-service-sa"
 
 secrets:
   - name: betinfo-service
