@@ -2,20 +2,20 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-sportsbook-api
   tag: latest
 
-fullnameOverride: "platform-sportsbook-api"
+fullnameOverride: "sportsbook-api"
 
 serviceAccount:
-  name: "platform-sportsbook-api-sa"
+  name: "sportsbook-api-sa"
 
 secrets:
-  - name: platform-sportsbook-api
+  - name: sportsbook-api
     data:
-    - key: mongodb-connection-string
+    - key: mongodb-connection-string-sportsbook
       remoteKey: /dev/apps/mongodb/connection-string/sportsbook-old
       envVariable: ConnectionStrings__MongoDB-Sportsbook
-    - key: mssql-connection-string
+    - key: mssql-connection-string-sportsbook
       remoteKey: /dev/apps/mssql/connection-string/sportsbook-old
       envVariable: ConnectionStrings__Sportsbook
 
 env:
-  API__RabbitMQAPI: http://platform-rabbitmq-api:3000
+  API__RabbitMQAPI: http://rabbitmq-api:3000
