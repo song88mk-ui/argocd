@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-clientsportsbook-api
   tag: latest
 
-fullnameOverride: "platform-clientsportsbook-api"
+fullnameOverride: "clientsportsbook-api"
 
 serviceAccount:
-  name: "platform-clientsportsbook-api-sa"
+  name: "clientsportsbook-api-sa"
 
 secrets:
   - name: platform-clientsportsbook-api
