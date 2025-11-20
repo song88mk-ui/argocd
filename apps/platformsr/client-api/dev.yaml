@@ -2,20 +2,20 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-client-api
   tag: latest
 
-fullnameOverride: "platform-client-api"
+fullnameOverride: "client-api"
 
 serviceAccount:
-  name: "platform-client-api-sa"
+  name: "client-api-sa"
 
 secrets:
-  - name: platform-client-api
+  - name: client-api
     data:
-    - key: mssql-connection-string
+    - key: mssql-connection-string-platform
       remoteKey: /dev/apps/mssql/connection-string/platform-old
       envVariable: ConnectionStrings__Platform
 
 env:
-  API__PlatformSportsbookAPI: http://platform-sportsbook-api:3000
+  API__PlatformSportsbookAPI: http://sportsbook-api:3000
   API__MTSAuthAPI: https://mts-auth-ci.betradar.com
   API__MTSCCFAPI: https://mts-api-ci.betradar.com
   Telemetry__Enabled: true
