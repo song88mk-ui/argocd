@@ -2,22 +2,22 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-operator-api
   tag: latest
 
-fullnameOverride: "platform-operator-api"
+fullnameOverride: "operator-api"
 
 serviceAccount:
-  name: "platform-operator-api-sa"
+  name: "operator-api-sa"
 
 secrets:
-  - name: platform-operator-api
+  - name: operator-api
     data:
-    - key: mssql-connection-string
+    - key: mssql-connection-string-platform
       remoteKey: /dev/apps/mssql/connection-string/platform-old
       envVariable: ConnectionStrings__Platform
 
 env:
-  API__AuthAPI: http://platform-auth-api:3000
+  API__AuthAPI: http://auth-api:3000
   API__WalletAPI: http://wallet-api:3000
-  API__PlatformAgentReportsAPI: http://platform-agent-reports-api:3000
+  API__PlatformAgentReportsAPI: http://agent-reports-api:3000
 
 ingress:
   enabled: true
@@ -33,7 +33,7 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-path: /swagger
 
   hosts:
-  - host: operatorapi.dev.song88.com
+  - host: operator-api.dev.song88.com
     paths:
       - path: /
         pathType: Prefix
