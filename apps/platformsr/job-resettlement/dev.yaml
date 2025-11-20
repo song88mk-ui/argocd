@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-job-resettlement
   tag: latest
 
-fullnameOverride: "platform-job-resettlement"
+fullnameOverride: "job-resettlement"
 
 serviceAccount:
-  name: "platform-job-resettlement-sa"
+  name: "job-resettlement-sa"
 
 secrets:
   - name: job-resettlement
@@ -16,7 +16,7 @@ secrets:
     - key: rabbitmq-password
       remoteKey: /dev/apps/rabbitmq/password
       envVariable: MessageBroker__Password
-    - key: mssql-connection-string
+    - key: mssql-connection-string-platform
       remoteKey: /dev/apps/mssql/connection-string/platform-old
       envVariable: ConnectionStrings__Platform
 
