@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oe-adapter-uof
   tag: latest
 
-fullnameOverride: "oe-adapter-uof"
+fullnameOverride: "adapter-uof"
 
 serviceAccount:
   name: "adapter-uof-sa"
