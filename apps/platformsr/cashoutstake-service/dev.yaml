@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-cashoutstake-service
   tag: latest
 
-fullnameOverride: "platform-cashoutstake-service"
+fullnameOverride: "cashoutstake-service"
 
 serviceAccount:
-  name: "platform-cashoutstake-service-sa"
+  name: "cashoutstake-service-sa"
 
 secrets:
   - name: cashoutstake-service
