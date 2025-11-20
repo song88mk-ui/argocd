@@ -2,13 +2,13 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-adapter-service
   tag: latest
 
-fullnameOverride: "oe-adapter-service"
+fullnameOverride: "adapter-service"
 
 serviceAccount:
-  name: "oe-adapter-service-sa"
+  name: "adapter-service-sa"
 
 secrets:
-  - name: oe-adapter-service
+  - name: adapter-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
