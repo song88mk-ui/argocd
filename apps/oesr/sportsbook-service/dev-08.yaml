@@ -23,3 +23,6 @@ env:
   MessageBroker__Queue: "q.sb.engine.08"
   MessageBroker__Consumer: "OE.Engine.Sportsbook.08"
   MessageBroker__RoutingKey: "r.oe.adapter.08"
+
+metrics:
+  enabled: true
