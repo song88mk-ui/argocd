@@ -1,11 +1,11 @@
 image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-web-mockup
-  tag: latest
+  tag: pr-sha-d041933
 
-fullnameOverride: "websocket-api"
+fullnameOverride: "mockup-web"
 
 serviceAccount:
-  name: "websocket-api-sa"
+  name: "mockup-web-sa"
 
 env:
   Logging__Console__IncludeScopes: true
