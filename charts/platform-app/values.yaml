@@ -26,13 +26,14 @@ securityContext: {}
 service:
   create: true
   type: ClusterIP
-  port: 8080
+  port: 3000
 
 env:
-  DOTNET_URLS: http://+:8080
-  ASPNETCORE_URLS: http://*:8080
+  DOTNET_URLS: http://+:3000
+  ASPNETCORE_URLS: http://*:3000
   OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
   OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo.monitoring.svc.cluster.local:4318
+  Telemetry__MetricsPort: "8080"
 
 ingress:
   enabled: false
