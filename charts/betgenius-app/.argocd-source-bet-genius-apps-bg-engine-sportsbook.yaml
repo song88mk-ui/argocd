@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-engine-sportsbook
     forcestring: true
   - name: image.tag
-    value: main-sha-d72d338
+    value: main-sha-73033e5
     forcestring: true
