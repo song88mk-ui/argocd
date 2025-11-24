@@ -29,6 +29,7 @@ service:
 
 env:
   ASPNETCORE_URLS: http://*:3000
+  DOTNET_URLS: http://+:3000
   OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
   OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo.monitoring.svc.cluster.local:4318
 
