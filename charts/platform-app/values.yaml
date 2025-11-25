@@ -33,6 +33,7 @@ env:
   ASPNETCORE_URLS: http://*:3000
   OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
   OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo.monitoring.svc.cluster.local:4318
+  Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
 
 ingress:
@@ -105,7 +106,7 @@ affinity: {}
 secrets: []
 
 metrics:
-  enabled: false
+  enabled: true
   port: 8080
   interval: 30s
   path: /metrics
