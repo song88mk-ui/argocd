@@ -17,7 +17,7 @@ secrets:
       remoteKey: /dev/apps/rabbitmq/password
       envVariable: MessageBroker__Password
     - key: mssql-connection-string-betting
-      remoteKey: /dev/apps/mssql/connection-string/betting-old
+      remoteKey: /dev/apps/mssql/connection-string/betting
       envVariable: ConnectionStrings__Betting
 
 env:
@@ -38,6 +38,9 @@ env:
 
 service:
   create: false
+
+metrics:
+  enabled: false
 
 # TODO:  create probes for services
 livenessProbe:
