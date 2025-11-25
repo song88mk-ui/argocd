@@ -11,10 +11,13 @@ secrets:
   - name: betting-api
     data:
     - key: mssql-connection-string-betting
-      remoteKey: /dev/apps/mssql/connection-string/betting-old
+      remoteKey: /dev/apps/mssql/connection-string/betting
       envVariable: ConnectionStrings__Betting
 
 env:
   API__RabbitMQAPI: http://rabbitmq-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
   Custom__IsMTSEnabled: false
+
+metrics:
+  enabled: false
