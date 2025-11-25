@@ -29,7 +29,6 @@ env:
   MessageBroker__Queue: ""
   MessageBroker__Consumer: ""
   MessageBroker__RoutingKey: ""
-  Telemetry__Enabled: "true"
 
 ingress:
   enabled: true
@@ -47,6 +46,3 @@ ingress:
   - host: bg-rmq-api.dev.song88.com
     paths:
       - path: /
-
-metrics:
-  enabled: true

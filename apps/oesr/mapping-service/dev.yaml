@@ -34,8 +34,5 @@ env:
   MessageBroker__Exchange: "e.central"
   Telemetry__Enabled: true
 
-service:
-  create: false
-
 livenessProbe:
 readinessProbe:

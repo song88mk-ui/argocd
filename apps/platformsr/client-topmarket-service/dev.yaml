@@ -31,8 +31,5 @@ env:
   MessageBroker__Exchange: "e.central"
   MessageBroker__PrefetchCount: 1000
 
-service:
-  create: false
-
 livenessProbe:
 readinessProbe:

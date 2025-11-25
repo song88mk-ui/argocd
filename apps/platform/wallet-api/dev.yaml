@@ -26,8 +26,5 @@ env:
   Custom__UseMessagePack: "true"
   Telemetry__Enabled: "true"
 
-metrics:
-  enabled: false
-
 livenessProbe:
 readinessProbe:

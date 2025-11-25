@@ -28,6 +28,3 @@ env:
   MessageBroker__Exchange: "e.central"
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
-
-metrics:
-  enabled: false

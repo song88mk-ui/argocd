@@ -16,7 +16,6 @@ env:
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__RabbitMqAPI__Uri: http://bg-rabbitmq-api:3000
   Logging__LogLevel__Default: Debug
-  Telemetry__Enabled: "true"
 
 replicaCount: 1
 
@@ -44,6 +43,3 @@ ingress:
   - host: bg-feed-receiver-api.dev.song88.com
     paths:
       - path: /
-
-metrics:
-  enabled: true

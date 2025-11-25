@@ -31,10 +31,6 @@ env:
   MessageBroker__Exchange: "e.central"
   Telemetry__Enabled: "true"
 
-
-service:
-  create: false
-
 # TODO:  create probes for services
 livenessProbe:
 readinessProbe:

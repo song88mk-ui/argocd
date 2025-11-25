@@ -35,8 +35,5 @@ env:
   MessageBroker__Queue: "q.oe.adapter.uof"
   Telemetry__Enabled: true
 
-service:
-  create: false
-
 livenessProbe:
 readinessProbe:

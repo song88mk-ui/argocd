@@ -18,6 +18,3 @@ env:
   API__RabbitMQAPI: http://rabbitmq-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
   Custom__IsMTSEnabled: false
-
-metrics:
-  enabled: false

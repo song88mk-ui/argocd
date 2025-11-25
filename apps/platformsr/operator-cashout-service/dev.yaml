@@ -35,8 +35,5 @@ env:
   MessageBroker__RoutingKey: "r.bet.operator.cashout.10I|r.bet.operator.cashout.10J|r.bet.operator.cashout.10C"
   Telemetry__Enabled: "true"
 
-service:
-  create: false
-
 livenessProbe:
 readinessProbe:

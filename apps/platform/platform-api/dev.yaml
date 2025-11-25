@@ -37,6 +37,3 @@ ingress:
     paths:
       - path: /
         pathType: Prefix
-
-metrics:
-  enabled: false

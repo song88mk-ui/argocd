@@ -40,8 +40,5 @@ env:
   MessageBroker__RoutingKey: "r.bg.receiver.#"
   Telemetry__Enabled: true
 
-service:
-  create: false
-
 livenessProbe:
 readinessProbe:

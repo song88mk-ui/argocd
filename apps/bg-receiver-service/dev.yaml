@@ -32,7 +32,3 @@ env:
   MessageBroker__Queue: "q.bg.receiver"
   MessageBroker__Consumer: "BG.Receiver.Service"
   MessageBroker__RoutingKey: "r.bg.onprocessmessage"
-  Telemetry__Enabled: "true"
-
-metrics:
-  enabled: true

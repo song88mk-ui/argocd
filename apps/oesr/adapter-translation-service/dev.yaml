@@ -33,8 +33,5 @@ env:
   MessageBroker__RoutingKey: "r.uof.onoddschange.#|r.translation.#"
   Telemetry__Enabled: true
 
-service:
-  create: false
-
 livenessProbe:
 readinessProbe:

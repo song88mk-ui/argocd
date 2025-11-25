@@ -35,13 +35,6 @@ env:
   API__PlatformBettingAPI: http://betting-api:3000
   Telemetry__Enabled: "true"
 
-
-service:
-  create: false
-
-metrics:
-  enabled: false
-
 # TODO:  create probes for services
 livenessProbe:
 readinessProbe:

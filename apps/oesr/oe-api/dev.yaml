@@ -37,9 +37,3 @@ env:
   IsStaging: true
   Telemetry__Enabled: true
   Telemetry__Environment: dev
-
-service:
-  create: true
-
-metrics:
-  enabled: false

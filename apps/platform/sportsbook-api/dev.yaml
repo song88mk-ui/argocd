@@ -19,6 +19,3 @@ secrets:
 
 env:
   API__RabbitMQAPI: http://rabbitmq-api:3000
-
-metrics:
-  enabled: false
