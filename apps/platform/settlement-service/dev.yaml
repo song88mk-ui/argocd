@@ -17,7 +17,7 @@ secrets:
       remoteKey: /dev/apps/rabbitmq/password
       envVariable: MessageBroker__Password
     - key: mssql-connection-string-betting
-      remoteKey: /dev/apps/mssql/connection-string/betting-old
+      remoteKey: /dev/apps/mssql/connection-string/betting
       envVariable: ConnectionStrings__Betting
 
 env:
@@ -27,7 +27,7 @@ env:
   Logging__Console__FormatterOptions__UseUtcTimestamp: true
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
-  MessageBroker__VirtualHost: "/old"
+  MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
   MessageBroker__IsPriority: "true"
   Custom__IsMTSEnabled: "false"
