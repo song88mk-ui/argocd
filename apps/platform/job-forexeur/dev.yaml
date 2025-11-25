@@ -14,8 +14,8 @@ secrets:
       remoteKey: /dev/apps/mssql/connection-string/platform
       envVariable: ConnectionStrings__Platform
 
-metrics:
-  enable: true
+service:
+  create: false
 
 # TODO:  create probes for services
 livenessProbe:
