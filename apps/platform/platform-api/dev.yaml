@@ -11,7 +11,7 @@ secrets:
   - name: platform-api
     data:
     - key: mssql-connection-string-platform
-      remoteKey: /dev/apps/mssql/connection-string/platform-old
+      remoteKey: /dev/apps/mssql/connection-string/platform
       envVariable: ConnectionStrings__Platform
 
 env:
@@ -37,3 +37,6 @@ ingress:
     paths:
       - path: /
         pathType: Prefix
+
+metrics:
+  enabled: false
