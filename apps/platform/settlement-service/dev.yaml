@@ -32,6 +32,7 @@ env:
   MessageBroker__IsPriority: "true"
   Custom__IsMTSEnabled: "false"
   Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
 
 service:
   create: false
