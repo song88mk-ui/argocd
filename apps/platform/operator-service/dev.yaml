@@ -36,8 +36,8 @@ env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
 
-service:
-  create: false
+metrics:
+  enable: true
 
 livenessProbe:
 readinessProbe:
