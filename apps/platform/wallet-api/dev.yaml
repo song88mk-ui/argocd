@@ -1,0 +1,33 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-wallet-api
+  tag: latest
+
+fullnameOverride: "wallet-api"
+
+serviceAccount:
+  name: "wallet-api-sa"
+
+secrets:
+  - name: wallet-api
+    data:
+    - key: mssql-connection-string-wallet
+      remoteKey: /dev/apps/mssql/connection-string/wallet
+      envVariable: ConnectionStrings__Wallet
+    - key: custom-wallet-apikey
+      remoteKey: /dev/apps/platform/wallet-api/api-key
+      envVariable: Custom__APIKey
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Custom__UseMessagePack: "true"
+  Telemetry__Enabled: "true"
+
+metrics:
+  enabled: false
+
+livenessProbe:
+readinessProbe:
