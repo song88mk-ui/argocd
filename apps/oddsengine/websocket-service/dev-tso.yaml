@@ -1,0 +1,9 @@
+---
+env:
+  MessageBroker__Queue: "q.sb.engine.websocket.TSO"
+  MessageBroker__Consumer: "OE.Engine.WebSocket.TSO"
+  MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.tso|r.bet.cashoutchange.tso|r.wallet.tso|r.oe.sb.engine.onvisitfavorites.tso|r.oe.sb.engine.onvisitboostedfixtures.tso|r.oe.sb.engine.onmarketsortorderchange.tso"
+  Custom__ClientId: "71BBE7D8-FD04-459C-6D8B-08D9354E5B64"
+  Custom__ClientCode: "TSO"
+
+
