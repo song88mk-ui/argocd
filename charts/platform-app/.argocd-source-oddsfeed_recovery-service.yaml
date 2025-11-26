@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.repository
+    value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/of-recovery-service
+    forcestring: true
+  - name: image.tag
+    value: main-sha-3c3b6aa
+    forcestring: true
