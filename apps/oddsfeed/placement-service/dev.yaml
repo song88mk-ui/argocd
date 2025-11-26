@@ -32,3 +32,6 @@ env:
   MessageBroker__PrefetchCount: "100"
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
+
+livenessProbe:
+readinessProbe:

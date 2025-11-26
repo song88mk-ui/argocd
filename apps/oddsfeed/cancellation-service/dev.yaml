@@ -31,3 +31,6 @@ env:
   Telemetry__MetricsPort: "8080"
   Custom__IsMTSEnabled: "false"
   Custom__BookmakerId: "32280"
+
+livenessProbe:
+readinessProbe:
