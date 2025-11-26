@@ -3,5 +3,7 @@ env:
   MessageBroker__Queue: "q.uof.engine.client.TSO"
   MessageBroker__Consumer: "OE.Engine.UOF.client.TSO"
   MessageBroker__RoutingKey: "r.oe.adapter.#.#|r.oe.uof.heartbeat|r.of.recovery.#.tso"
+  Custom__ClientId: "71BBE7D8-FD04-459C-6D8B-08D9354E5B64"
+  Custom__ClientCode: "TSO"
 
 
