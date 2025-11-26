@@ -13,8 +13,8 @@ env:
   Logging__Console__FormatterOptions__SingleLine: true
   Logging__Console__FormatterOptions__UseUtcTimestamp: true
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
-  API__PlatformAPI: http://platform-api.platform.svc:3000
-  API__PlatformWebsocketAPI: http://websocket-api.platform.svc:3000
+  API__PlatformAPI: http://xplatform-api.platform.svc:3000
+  API__PlatformWebsocketAPI: http://xwebsocket-api.platform.svc:3000
   Telemetry__Enabled: "true"
 
 ingress:
