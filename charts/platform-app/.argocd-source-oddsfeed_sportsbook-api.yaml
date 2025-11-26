@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/of-sportsbook-api
     forcestring: true
   - name: image.tag
-    value: main-sha-93e40cf
+    value: main-sha-4ea519a
     forcestring: true
