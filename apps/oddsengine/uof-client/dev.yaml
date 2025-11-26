@@ -11,6 +11,12 @@ secrets:
     - key: rabbitmq-password
       remoteKey: /dev/apps/rabbitmq/password
       envVariable: MessageBroker__Password
+    - key: external-rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: ExternalMessageBroker__Username
+    - key: external-rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: ExternalMessageBroker__Password
     - key: mssql-connection-string-trading
       remoteKey: /dev/apps/mssql/connection-string/trading
       envVariable: Custom__Trading
