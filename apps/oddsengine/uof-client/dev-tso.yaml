@@ -1,0 +1,7 @@
+---
+env:
+  MessageBroker__Queue: "q.uof.engine.client.TSO"
+  MessageBroker__Consumer: "OE.Engine.UOF.client.TSO"
+  MessageBroker__RoutingKey: "r.oe.adapter.#.#|r.oe.uof.heartbeat|r.of.recovery.#.tso"
+
+
