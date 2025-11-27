@@ -1,4 +1,7 @@
 ---
+
+fullnameOverride: "uof-client-tso"
+
 env:
   MessageBroker__Queue: "q.uof.engine.client.TSO"
   MessageBroker__Consumer: "OE.Engine.UOF.client.TSO"
