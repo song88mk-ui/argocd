@@ -1,3 +1,4 @@
+---
 image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-api
   tag: latest
