@@ -1,4 +1,6 @@
 ---
+fullnameOverride: "websocket-service-tso"
+
 env:
   MessageBroker__Queue: "q.sb.engine.websocket.TSO"
   MessageBroker__Consumer: "OE.Engine.WebSocket.TSO"
