@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-web-mockup
     forcestring: true
   - name: image.tag
-    value: pr-sha-be283ca
+    value: pr-sha-a370182
     forcestring: true
