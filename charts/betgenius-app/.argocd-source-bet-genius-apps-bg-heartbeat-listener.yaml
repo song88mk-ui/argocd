@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-heartbeat-listener
     forcestring: true
   - name: image.tag
-    value: main-sha-4e929ed
+    value: main-sha-fd6d6ce
     forcestring: true
