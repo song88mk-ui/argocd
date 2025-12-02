@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-wallet-api
     forcestring: true
   - name: image.tag
-    value: main-sha-aa9f50f
+    value: main-sha-caf3f49
     forcestring: true
