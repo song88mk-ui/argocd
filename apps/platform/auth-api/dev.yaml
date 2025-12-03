@@ -30,7 +30,7 @@ env:
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   JWT__Issuer: bo.auth.api
-  Telemetry__Enabled: false
+  Telemetry__Enabled: true
 
 livenessProbe:
   httpGet:
