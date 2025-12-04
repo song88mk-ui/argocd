@@ -13,6 +13,9 @@ secrets:
     - key: mssql-connection-string-platform
       remoteKey: /dev/apps/mssql/connection-string/platform
       envVariable: ConnectionStrings__Platform
+    - key: auth-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: Custom__AuthApiKey
 
 env:
   Logging__Console__IncludeScopes: true
