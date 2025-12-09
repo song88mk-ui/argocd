@@ -7,9 +7,6 @@ fullnameOverride: "platform-web-config"
 serviceAccount:
   name: "platform-web-config-sa"
 
-service:
-  port: 80
-
 livenessProbe:
   httpGet:
     path: /
