@@ -10,6 +10,14 @@ serviceAccount:
 service:
   port: 80
 
+livenessProbe:
+  httpGet:
+    path: /
+
+readinessProbe:
+  httpGet:
+    path: /
+
 ingress:
   enabled: true
   className: "alb"
