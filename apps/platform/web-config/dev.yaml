@@ -2,10 +2,10 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-web-config
   tag: latest
 
-fullnameOverride: "web-config"
+fullnameOverride: "platform-web-config"
 
 serviceAccount:
-  name: "web-config-sa"
+  name: "platform-web-config-sa"
 
 service:
   port: 80
