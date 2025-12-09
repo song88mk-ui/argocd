@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-web-assets
     forcestring: true
   - name: image.tag
-    value: main-sha-1a5a9a1
+    value: main-sha-f975da3
     forcestring: true
