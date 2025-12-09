@@ -7,6 +7,9 @@ fullnameOverride: "web-config"
 serviceAccount:
   name: "web-config-sa"
 
+service:
+  port: 80
+
 ingress:
   enabled: true
   className: "alb"
