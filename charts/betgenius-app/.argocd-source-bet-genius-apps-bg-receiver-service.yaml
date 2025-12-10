@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-receiver-service
     forcestring: true
   - name: image.tag
-    value: main-sha-f9c0f95
+    value: main-sha-db0be21
     forcestring: true
