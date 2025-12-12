@@ -28,10 +28,7 @@ env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
-
-# no telemetry yet
-metrics:
-  enabled: false
+  Telemetry__Enabled: true
 
 livenessProbe:
 readinessProbe:
