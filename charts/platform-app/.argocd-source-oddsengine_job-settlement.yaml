@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-settlement
     forcestring: true
   - name: image.tag
-    value: main-sha-33cc977
+    value: main-sha-eeee60c
     forcestring: true
