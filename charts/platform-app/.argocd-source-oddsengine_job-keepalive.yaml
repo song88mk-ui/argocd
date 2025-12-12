@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-keepalive
     forcestring: true
   - name: image.tag
-    value: main-sha-a542885
+    value: main-sha-ee260b8
     forcestring: true
