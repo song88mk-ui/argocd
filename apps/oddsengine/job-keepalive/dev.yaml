@@ -4,6 +4,9 @@ image:
 
 fullnameOverride: "job-keepalive"
 
+service:
+  create: false
+
 serviceAccount:
   name: "job-keepalive-sa"
 
@@ -18,11 +21,7 @@ secrets:
       envVariable: MessageBroker__Password
 
 env:
-  Logging__Console__IncludeScopes: true
-  Logging__Console__FormatterName: "json"
-  Logging__Console__FormatterOptions__SingleLine: true
-  Logging__Console__FormatterOptions__UseUtcTimestamp: true
-  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
