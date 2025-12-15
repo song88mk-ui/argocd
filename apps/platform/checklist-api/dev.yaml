@@ -1,0 +1,34 @@
+---
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/client-checklist-api
+  tag: latest
+
+fullnameOverride: "checklist-api"
+
+serviceAccount:
+  name: "checklist-api-sa"
+
+secrets:
+  - name: checklist-api
+    data:
+    - key: security-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: API__AuthenticationAPI__Security__ApiKey
+    - key: jwt-key
+      remoteKey: /dev/apps/auth/jwt-key
+      envVariable: API__AuthenticationAPI__JWT__Key
+    - key: mssql-connection-string-client-checklist
+      remoteKey: /dev/apps/mssql/connection-string/client-checklist
+      envVariable: ConnectionStrings__ClientChecklist
+
+env:
+  JWT__Issuer: bo.auth.api
+  API__AuthenticationAPI__Uri: http://auth-api:3000
+  Telemetry__Enabled: true
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+readinessProbe:
+  httpGet:
+    path: /healthz
