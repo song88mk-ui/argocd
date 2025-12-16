@@ -19,24 +19,24 @@ env:
   CDN__BaseURL: http://assets.dev.song88.com
   Custom__Layout__Version: 0
 
-ingress:
-  enabled: true
-  className: "alb"
-  annotations:
-    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
-    alb.ingress.kubernetes.io/group.name: apps
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-    alb.ingress.kubernetes.io/ssl-redirect: '443'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:418541840646:certificate/ed922e6e-6b95-4fdf-a10c-1a7253d35313
-    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
-    alb.ingress.kubernetes.io/healthcheck-path: /
+#ingress:
+  #enabled: true
+  #className: "alb"
+  #annotations:
+    #alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    #alb.ingress.kubernetes.io/group.name: apps
+    #alb.ingress.kubernetes.io/scheme: internet-facing
+    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    #alb.ingress.kubernetes.io/ssl-redirect: '443'
+    #alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:418541840646:certificate/ed922e6e-6b95-4fdf-a10c-1a7253d35313
+    #alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    #alb.ingress.kubernetes.io/healthcheck-path: /
 
-  hosts:
-  - host: sb-demo.song88.com
-    paths:
-      - path: /
-        pathType: Prefix
+  #hosts:
+  #- host: sb.demo.song88.com
+    #paths:
+      #- path: /
+        #pathType: Prefix
 
 metrics:
   enabled: false
