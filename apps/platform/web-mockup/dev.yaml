@@ -33,7 +33,7 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-path: /
 
   hosts:
-  - host: sb.demo.song88.com
+  - host: sb-demo.song88.com
     paths:
       - path: /
         pathType: Prefix
