@@ -48,7 +48,7 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-path: /healthz
 
   hosts:
-  - host: start-api.dev.jmj.bet
+  - host: cl-api.dev.song88.com
     paths:
       - path: /
         pathType: Prefix
