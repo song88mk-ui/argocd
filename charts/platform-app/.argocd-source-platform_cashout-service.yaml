@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-cashout-service
     forcestring: true
   - name: image.tag
-    value: main-sha-8d95f3b
+    value: main-sha-05b4e53
     forcestring: true
