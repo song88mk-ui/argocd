@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-job-forexeur
     forcestring: true
   - name: image.tag
-    value: main-sha-a8e879b
+    value: main-sha-9bbdc02
     forcestring: true
