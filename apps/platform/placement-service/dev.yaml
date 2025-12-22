@@ -37,6 +37,9 @@ env:
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
   MessageBroker__IsPriority: "true"
+  MessageBroker__Consumer: "Platform.Placement.Service"
+  MessageBroker__RoutingKey: "r.bet.placement"
+  MessageBroker__PrefetchCount: 1000
   Custom__IsProviderEnabled: true
   Custom__GTSBookmakerId: 10939
   Telemetry__Enabled: "true"
