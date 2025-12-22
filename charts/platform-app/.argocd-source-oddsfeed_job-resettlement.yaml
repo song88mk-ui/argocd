@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/of-job-resettlement
     forcestring: true
   - name: image.tag
-    value: main-sha-0c12ed9
+    value: main-sha-476cc0c
     forcestring: true
