@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/of-settlement-service
     forcestring: true
   - name: image.tag
-    value: main-sha-8ce75ba
+    value: main-sha-476cc0c
     forcestring: true
