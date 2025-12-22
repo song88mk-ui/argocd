@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-placement-service
     forcestring: true
   - name: image.tag
-    value: main-sha-90712dc
+    value: main-sha-67792b3
     forcestring: true
