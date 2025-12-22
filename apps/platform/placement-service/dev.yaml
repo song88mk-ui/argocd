@@ -19,6 +19,12 @@ secrets:
     - key: mssql-connection-string-betting
       remoteKey: /dev/apps/mssql/connection-string/betting
       envVariable: ConnectionStrings__Betting
+    - key: custom-gts-client-id
+      remoteKey: /dev/apps/platform/gts-client-id
+      envVariable: Custom__GTSClientID
+    - key: custom-gts-client-secret
+      remoteKey: /dev/apps/platform/gts-client-secret
+      envVariable: Custom__GTSClientSecret
 
 env:
   Logging__Console__IncludeScopes: true
@@ -32,6 +38,7 @@ env:
   MessageBroker__Exchange: "e.central"
   MessageBroker__IsPriority: "true"
   Custom__IsProviderEnabled: true
+  Custom__GTSBookmakerId: 10939
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
 
