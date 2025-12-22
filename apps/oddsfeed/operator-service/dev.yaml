@@ -19,6 +19,7 @@ secrets:
     - key: mssql-connection-string-platform
       remoteKey: /dev/apps/mssql/connection-string/platform
       envVariable: ConnectionStrings__Platform
+    - key: mssql-connection-string-betting
       remoteKey: /dev/apps/mssql/connection-string/betting
       envVariable: ConnectionStrings__Betting
 
