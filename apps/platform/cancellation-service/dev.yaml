@@ -1,0 +1,49 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-cancellation-service
+  tag: latest
+
+fullnameOverride: "cancellation-service"
+
+serviceAccount:
+  name: "cancellation-service-sa"
+
+secrets:
+  - name: cancellation-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: custom-gts-client-id
+      remoteKey: /dev/apps/platform/gts-client-id
+      envVariable: Custom__GTSClientID
+    - key: custom-gts-client-secret
+      remoteKey: /dev/apps/platform/gts-client-secret
+      envVariable: Custom__GTSClientSecret
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__IsPriority: "true"
+  MessageBroker__Queue: "q.bet.cancellation"
+  MessageBroker__Consumer: "Platform.Cancellation.Service"
+  MessageBroker__RoutingKey: "r.bet.cancellation"
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  API__GTSAuthAPI: "https://uat.auth.geniussports.com"
+  API__GTSAPI: "https://gw1.uat.risk.api.geniussports.com"
+  Custom__IsProviderEnabled: true
+  Custom__MTSBookmakerId: 32280
+  Custom__GTSBookmakerId: 10939
+
+livenessProbe:
+readinessProbe:
