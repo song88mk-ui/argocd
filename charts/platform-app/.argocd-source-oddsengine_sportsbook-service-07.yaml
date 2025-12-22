@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-sportsbook-service
     forcestring: true
   - name: image.tag
-    value: main-sha-6c7d1b2
+    value: main-sha-293b5b5
     forcestring: true
