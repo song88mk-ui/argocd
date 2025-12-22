@@ -31,7 +31,7 @@ env:
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
   MessageBroker__IsPriority: "true"
-  Custom__IsMTSEnabled: "false"
+  Custom__IsProviderEnabled: true
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
 
