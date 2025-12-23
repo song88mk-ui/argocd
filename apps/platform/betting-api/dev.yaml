@@ -29,8 +29,10 @@ env:
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__RabbitMQAPI: http://rabbitmq-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
-  API__GTSAuthAPI: https://uat.auth.geniussports.com
-  API__GTSAPI: https://uat.auth.geniussports.com
+  API__GTSAuthAPI: "https://uat.auth.geniussports.com"
+  API__GTSAPI: "https://gw1.uat.risk.api.geniussports.com"
+  API__MTSAuthAPI: "https://mts-auth-ci.betradar.com"
+  API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
   Custom__IsProviderEnabled: true
   Custom__GTSBookmakerId: 10939
   Custom__IsMTSEnabled: false
