@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-rabbitmq-api
     forcestring: true
   - name: image.tag
-    value: main-sha-46e83f2
+    value: main-sha-a8e1928
     forcestring: true
