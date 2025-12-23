@@ -33,7 +33,11 @@ env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bet.operator"
+  MessageBroker__Consumer: "Platform.Operator.Service"
+  MessageBroker__RoutingKey: "r.bet.operator"
   MessageBroker__IsPriority: "true"
+  MessageBroker__PrefetchCount: 1000
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
 
