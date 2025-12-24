@@ -1,0 +1,34 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-config-service
+  tag: latest
+
+service:
+  create: false
+livenessProbe:
+readinessProbe:
+
+secrets:
+  - name: config-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-backoffice
+      remoteKey: /dev/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bo.config"
+  MessageBroker__Consumer: "BO.Config.Service"
+  MessageBroker__RoutingKey: "r.bo.config.#"
+  Custom__Hub: "http://websocket-api:3000/bohub"
+  Custom__AzureStorage: "http://localhost" #todo
