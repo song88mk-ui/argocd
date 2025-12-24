@@ -23,7 +23,7 @@ env:
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   API__Backoffice__Uri: http://bo-api:3000
   API__Backoffice__Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
-  API__HubAPI: http://websocket-api:3000/bohub
+  API__HubAPI: http://bo-ws-api:3000/bohub
   Region: HK
   SlackWebHoo: "https://hooks.slack.com/workflows/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"
 

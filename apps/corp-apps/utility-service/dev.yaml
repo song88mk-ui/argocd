@@ -32,5 +32,5 @@ env:
   MessageBroker__Queue: "q.bo.utility"
   MessageBroker__Consumer: "BO.Utility.Service"
   MessageBroker__RoutingKey: "r.bo.util.#"
-  Custom__Hub: "http://websocket-api:3000/bohub"
+  Custom__Hub: "http://bo-ws-api:3000/bohub"
   Custom__AzureStorage: "http://localhost" #todo

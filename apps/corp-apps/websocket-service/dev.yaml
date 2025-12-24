@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-websocket-service
   tag: latest
 
-fullnameOverride: "bo-websocket-service"
+fullnameOverride: "bo-ws-service"
 
 service:
   create: false
