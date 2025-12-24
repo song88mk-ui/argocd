@@ -2,6 +2,8 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-bo-web
   tag: latest
 
+fullnameOverride: "bo-web"
+
 secrets:
   - name: bo-web-service
     data:

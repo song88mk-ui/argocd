@@ -2,6 +2,8 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-config-service
   tag: latest
 
+fullnameOverride: "bo-config-service"
+
 service:
   create: false
 livenessProbe:

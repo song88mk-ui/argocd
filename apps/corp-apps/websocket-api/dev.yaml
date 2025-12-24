@@ -2,7 +2,7 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-websocket-api
   tag: latest
 
-fullnameOverride: "websocket-api"
+fullnameOverride: "bo-websocket-api"
 
 serviceAccount:
   name: "websocket-api-sa"

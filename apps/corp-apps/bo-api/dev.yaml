@@ -2,6 +2,8 @@ image:
   repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-bo-api
   tag: latest
 
+fullnameOverride: "bo-api"
+
 secrets:
   - name: bo-api-service
     data:
