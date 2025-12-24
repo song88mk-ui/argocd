@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-bo-web
     forcestring: true
   - name: image.tag
-    value: main-sha-d3af381
+    value: main-sha-18b449e
     forcestring: true
