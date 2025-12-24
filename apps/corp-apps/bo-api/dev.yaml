@@ -1,0 +1,37 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/backoffice-bo-api
+  tag: latest
+
+secrets:
+  - name: bo-api-service
+    data:
+    - key: security-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: API__AuthenticationAPI__Security__APIKey
+    - key: jwt-key
+      remoteKey: /dev/apps/auth/jwt-key
+      envVariable: API__AuthenticationAPI__JWT__Key
+    - key: mssql-connection-string-backoffice
+      remoteKey: /dev/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  API__Maintenance__Uri: http://bo-maintenance-api:3000
+  API__Maintenance__Security__APIKey: AFB3AC4724BD479D9E39
+  API__AuthenticationAPI__Uri: http://auth-api.platform.svc:3000
+  API__AuthenticationAPI__JWT__Issuer: bo.auth.api
+  API__PlatformAPI__HK__APIKey: PXcEbJ3SqDyt8Ee5
+  API__PlatformAPI__HK__Uri: http://platform-api.platform.svc:3000
+  API__PlatformAPI__SA__APIKey: PXcEbJ3SqDyt8Ee5
+  API__PlatformAPI__SA__Uri: http://platform-api.platform.svc:3000
+  API__TradingAPI__HK__APIKey: xgB3eM5b8FDn9msu
+  API__TradingAPI__HK__Uri: http://api.oddsengine.svc:3000
+  API__TradingAPI__SA__APIKey: xgB3eM5b8FDn9msu
+  API__TradingAPI__SA__Uri: http://api.oddsengine.svc:3000
+  API__RabbitMqApi__HK__Uri: http://rabbitmq-api.platform.svc:3000
+  API__RabbitMqApi__SA__Uri: http://rabbitmq-api.platform.svc:3000
+  Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
+  IsStaging: true
