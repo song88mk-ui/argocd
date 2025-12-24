@@ -35,3 +35,12 @@ env:
   API__RabbitMqApi__SA__Uri: http://rabbitmq-api.platform.svc:3000
   Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
   IsStaging: true
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
