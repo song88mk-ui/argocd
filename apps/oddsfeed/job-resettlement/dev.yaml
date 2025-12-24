@@ -21,6 +21,9 @@ secrets:
       envVariable: ConnectionStrings__Platform
 
 env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -30,8 +33,6 @@ env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
-  Telemetry__Enabled: "true"
-  Telemetry__MetricsPort: "8080"
 
 livenessProbe:
 readinessProbe:

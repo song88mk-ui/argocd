@@ -24,6 +24,9 @@ secrets:
       envVariable: ConnectionStrings__Betting
 
 env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -38,8 +41,6 @@ env:
   MessageBroker__RoutingKey: "r.bet.operator"
   MessageBroker__IsPriority: "true"
   MessageBroker__PrefetchCount: 1000
-  Telemetry__Enabled: "true"
-  Telemetry__MetricsPort: "8080"
 
 livenessProbe:
 readinessProbe:

@@ -23,6 +23,8 @@ secrets:
       envVariable: Context__Auth
 
 env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -30,7 +32,6 @@ env:
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   JWT__Issuer: bo.auth.api
-  Telemetry__Enabled: true
 
 livenessProbe:
   httpGet:

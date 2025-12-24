@@ -27,6 +27,9 @@ secrets:
       envVariable: Custom__GTSClientSecret
 
 env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -47,8 +50,6 @@ env:
   API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
   Custom__IsProviderEnabled: true
   Custom__GTSBookmakerId: 10939
-  Telemetry__Enabled: "true"
-  Telemetry__MetricsPort: "8080"
 
 livenessProbe:
 readinessProbe:

@@ -15,6 +15,8 @@ secrets:
       envVariable: ConnectionStrings__Betting
 
 env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -23,4 +25,3 @@ env:
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__RabbitMQAPI__Uri: http://rabbitmq-api:3000
   Custom__IsMTSEnabled: false
-  Telemetry__Enabled: true

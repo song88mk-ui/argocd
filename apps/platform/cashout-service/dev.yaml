@@ -21,6 +21,8 @@ secrets:
       envVariable: ConnectionStrings__Betting
 
 env:
+  Telemetry__Enabled: "true"
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -34,7 +36,6 @@ env:
   Custom__IsMTSEnabled: false
   Custom__Delay: 7000
   API__PlatformBettingAPI: http://betting-api:3000
-  Telemetry__Enabled: "true"
 
 # TODO:  create probes for services
 livenessProbe:

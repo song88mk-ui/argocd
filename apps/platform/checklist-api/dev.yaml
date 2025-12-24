@@ -22,10 +22,11 @@ secrets:
       envVariable: ConnectionStrings__ClientChecklist
 
 env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: true
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   JWT__Issuer: bo.auth.api
   API__AuthenticationAPI__Uri: http://auth-api:3000
-  Telemetry__Enabled: true
 
 livenessProbe:
   httpGet:

@@ -8,6 +8,9 @@ serviceAccount:
   name: "platform-web-sa"
 
 env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -18,7 +21,6 @@ env:
   Config__BaseURL: http://platform-web-config:3000
   CDN__BaseURL: http://assets.dev.song88.com
   Custom__Layout__Version: 0
-  Telemetry__Enabled: "true"
 
 ingress:
   enabled: true

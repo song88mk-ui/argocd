@@ -24,11 +24,12 @@ secrets:
       envVariable: Custom__MongoDB-Sportsbook
 
 env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: true
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
-  Telemetry__Enabled: true
 
 livenessProbe:
 readinessProbe:

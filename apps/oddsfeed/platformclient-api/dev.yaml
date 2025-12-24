@@ -8,6 +8,8 @@ serviceAccount:
   name: "platformclient-api-sa"
 
 env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -17,7 +19,6 @@ env:
   API__PlatformAPI__Uri: http://platform-api.platform.svc:3000
   API__OFBettingAPI__Uri: http://betting-api:3000
   API__OFSportsbookAPI__Uri: http://sportsbook-api:3000
-  Telemetry__Enabled: true
 
 ingress:
   enabled: true

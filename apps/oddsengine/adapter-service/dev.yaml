@@ -21,6 +21,8 @@ secrets:
       envVariable: MessageBroker__Password
 
 env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
@@ -28,7 +30,6 @@ env:
   MessageBroker__Queue: "q.oe.adapter"
   MessageBroker__Consumer: "OE.Adapter.Service"
   MessageBroker__RoutingKey: "r.bg.receiver.#"
-  Telemetry__Enabled: true
 
 livenessProbe:
 readinessProbe:

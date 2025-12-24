@@ -16,6 +16,8 @@ secrets:
       envVariable: ConnectionStrings__Platform
 
 env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -24,7 +26,6 @@ env:
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__PlatformBettingAPI: http://betting-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
-  Telemetry__Enabled: true
 
 ingress:
   enabled: true

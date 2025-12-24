@@ -18,6 +18,8 @@ secrets:
       envVariable: ConnectionStrings__Sportsbook
 
 env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: true
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
   Logging__Console__FormatterOptions__SingleLine: true
@@ -25,4 +27,3 @@ env:
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__RabbitMQAPI__Uri: http://rabbitmq-api:3000
-  Telemetry__Enabled: true
