@@ -27,7 +27,7 @@ env:
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
-  MessageBroker__Queue: "q.bo.websocket"
+  MessageBroker__Queue: "q.bo.utility"
   MessageBroker__Consumer: "BO.Utility.Service"
   MessageBroker__RoutingKey: "r.bo.util.#"
   Custom__Hub: "http://websocket-api:3000/bohub"
