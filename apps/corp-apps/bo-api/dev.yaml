@@ -21,6 +21,7 @@ env:
   Telemetry__Enabled: true
   Telemetry__Environment: dev
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient: Warning
   API__Maintenance__Uri: http://bo-maintenance-api:3000
   API__Maintenance__Security__APIKey: AFB3AC4724BD479D9E39
   API__AuthenticationAPI__Uri: http://auth-api.platform.svc:3000
