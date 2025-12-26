@@ -7,6 +7,13 @@ fullnameOverride: "websocket-api"
 serviceAccount:
   name: "websocket-api-sa"
 
+secrets:
+  - name: websocket-api
+    data:
+    - key: mssql-connection-string-platform
+      remoteKey: /dev/apps/mssql/connection-string/platform
+      envVariable: ConnectionStrings__Platform
+
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: dev
@@ -16,7 +23,7 @@ env:
   Logging__Console__FormatterOptions__UseUtcTimestamp: true
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
-  Custom__UseMessagePack: "true"
+  Custom__UseMessagePack: true
 
 ingress:
   enabled: true
