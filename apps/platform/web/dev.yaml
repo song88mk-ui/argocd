@@ -20,6 +20,9 @@ env:
   API__PlatformWebsocketAPI: http://websocket-api:3000
   Config__BaseURL: http://platform-web-config:3000
   CDN__BaseURL: http://assets.dev.song88.com
+  Custom__UseMessagePack: true
+  Custom__MaximumConnections: 300
+  Custom__MaintenanceConfigFile: Configs/maintenance.json
   Custom__Layout__Version: 0
 
 ingress:
