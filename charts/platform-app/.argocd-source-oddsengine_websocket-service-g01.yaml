@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-websocket-service
     forcestring: true
   - name: image.tag
-    value: main-sha-b5dacc5
+    value: main-sha-70974bb
     forcestring: true
