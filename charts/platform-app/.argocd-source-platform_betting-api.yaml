@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-betting-api
     forcestring: true
   - name: image.tag
-    value: main-sha-6e74850
+    value: main-sha-2fefeab
     forcestring: true
