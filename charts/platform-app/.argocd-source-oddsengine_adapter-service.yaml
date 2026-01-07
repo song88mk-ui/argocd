@@ -4,5 +4,5 @@ helm:
     value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-adapter-service
     forcestring: true
   - name: image.tag
-    value: main-sha-5b7f2fc
+    value: main-sha-0c6e531
     forcestring: true
