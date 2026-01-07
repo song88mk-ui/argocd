@@ -35,7 +35,7 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-path: /
 
   hosts:
-  - host: internal-docs.dev.song88.com
+  - host: docs.s88platform.com
     paths:
       - path: /
         pathType: Prefix
