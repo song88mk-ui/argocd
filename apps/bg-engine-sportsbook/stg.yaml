@@ -1,0 +1,37 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/bg-engine-sportsbook
+  tag: latest
+
+fullnameOverride: "bg-engine-sportsbook"
+
+serviceAccount:
+  name: "bg-engine-sportsbook-sa"
+
+secrets:
+  - name: bg-engine-sportsbook
+    data:
+    - key: rabbitmq-username
+      remoteKey: /stg/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /stg/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mongodb-connection-string
+      remoteKey: /stg/apps/mongodb/connection-string/trading
+      envVariable: Custom__MongoDB-Trading
+    - key: mssql-connection-string
+      remoteKey: /stg/apps/mssql/connection-string/trading
+      envVariable: Custom__Trading
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bg.engine.sportsbook"
+  MessageBroker__Consumer: "BG.Engine.Sportsbook"
+  MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"

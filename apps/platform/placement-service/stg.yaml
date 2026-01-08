@@ -1,0 +1,55 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-placement-service
+  tag: latest
+
+fullnameOverride: "placement-service"
+
+serviceAccount:
+  name: "placement-service-sa"
+
+secrets:
+  - name: placement-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /stg/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /stg/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-betting
+      remoteKey: /stg/apps/mssql/connection-string/betting
+      envVariable: ConnectionStrings__Betting
+    - key: custom-gts-client-id
+      remoteKey: /stg/apps/platform/gts-client-id
+      envVariable: Custom__GTSClientID
+    - key: custom-gts-client-secret
+      remoteKey: /stg/apps/platform/gts-client-secret
+      envVariable: Custom__GTSClientSecret
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: stg
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__IsPriority: "true"
+  MessageBroker__Consumer: "Platform.Placement.Service"
+  MessageBroker__RoutingKey: "r.bet.placement"
+  MessageBroker__Queue: q.bet.placement
+  MessageBroker__PrefetchCount: 1000
+  API__GTSAuthAPI: "https://uat.auth.geniussports.com"
+  API__GTSAPI: "https://gw1.uat.risk.api.geniussports.com"
+  API__MTSAuthAPI: "https://mts-auth-ci.betradar.com"
+  API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
+  Custom__IsProviderEnabled: true
+  Custom__GTSBookmakerId: 10939
+
+livenessProbe:
+readinessProbe:

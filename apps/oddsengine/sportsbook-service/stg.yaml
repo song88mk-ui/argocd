@@ -1,0 +1,17 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-sportsbook-service
+  tag: latest
+
+service:
+  create: false
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: stg
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+
+livenessProbe:
+readinessProbe:

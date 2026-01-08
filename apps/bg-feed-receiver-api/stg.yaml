@@ -1,0 +1,45 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/bg-feed-receiver-api
+  tag: latest
+
+fullnameOverride: "bg-feed-receiver-api"
+
+serviceAccount:
+  name: "bg-feed-receiver-api-sa"
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  API__RabbitMqAPI__Uri: http://bg-rabbitmq-api:3000
+  Logging__LogLevel__Default: Debug
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 600Mi
+
+ingress:
+  enabled: true
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: stg-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/a6c41251-e9d8-4647-96d0-b06a5c93525c
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+
+    # Whitelist only access from betgenius
+    # TODO: Convert this into a WAFv2 rule
+    # alb.ingress.kubernetes.io/inbound-cidrs: 54.72.77.116/32,34.242.67.155/32,34.242.6.161/32,34.241.220.64/32,52.19.163.53/32,52.213.172.249/32,52.214.86.245/32,99.80.74.200/32,54.76.226.75/32,34.240.244.24/32,34.252.158.247/32,54.77.177.22/32
+  hosts:
+  - host: bg-feed-receiver-api.stg.song88.com
+    paths:
+      - path: /
