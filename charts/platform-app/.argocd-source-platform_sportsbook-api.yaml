@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.repository
-    value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-sportsbook-api
-    forcestring: true
-  - name: image.tag
-    value: main-sha-9628047
-    forcestring: true
