@@ -1,0 +1,41 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/corp-apps-internal-docs
+  tag: latest
+
+fullnameOverride: "internal-docs-web"
+
+secrets:
+  - name: internal-docs-web
+    data:
+    - key: github-client-secret
+      remoteKey: /stg/song88/internal-docs/client-secret
+      envVariable: GITHUB_CLIENT_SECRET
+    - key: github-client-id
+      remoteKey: /stg/song88/internal-docs/client-id
+      envVariable: GITHUB_CLIENT_ID
+
+env:
+  OAUTH2_PROXY_COOKIE_SECRET: vsJjHpRma0s5EeLVVn7i2kUBs-q43xZgr9MAWMF8OXE=
+  OAUTH2_PROXY_REDIRECT_URL: https://docs-stg.s88platform.com
+
+livenessProbe:
+readinessProbe:
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: stg-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:418541840646:certificate/ed922e6e-6b95-4fdf-a10c-1a7253d35313
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+  hosts:
+  - host: docs-stg.s88platform.com
+    paths:
+      - path: /
+        pathType: Prefix
