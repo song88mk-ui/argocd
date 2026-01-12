@@ -34,6 +34,7 @@ env:
   MessageBroker__Exchange: "e.central"
   # same for now but diff vhost
   ExternalMessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  ExternalMessageBroker__Port: 5671
   ExternalMessageBroker__VirtualHost: "/ext"
   ExternalMessageBroker__Exchange: "e.central"
   API__PlatformAPI: "http://platform-api.platform.svc:3000"
