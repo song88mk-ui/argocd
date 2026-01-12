@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.tag
-    value: main-sha-fe9c8bf
-    forcestring: true
-  - name: image.repository
-    value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-placement-service
-    forcestring: true

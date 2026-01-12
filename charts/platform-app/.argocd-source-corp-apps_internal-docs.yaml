@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.repository
-    value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/corp-apps-internal-docs
-    forcestring: true
-  - name: image.tag
-    value: main-sha-b378106
-    forcestring: true
