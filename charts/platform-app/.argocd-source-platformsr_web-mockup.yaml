@@ -1,8 +1,0 @@
-helm:
-  parameters:
-  - name: image.repository
-    value: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/platform-web-mockup
-    forcestring: true
-  - name: image.tag
-    value: pr-sha-634cf77
-    forcestring: true
