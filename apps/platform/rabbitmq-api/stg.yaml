@@ -28,5 +28,6 @@ env:
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  MessageBroker__Port: 5671
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
