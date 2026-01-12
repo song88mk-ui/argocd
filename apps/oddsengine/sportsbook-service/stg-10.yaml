@@ -7,13 +7,13 @@ secrets:
   - name: sportsbook-service-10
     data:
     - key: rabbitmq-username
-      remoteKey: /dev/apps/rabbitmq/username
+      remoteKey: /stg/apps/rabbitmq/username
       envVariable: MessageBroker__Username
     - key: rabbitmq-password
-      remoteKey: /dev/apps/rabbitmq/password
+      remoteKey: /stg/apps/rabbitmq/password
       envVariable: MessageBroker__Password
     - key: mongodb-connection-string-sportsbook
-      remoteKey: /dev/apps/mongodb/connection-string/sportsbook
+      remoteKey: /stg/apps/mongodb/connection-string/sportsbook
       envVariable: Custom__MongoDB-Sportsbook
 
 env:
