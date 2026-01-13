@@ -18,6 +18,8 @@ env:
   Telemetry__Enabled: true
   Telemetry__Environment: dev
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  OpenExchangeRates__AppId: b2f778983d0d4b11a98e3cf2b4849c01
+  OpenExchangeRates__BaseCurrency: EUR
 
 # TODO:  create probes for services
 livenessProbe:
