@@ -30,6 +30,7 @@ env:
   MessageBroker__Queue: ""
   MessageBroker__Consumer: ""
   MessageBroker__RoutingKey: ""
+  MessageBroker__TlsEnabled: true
 
 ingress:
   enabled: true
