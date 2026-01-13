@@ -28,4 +28,3 @@ env:
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
   MessageBroker__Queue: "q.bg.feed-logger"
-  MessageBroker__TlsEnabled: true

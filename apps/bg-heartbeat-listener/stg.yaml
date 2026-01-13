@@ -27,4 +27,3 @@ env:
   MessageBroker__Port: 5671
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
-  MessageBroker__TlsEnabled: true
