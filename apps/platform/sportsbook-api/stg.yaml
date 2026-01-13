@@ -21,10 +21,5 @@ env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
   Telemetry__Environment: stg
-  Logging__Console__IncludeScopes: true
-  Logging__Console__FormatterName: "json"
-  Logging__Console__FormatterOptions__SingleLine: true
-  Logging__Console__FormatterOptions__UseUtcTimestamp: true
-  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
-  Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   API__RabbitMQAPI: http://rabbitmq-api:3000
