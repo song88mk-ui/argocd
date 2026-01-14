@@ -11,7 +11,7 @@ secrets:
   - name: sportsbook-api
     data:
     - key: mongodb-connection-string-sportsbook
-      remoteKey: /stg/apps/mongodb/connection-string/sportsbook-sb
+      remoteKey: /stg/apps/mongodb/connection-string/sportsbook
       envVariable: ConnectionStrings__MongoDB-Sportsbook
     - key: mssql-connection-string-sportsbook
       remoteKey: /stg/apps/mssql/connection-string/sportsbook
