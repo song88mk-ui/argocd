@@ -16,6 +16,9 @@ secrets:
     - key: auth-api-key
       remoteKey: /dev/apps/auth/security-api-key
       envVariable: Custom__AuthApiKey
+    - key: custom-wallet-apikey
+      remoteKey: /dev/apps/platform/wallet-api/api-key
+      envVariable: Custom__WalletAPIKey
 
 env:
   Telemetry__Enabled: true
