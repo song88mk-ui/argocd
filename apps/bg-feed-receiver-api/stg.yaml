@@ -2,8 +2,6 @@ image:
   repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/bg-feed-receiver-api
   tag: latest
 
-replicaCount: 2
-
 fullnameOverride: "bg-feed-receiver-api"
 
 serviceAccount:
@@ -19,7 +17,7 @@ env:
   API__RabbitMqAPI__Uri: http://bg-rabbitmq-api:3000
   Logging__LogLevel__Default: Debug
 
-replicaCount: 1
+replicaCount: 2
 
 resources:
   requests:
