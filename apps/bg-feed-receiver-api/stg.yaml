@@ -2,6 +2,8 @@ image:
   repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/bg-feed-receiver-api
   tag: latest
 
+replicaCount: 2
+
 fullnameOverride: "bg-feed-receiver-api"
 
 serviceAccount:
