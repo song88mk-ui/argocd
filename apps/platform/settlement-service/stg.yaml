@@ -25,6 +25,7 @@ env:
   Telemetry__MetricsPort: "8080"
   Telemetry__Environment: stg
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
   MessageBroker__Port: 5671
   MessageBroker__VirtualHost: "/"

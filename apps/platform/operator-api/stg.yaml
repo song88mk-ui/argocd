@@ -24,6 +24,7 @@ env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__AuthAPI: http://auth-api:3000
   API__WalletAPI: http://wallet-api:3000
   API__PlatformAgentReportsAPI: http://agent-reports-api:3000
