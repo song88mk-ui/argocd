@@ -1,6 +1,16 @@
 ---
 fullnameOverride: "websocket-service-g01"
 
+secrets:
+  - name: websocket-service-g01
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
 env:
   MessageBroker__Queue: "q.sb.engine.websocket.G01"
   MessageBroker__Consumer: "OE.Engine.WebSocket.G01"

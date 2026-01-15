@@ -5,16 +5,6 @@ image:
 service:
   create: false
 
-secrets:
-  - name: websocket-service
-    data:
-    - key: rabbitmq-username
-      remoteKey: /stg/apps/rabbitmq/username
-      envVariable: MessageBroker__Username
-    - key: rabbitmq-password
-      remoteKey: /stg/apps/rabbitmq/password
-      envVariable: MessageBroker__Password
-
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg

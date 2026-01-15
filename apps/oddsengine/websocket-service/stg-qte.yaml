@@ -1,6 +1,16 @@
 ---
 fullnameOverride: "websocket-service-qte"
 
+secrets:
+  - name: websocket-service-qte
+    data:
+    - key: rabbitmq-username
+      remoteKey: /stg/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /stg/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
 env:
   MessageBroker__Queue: "q.sb.engine.websocket.QTE"
   MessageBroker__Consumer: "OE.Engine.WebSocket.QTE"
