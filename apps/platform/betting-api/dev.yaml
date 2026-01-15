@@ -32,6 +32,6 @@ env:
   API__GTSAPI: "https://gw1.uat.risk.api.geniussports.com"
   API__MTSAuthAPI: "https://mts-auth-ci.betradar.com"
   API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
-  Custom__IsProviderEnabled: true
+  Custom__IsProviderEnabled: false
   Custom__GTSBookmakerId: 10939
   Custom__IsMTSEnabled: false
