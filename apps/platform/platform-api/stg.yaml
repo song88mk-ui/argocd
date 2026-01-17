@@ -8,6 +8,8 @@ fullnameOverride: "platform-api"
 serviceAccount:
   name: "platform-api-sa"
 
+replicaCount: 2
+
 secrets:
   - name: platform-api
     data:

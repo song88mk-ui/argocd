@@ -7,6 +7,8 @@ fullnameOverride: "betting-api"
 serviceAccount:
   name: "betting-api-sa"
 
+replicaCount: 2
+
 secrets:
   - name: betting-api
     data:
