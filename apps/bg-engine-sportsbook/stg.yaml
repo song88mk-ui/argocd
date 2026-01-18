@@ -7,8 +7,6 @@ fullnameOverride: "bg-engine-sportsbook"
 serviceAccount:
   name: "bg-engine-sportsbook-sa"
 
-replicaCount: 3
-
 secrets:
   - name: bg-engine-sportsbook
     data:
