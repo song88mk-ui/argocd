@@ -30,6 +30,5 @@ env:
   MessageBroker__Port: 5671
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
-  MessageBroker__Queue: "q.bg.engine.sportsbook"
   MessageBroker__Consumer: "BG.Engine.Sportsbook"
   MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"
