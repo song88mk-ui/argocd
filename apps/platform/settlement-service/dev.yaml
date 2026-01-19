@@ -30,6 +30,10 @@ env:
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
   MessageBroker__IsPriority: "true"
+  MessageBroker__RoutingKey: "r.bet.settlement|r.oe.bet.settlement|r.of.bet.settlement"
+  MessageBroker__Consumer: "Platform.Settlement.Service"
+  MessageBroker__Queue: q.bet.settlement
+  MessageBroker__PrefetchCount: 1000
   Custom__IsMTSEnabled: "false"
 
 livenessProbe:
