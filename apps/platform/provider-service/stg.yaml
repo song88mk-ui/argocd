@@ -22,6 +22,12 @@ secrets:
     - key: custom-gts-client-secret
       remoteKey: /stg/apps/platform/gts-client-secret
       envVariable: Custom__GTSClientSecret
+    - key: custom-ably-api-key
+      remoteKey: /stg/apps/platform/ably-api-key
+      envVariable: Custom__Ably__ApiKey
+    - key: custom-ably-api-channel
+      remoteKey: /stg/apps/platform/ably-api-channel
+      envVariable: Custom__Ably__Channel
 
 env:
   Telemetry__Enabled: "true"
