@@ -15,7 +15,7 @@ env:
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__RabbitMqAPI__Uri: http://bg-rabbitmq-api:3000
-  Logging__LogLevel__Default: Debug
+  Logging__LogLevel__Default: Information
 
 replicaCount: 1
 
