@@ -27,3 +27,5 @@ env:
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
   MessageBroker__Queue: "q.bg.feed-logger"
+  Archive__Enabled: true
+  Archive__BucketName: song88-dev-bgfeeds
