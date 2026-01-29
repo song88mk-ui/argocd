@@ -1,0 +1,34 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/bg-engine-sportsbook
+  tag: latest
+
+fullnameOverride: "bg-engine-sportsbook"
+
+serviceAccount:
+  name: "bg-engine-sportsbook-sa"
+
+secrets:
+  - name: bg-engine-sportsbook
+    data:
+    - key: rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mongodb-connection-string
+      remoteKey: /prd/apps/mongodb/connection-string/trading
+      envVariable: Custom__MongoDB-Trading
+    - key: mssql-connection-string
+      remoteKey: /prd/apps/mssql/connection-string/trading
+      envVariable: Custom__Trading
+
+env:
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  MessageBroker__Port: 5671
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Consumer: "BG.Engine.Sportsbook"
+  MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"

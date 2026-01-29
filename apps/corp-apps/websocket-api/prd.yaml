@@ -1,0 +1,22 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/backoffice-websocket-api
+  tag: latest
+
+fullnameOverride: "bo-ws-api"
+
+serviceAccount:
+  name: "websocket-api-sa"
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: prd
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http

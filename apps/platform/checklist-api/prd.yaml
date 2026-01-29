@@ -1,0 +1,56 @@
+---
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/client-checklist-api
+  tag: latest
+
+fullnameOverride: "checklist-api"
+
+serviceAccount:
+  name: "checklist-api-sa"
+
+secrets:
+  - name: checklist-api
+    data:
+    - key: security-api-key
+      remoteKey: /prd/apps/auth/security-api-key
+      envVariable: API__AuthenticationAPI__Security__ApiKey
+    - key: jwt-key
+      remoteKey: /prd/apps/auth/jwt-key
+      envVariable: API__AuthenticationAPI__JWT__Key
+    - key: mssql-connection-string-client-checklist
+      remoteKey: /prd/apps/mssql/connection-string/client-checklist
+      envVariable: ConnectionStrings__ClientChecklist
+
+env:
+  Telemetry__Environment: prd
+  Telemetry__Enabled: true
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  JWT__Issuer: bo.auth.api
+  API__AuthenticationAPI__Uri: http://auth-api:3000
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+readinessProbe:
+  httpGet:
+    path: /healthz
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-external-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/1ebf1c9f-d0b5-4f18-9be3-cfb6589a2360
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+
+  hosts:
+  - host: cl-api.song88.com
+    paths:
+      - path: /
+        pathType: Prefix

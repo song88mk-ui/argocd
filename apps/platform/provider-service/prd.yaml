@@ -1,0 +1,56 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-provider-service
+  tag: latest
+
+fullnameOverride: "provider-service"
+
+serviceAccount:
+  name: "provider-service-sa"
+
+secrets:
+  - name: provider-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: custom-gts-client-id
+      remoteKey: /prd/apps/platform/gts-client-id
+      envVariable: Custom__GTSClientID
+    - key: custom-gts-client-secret
+      remoteKey: /prd/apps/platform/gts-client-secret
+      envVariable: Custom__GTSClientSecret
+    - key: custom-ably-api-key
+      remoteKey: /prd/apps/platform/ably-api-key
+      envVariable: Custom__Ably__ApiKey
+    - key: custom-ably-api-channel
+      remoteKey: /prd/apps/platform/ably-api-channel
+      envVariable: Custom__Ably__Channel
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: prd
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  MessageBroker__Port: 5671
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__IsPriority: "true"
+  MessageBroker__Queue: "q.bet.provider"
+  MessageBroker__Consumer: "Platform.Provider.Service"
+  MessageBroker__RoutingKey: "r.bet.cancellation|r.bet.operator"
+  # TODO: Update the geniussports endpoints
+  API__GTSAuthAPI: "https://uat.auth.geniussports.com"
+  API__GTSAPI: "https://gw1.uat.risk.api.geniussports.com"
+  API__MTSAuthAPI: "https://mts-auth-ci.betradar.com"
+  API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
+  Custom__IsProviderEnabled: true
+  Custom__MTSBookmakerId: 32280
+  Custom__GTSBookmakerId: 10939
+
+livenessProbe:
+readinessProbe:
