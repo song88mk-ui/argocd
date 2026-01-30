@@ -1,0 +1,43 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/oev2-uof-client
+  tag: latest
+
+service:
+  create: false
+
+secrets:
+  - name: uof-client
+    data:
+    - key: rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: external-rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: ExternalMessageBroker__Username
+    - key: external-rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: ExternalMessageBroker__Password
+    - key: mssql-connection-string-trading
+      remoteKey: /prd/apps/mssql/connection-string/trading
+      envVariable: Custom__Trading
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: prd
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  MessageBroker__Port: 5671
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  # same for now but diff vhost
+  ExternalMessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  ExternalMessageBroker__Port: 5671
+  ExternalMessageBroker__VirtualHost: "/ext"
+  ExternalMessageBroker__Exchange: "e.central"
+  API__PlatformAPI: "http://platform-api.platform.svc:3000"
+
+livenessProbe:
+readinessProbe:

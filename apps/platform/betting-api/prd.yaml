@@ -1,0 +1,40 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-betting-api
+  tag: latest
+
+fullnameOverride: "betting-api"
+
+serviceAccount:
+  name: "betting-api-sa"
+
+replicaCount: 2
+
+secrets:
+  - name: betting-api
+    data:
+    - key: mssql-connection-string-betting
+      remoteKey: /prd/apps/mssql/connection-string/betting
+      envVariable: ConnectionStrings__Betting
+    - key: custom-gts-client-id
+      remoteKey: /prd/apps/platform/gts-client-id
+      envVariable: Custom__GTSClientID
+    - key: custom-gts-client-secret
+      remoteKey: /prd/apps/platform/gts-client-secret
+      envVariable: Custom__GTSClientSecret
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: prd
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  API__RabbitMQAPI: http://rabbitmq-api:3000
+  API__PlatformSportsbookAPI: http://sportsbook-api:3000
+  # TODO: Update the geniussports endpoints
+  API__GTSAuthAPI: "https://uat.auth.geniussports.com"
+  API__GTSAPI: "https://gw1.uat.risk.api.geniussports.com"
+  API__MTSAuthAPI: "https://mts-auth-ci.betradar.com"
+  API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
+  Custom__IsProviderEnabled: true
+  Custom__GTSBookmakerId: 10939
+  Custom__IsMTSEnabled: false

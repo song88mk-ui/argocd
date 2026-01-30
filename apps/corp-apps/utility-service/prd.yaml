@@ -1,0 +1,37 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/backoffice-utility-service
+  tag: latest
+
+fullnameOverride: "bo-utility-service"
+
+service:
+  create: false
+livenessProbe:
+readinessProbe:
+
+secrets:
+  - name: utility-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-backoffice
+      remoteKey: /prd/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: prd
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  MessageBroker__Port: 5671
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bo.utility"
+  MessageBroker__Consumer: "BO.Utility.Service"
+  MessageBroker__RoutingKey: "r.bo.util.#"
+  Custom__Hub: "http://bo-ws-api:3000/bohub"
+  Custom__AzureStorage: "http://localhost" #todo

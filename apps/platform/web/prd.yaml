@@ -1,0 +1,48 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-web
+  tag: latest
+
+fullnameOverride: "platform-web"
+
+serviceAccount:
+  name: "platform-web-sa"
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: prd
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  API__PlatformAPI: http://platform-api:3000
+  API__PlatformWebsocketAPI: http://websocket-api:3000/platform
+  Config__BaseURL: http://platform-web-config:3000
+  CDN__BaseURL: http://assets.song88.com
+  Custom__UseMessagePack: true
+  Custom__MaximumConnections: 300
+  Custom__MaintenanceConfigFile: Configs/maintenance.json
+  Custom__Layout__Version: 0
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-external-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/1ebf1c9f-d0b5-4f18-9be3-cfb6589a2360
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+  hosts:
+  - host: sb.song88.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+metrics:
+  enabled: false
