@@ -1,6 +1,6 @@
 ---
 image:
-  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-platform-api
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-platform-api
   tag: latest
 
 fullnameOverride: "platform-api"

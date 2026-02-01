@@ -1,5 +1,5 @@
 image:
-  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/of-rabbitmq-api
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/of-rabbitmq-api
   tag: latest
 
 fullnameOverride: "rabbitmq-api"

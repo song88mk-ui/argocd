@@ -1,5 +1,5 @@
 image:
-  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/of-recovery-service
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/of-recovery-service
   tag: latest
 
 fullnameOverride: "recovery-service"

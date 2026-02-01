@@ -1,7 +1,7 @@
 ---
 # auth is on separate repo, but included as part of the platform services
 image:
-  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-auth-api
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-auth-api
   tag: latest
 
 fullnameOverride: "auth-api"

@@ -1,5 +1,5 @@
 image:
-  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-operator-service
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-operator-service
   tag: latest
 
 fullnameOverride: "operator-service"
