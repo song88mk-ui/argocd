@@ -1,5 +1,5 @@
 image:
-  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-keepalive
+  repository: 172065883315.dkr.ecr.ap-east-1.amazonaws.com/oev2-job-keepalive
   tag: latest
 
 fullnameOverride: "job-keepalive"
