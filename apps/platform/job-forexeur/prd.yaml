@@ -19,7 +19,7 @@ env:
   Telemetry__Environment: dev
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
-  OpenExchangeRates__AppId: a19c493bff274bc0821527034b6274d8
+  OpenExchangeRates__AppId: 8114b3a8cdcd4d75bcbdc6fd90d6bc9e
   OpenExchangeRates__BaseCurrency: EUR
 
 # TODO:  create probes for services
