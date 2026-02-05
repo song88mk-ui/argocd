@@ -23,8 +23,8 @@ env:
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   Custom__Enabled: true
   Custom__SportRetention: -7
-  Custom__UtcWindowHours__Start: 1
-  Custom__UtcWindowHours__End: 10
+  Custom__UtcWindowHours__Start: 0
+  Custom__UtcWindowHours__End: 24
 
 livenessProbe:
 readinessProbe:
