@@ -1,0 +1,30 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-cleanup
+  tag: latest
+
+fullnameOverride: "job-cleanup"
+
+service:
+  create: false
+
+serviceAccount:
+  name: "job-cleanup-sa"
+
+secrets:
+  - name: job-cleanup
+    data:
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /dev/apps/mongodb/connection-string/sportsbook
+      envVariable: Custom__MongoDB-Sportsbook
+
+env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: true
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Custom__Enabled: false
+  Custom__SportRetention: -30
+  Custom__UtcWindowHours__Start: 1
+  Custom__UtcWindowHours__End: 10
+
+livenessProbe:
+readinessProbe:
