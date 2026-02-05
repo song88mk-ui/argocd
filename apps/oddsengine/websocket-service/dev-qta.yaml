@@ -1,0 +1,21 @@
+---
+fullnameOverride: "websocket-service-qta"
+
+secrets:
+  - name: websocket-service-qta
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  MessageBroker__Queue: "q.sb.engine.websocket.QTA"
+  MessageBroker__Consumer: "OE.Engine.WebSocket.QTA"
+  MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.qta|r.bet.cashoutchange.qta|r.wallet.qta|r.oe.sb.engine.onvisitfavorites.qta|r.oe.sb.engine.onvisitboostedfixtures.qta|r.oe.sb.engine.onmarketsortorderchange.qta"
+  Custom__ClientId: "D9D3ADD2-DAA0-49A4-2573-08DD934F4819"
+  Custom__ClientCode: "QTA"
+
+
