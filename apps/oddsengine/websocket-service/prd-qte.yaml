@@ -15,5 +15,5 @@ env:
   MessageBroker__Queue: "q.sb.engine.websocket.QTE"
   MessageBroker__Consumer: "OE.Engine.WebSocket.QTE"
   MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.qte|r.bet.cashoutchange.qte|r.wallet.qte|r.oe.sb.engine.onvisitfavorites.qte|r.oe.sb.engine.onvisitboostedfixtures.qte|r.oe.sb.engine.onmarketsortorderchange.qte"
-  Custom__ClientId: "A766634C-AEDF-4D6D-05C4-08DD56D3A92C"
+  Custom__ClientId: "D9D3ADD2-DAA0-49A4-2573-08DD934F4819"
   Custom__ClientCode: "QTE"
