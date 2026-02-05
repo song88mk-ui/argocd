@@ -28,6 +28,13 @@ secrets:
       remoteKey: /stg/apps/betgenius/key
       envVariable: API__BetGenius__Key
 
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 600Mi
+
 env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"

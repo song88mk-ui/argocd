@@ -22,6 +22,13 @@ secrets:
       remoteKey: /stg/apps/platform/gts-client-secret
       envVariable: Custom__GTSClientSecret
 
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 600Mi
+
 env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
