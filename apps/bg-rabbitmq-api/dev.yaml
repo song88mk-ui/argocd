@@ -30,6 +30,8 @@ env:
   MessageBroker__Consumer: ""
   MessageBroker__RoutingKey: ""
 
+replicaCount: 2
+
 ingress:
   enabled: true
   annotations:
