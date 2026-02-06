@@ -1,0 +1,38 @@
+---
+image:
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-clientplatform-api
+  tag: latest
+
+fullnameOverride: "clientplatform-api"
+
+serviceAccount:
+  name: "clientplatform-api-sa"
+
+replicaCount: 2
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: prd
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  API__PlatformAPI: http://platform-api:3000
+  API__PlatformAPIReadonly: http://platform-api-ro:3000
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-external-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/1ebf1c9f-d0b5-4f18-9be3-cfb6589a2360
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /swagger
+
+  hosts:
+  - host: client-api.song88.com
+    paths:
+      - path: /
+        pathType: Prefix
