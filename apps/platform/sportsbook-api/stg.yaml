@@ -7,8 +7,6 @@ fullnameOverride: "sportsbook-api"
 serviceAccount:
   name: "sportsbook-api-sa"
 
-replicaCount: 2
-
 secrets:
   - name: sportsbook-api
     data:
