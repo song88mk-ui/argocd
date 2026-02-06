@@ -39,9 +39,9 @@ ingress:
 
 livenessProbe:
   httpGet:
-    path: /healthz
+    path: /v1/probe
     port: http
 readinessProbe:
   httpGet:
-    path: /healthz
+    path: /v1/probe
     port: http
