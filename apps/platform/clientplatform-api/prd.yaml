@@ -29,7 +29,7 @@ ingress:
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/1ebf1c9f-d0b5-4f18-9be3-cfb6589a2360
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
-    alb.ingress.kubernetes.io/healthcheck-path: /swagger
+    alb.ingress.kubernetes.io/healthcheck-path: /v1/probe
 
   hosts:
   - host: client-api.song88.com
