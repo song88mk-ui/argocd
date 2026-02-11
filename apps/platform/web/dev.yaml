@@ -18,7 +18,7 @@ env:
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   API__PlatformAPI: http://platform-api:3000
   API__PlatformWebsocketAPI: http://websocket-api:3000/platform
-  Config__BaseURL: http://platform-web-config:3000
+  Config__BaseURL: http://platform-webprops-api:3000
   CDN__BaseURL: http://assets.dev.song88.com
   Custom__UseMessagePack: true
   Custom__MaximumConnections: 300
