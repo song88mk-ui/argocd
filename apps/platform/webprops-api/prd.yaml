@@ -1,0 +1,25 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-webprops-api
+  tag: latest
+
+fullnameOverride: "platform-webprops-api"
+
+serviceAccount:
+  name: "webprops-api-sa"
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+
+env:
+  PORT: 3000
+  BUCKET_NAME: song88-prd-webprops
+  CACHE_API_KEY: "s@ng88"
+
+metrics:
+  enabled: false
