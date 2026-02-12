@@ -33,4 +33,4 @@ env:
   MessageBroker__Queue: "q.bg.receiver"
   MessageBroker__Consumer: "BG.Receiver.Service"
   MessageBroker__RoutingKey: "r.bg.onprocessmessage"
-  Custom__MongoDB-Trading: "https://gsm-widgets-uat.betstream.betgenius.com/multisportgametracker"
+  Custom__MongoDB-Trading: "https://gsm-widgets.betstream.betgenius.com/multisportgametracker"
