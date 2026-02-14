@@ -42,4 +42,3 @@ env:
   API__RabbitMQAPI: http://rabbitmq-api:3000
   API__BetGenius__Uri: "https://api.geniussports.com/"
   API__BetGenius__Env: "UAT"
-  Custom__HasReplica: true
