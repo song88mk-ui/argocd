@@ -16,7 +16,7 @@ secrets:
 
 env:
   Telemetry__Enabled: true
-  Telemetry__Environment: dev
+  Telemetry__Environment: prd
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   OpenExchangeRates__AppId: 8114b3a8cdcd4d75bcbdc6fd90d6bc9e
