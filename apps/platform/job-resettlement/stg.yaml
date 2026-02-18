@@ -1,0 +1,34 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-job-resettlement
+  tag: latest
+
+fullnameOverride: "job-resettlement"
+
+serviceAccount:
+  name: "job-resettlement-sa"
+
+livenessProbe:
+readinessProbe:
+
+secrets:
+  - name: job-resettlement
+    data:
+    - key: mssql-connection-string-platform
+      remoteKey: /stg/apps/mssql/connection-string/platform
+      envVariable: ConnectionStrings__Platform
+    - key: rabbitmq-username
+      remoteKey: /stg/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /stg/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: stg
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  MessageBroker__Port: 5671
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
