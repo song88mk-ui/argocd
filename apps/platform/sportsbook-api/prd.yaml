@@ -20,13 +20,13 @@ secrets:
       envVariable: ConnectionStrings__Sportsbook
     - key: betgenius-user
       remoteKey: /prd/apps/betgenius/user
-      envVariable: API__BetGenius__User
+      envVariable: Custom__BetGenius__User
     - key: betgenius-password
       remoteKey: /prd/apps/betgenius/password
-      envVariable: API__BetGenius__Password
+      envVariable: Custom__BetGenius__Password
     - key: betgenius-key
       remoteKey: /prd/apps/betgenius/key
-      envVariable: API__BetGenius__Key
+      envVariable: Custom__BetGenius__Key
 
 env:
   Telemetry__Enabled: "true"
@@ -34,7 +34,7 @@ env:
   Telemetry__Environment: prd
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
-  API__RabbitMQAPI: http://rabbitmq-api:3000
-  API__BetGenius__Uri: "https://api.geniussports.com/"
-  API__BetGenius__Env: "PROD"
+  Custom__RabbitMQAPI: http://rabbitmq-api:3000
+  Custom__BetGenius__Uri: "https://api.geniussports.com/"
+  Custom__BetGenius__Env: "PROD"
   Custom__HasReplica: true
