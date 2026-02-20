@@ -8,11 +8,7 @@ serviceAccount:
   name: "bg-receiver-service-sa"
 
 autoscaling:
-  enabled: true
-  minReplicas: 2
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 60
-  targetMemoryUtilizationPercentage: 60
+  enabled: false
 
 secrets:
   - name: bg-receiver-service
