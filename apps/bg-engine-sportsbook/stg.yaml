@@ -32,3 +32,5 @@ env:
   MessageBroker__Exchange: "e.central"
   MessageBroker__Consumer: "BG.Engine.Sportsbook"
   MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"
+  Custom__LookupEnabled: false
+  
