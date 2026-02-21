@@ -7,6 +7,17 @@ fullnameOverride: "bg-rabbitmq-api"
 serviceAccount:
   name: "bg-rabbitmq-api-sa"
 
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+  periodSeconds: 5
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+  initialDelaySeconds: 3
+
 secrets:
   - name: bg-rabbitmq-api
     data:
