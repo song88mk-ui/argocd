@@ -14,7 +14,7 @@ secrets:
   - name: job-livestream
     data:
     - key: mongodb-connection-string-sportsbook
-      remoteKey: /prd/apps/mongodb/connection-string/sportsbook
+      remoteKey: /prd/apps/mongodb-instance/connection-string/sportsbook
       envVariable: Custom__MongoDB-Sportsbook
     - key: betgenius-user
       remoteKey: /prd/apps/betgenius/user

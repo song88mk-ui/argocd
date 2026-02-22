@@ -13,7 +13,7 @@ secrets:
       remoteKey: /prd/apps/rabbitmq/password
       envVariable: MessageBroker__Password
     - key: mongodb-connection-string-sportsbook
-      remoteKey: /prd/apps/mongodb/connection-string/sportsbook
+      remoteKey: /prd/apps/mongodb-instance/connection-string/sportsbook
       envVariable: Custom__MongoDB-Sportsbook
 
 env:

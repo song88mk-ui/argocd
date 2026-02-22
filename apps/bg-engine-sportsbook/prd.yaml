@@ -24,7 +24,7 @@ secrets:
       remoteKey: /prd/apps/rabbitmq/password
       envVariable: MessageBroker__Password
     - key: mongodb-connection-string
-      remoteKey: /prd/apps/mongodb/connection-string/trading
+      remoteKey: /prd/apps/mongodb-instance/connection-string/trading
       envVariable: Custom__MongoDB-Trading
     - key: mssql-connection-string
       remoteKey: /prd/apps/mssql/connection-string/trading
