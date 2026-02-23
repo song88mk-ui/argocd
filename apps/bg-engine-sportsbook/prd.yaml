@@ -36,3 +36,5 @@ env:
   MessageBroker__Consumer: "BG.Engine.Sportsbook"
   MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"
   Custom__LookupEnabled: false
+  Custom__QueueCapacity: 100
+  MessageBroker__PrefetchCount: 200
