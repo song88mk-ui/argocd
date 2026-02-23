@@ -8,11 +8,7 @@ serviceAccount:
   name: "bg-engine-sportsbook-sa"
 
 autoscaling:
-  enabled: true
-  minReplicas: 2
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 60
-  targetMemoryUtilizationPercentage: 60
+  enabled: false
 
 secrets:
   - name: bg-engine-sportsbook
