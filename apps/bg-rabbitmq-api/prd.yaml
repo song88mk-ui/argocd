@@ -35,6 +35,11 @@ secrets:
       remoteKey: /prd/apps/rabbitmq/password
       envVariable: MessageBroker__Password
 
+resources:
+  requests:
+    cpu: 300m
+    memory: 600Mi
+
 env:
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
