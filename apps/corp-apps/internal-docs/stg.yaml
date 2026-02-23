@@ -20,22 +20,3 @@ env:
 
 livenessProbe:
 readinessProbe:
-
-ingress:
-  enabled: true
-  className: "alb"
-  annotations:
-    alb.ingress.kubernetes.io/load-balancer-name: stg-eks-alb
-    alb.ingress.kubernetes.io/group.name: apps
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
-    alb.ingress.kubernetes.io/ssl-redirect: '443'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/a6c41251-e9d8-4647-96d0-b06a5c93525c
-    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
-    alb.ingress.kubernetes.io/healthcheck-path: /
-
-  hosts:
-  - host: docs-stg.s88platform.com
-    paths:
-      - path: /
-        pathType: Prefix
