@@ -7,6 +7,8 @@ fullnameOverride: "bg-engine-sportsbook"
 serviceAccount:
   name: "bg-engine-sportsbook-sa"
 
+replicaCount: 1
+
 secrets:
   - name: bg-engine-sportsbook
     data:
@@ -33,3 +35,4 @@ env:
   MessageBroker__Consumer: "BG.Engine.Sportsbook"
   MessageBroker__RoutingKey: "r.bg.receiver.#|r.oe.mapping.bg.#"
   Custom__LookupEnabled: false
+  Custom__QueueCapacity: 100
