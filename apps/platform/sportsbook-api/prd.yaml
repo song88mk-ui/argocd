@@ -37,4 +37,4 @@ env:
   Custom__RabbitMQAPI: http://rabbitmq-api:3000
   Custom__BetGenius__Uri: "https://api.geniussports.com/"
   Custom__BetGenius__Env: "PROD"
-  Custom__HasReplica: true
+  Custom__HasReplica: false
