@@ -7,6 +7,9 @@ fullnameOverride: "cashout-service"
 serviceAccount:
   name: "cashout-service-sa"
 
+metrics:
+  enabled: false
+
 secrets:
   - name: cashout-service
     data:
