@@ -22,6 +22,8 @@ secrets:
       remoteKey: /prd/apps/mssql/connection-string/auth
       envVariable: Context__Auth
 
+replicaCount: 2
+
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: prd
