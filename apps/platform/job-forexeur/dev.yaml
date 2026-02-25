@@ -7,6 +7,9 @@ fullnameOverride: "job-forexeur"
 serviceAccount:
   name: "job-forexeur-sa"
 
+metrics:
+  enabled: false
+
 secrets:
   - name: job-forexeur
     data:

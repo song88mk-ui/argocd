@@ -7,6 +7,9 @@ fullnameOverride: "cashoutstake-service"
 serviceAccount:
   name: "cashoutstake-service-sa"
 
+metrics:
+  enabled: false
+
 secrets:
   - name: cashoutstake-service
     data:
