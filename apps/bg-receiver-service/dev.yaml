@@ -31,5 +31,5 @@ env:
   MessageBroker__Exchange: "e.central"
   MessageBroker__Queue: "q.bg.receiver"
   MessageBroker__Consumer: "BG.Receiver.Service"
-  MessageBroker__RoutingKey: "r.bg.onprocessmessage"
+  MessageBroker__RoutingKey: "r.bg.onprocessmessage|r.bg.onmarketclose"
   Custom__StatisticsBaseURI: "https://gsm-widgets.betstream.betgenius.com/multisportgametracker"
