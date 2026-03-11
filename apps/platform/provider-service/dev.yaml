@@ -25,6 +25,9 @@ secrets:
     - key: custom-ably-api-key
       remoteKey: /dev/apps/platform/ably-api-key
       envVariable: Custom__Ably__ApiKey
+    - key: custom-ably-channel
+      remoteKey: /dev/apps/platform/ably-api-channel
+      envVariable: Custom__Ably__Channel
 
 env:
   Telemetry__Enabled: "true"
@@ -46,7 +49,7 @@ env:
   Custom__IsProviderEnabled: false
   Custom__MTSBookmakerId: 32280
   Custom__GTSBookmakerId: 10939
-  Custom__Ably__Channel: "song88"
   Custom__Ably__ChannelCount: 1
+
 livenessProbe:
 readinessProbe:
