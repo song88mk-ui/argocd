@@ -29,7 +29,7 @@ env:
   Custom__Layout__Version: 0
   Custom__OrientalGaming__PrivateAPIKey: fjfOLes3FEbe2ubdqFtIak4CFDXRk6Lg
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
-  Custom__OrientalGaming__ELDomain: https://preprod-kr-platformweb.song88.com
+  Custom__OrientalGaming__ELDomain: http://sb.stg.song88.com
 
 ingress:
   enabled: true
