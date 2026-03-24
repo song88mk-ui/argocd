@@ -16,6 +16,7 @@ env:
   Logging__Console__FormatterOptions__SingleLine: true
   Logging__Console__FormatterOptions__UseUtcTimestamp: true
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Custom__SB__Domain: sb.stg.song88.com
   Custom__SB__ClientId: FFDECDB4-10A7-4AEC-9D93-40DEC796CBE9
   Custom__SB__Currency: USD
   Custom__SB__LanguageCode: EN
