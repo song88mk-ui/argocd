@@ -48,7 +48,7 @@ env:
   API__MTSAuthAPI: "https://mts-auth-ci.betradar.com"
   API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
   Custom__IsProviderEnabled: true
-  Custom__TestBetClientCodes: "QTE,GSA,OGE,G00"
+  Custom__TestBetClientCodes: "GSA,OGE,G00"
   Custom__MTSBookmakerId: 32280
   Custom__GTSBookmakerId: 10939
   Custom__Ably__ChannelCount: 10
