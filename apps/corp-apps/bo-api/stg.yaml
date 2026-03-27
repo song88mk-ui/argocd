@@ -16,7 +16,9 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /stg/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
-
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /stg/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: Custom__MongoDB-Sportsbook
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg
@@ -36,6 +38,8 @@ env:
   API__TradingAPI__SA__Uri: http://api.oddsengine.svc:3000
   API__RabbitMqApi__HK__Uri: http://rabbitmq-api.platform.svc:3000
   API__RabbitMqApi__SA__Uri: http://rabbitmq-api.platform.svc:3000
+  API__SportsbookAPI__HK__Uri: http://sportsbook-api:3000
+  API__SportsbookAPI__SA__Uri: http://sportsbook-api:3000
   Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
   IsStaging: true
 
