@@ -36,8 +36,8 @@ env:
   API__TradingAPI__HK__Uri: http://api.oddsengine.svc:3000
   API__TradingAPI__SA__APIKey: xgB3eM5b8FDn9msu
   API__TradingAPI__SA__Uri: http://api.oddsengine.svc:3000
-  API__SportsbookAPI__HK__Uri: http://sportsbook-api:3000
-  API__SportsbookAPI__SA__Uri: http://sportsbook-api:3000
+  API__SportsbookAPI__HK__Uri: http://sportsbook-api.platform:3000
+  API__SportsbookAPI__SA__Uri: http://sportsbook-api.platform:3000
   API__RabbitMqApi__HK__Uri: http://rabbitmq-api.platform.svc:3000
   API__RabbitMqApi__SA__Uri: http://rabbitmq-api.platform.svc:3000
   Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
