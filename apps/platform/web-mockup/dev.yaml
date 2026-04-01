@@ -23,7 +23,7 @@ env:
   Custom__Layout__Version: 0
 
 ingress:
-  enabled: true
+  enabled: false
   className: "alb"
   annotations:
     alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
