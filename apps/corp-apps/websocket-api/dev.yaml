@@ -22,7 +22,7 @@ readinessProbe:
     port: http
 
 ingress:
-  enabled: true
+  enabled: false
   className: "alb"
   annotations:
     alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
