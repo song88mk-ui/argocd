@@ -29,7 +29,6 @@ env:
   Custom__Layout__Version: 0
   Custom__OrientalGaming__PrivateKey: LATEST_PRIVATE_KEY
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
-  Custom__OrientalGaming__ELDomain: https://sb.dev.song88.com
 
 ingress:
   enabled: true
