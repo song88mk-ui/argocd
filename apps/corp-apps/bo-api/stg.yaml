@@ -19,6 +19,10 @@ secrets:
     - key: mongodb-connection-string-sportsbook
       remoteKey: /stg/apps/mongodb-instance/connection-string/sportsbook
       envVariable: Custom__MongoDB-Sportsbook
+    - key: mssql-connection-string-sportsbook
+      remoteKey: /stg/apps/mssql/connection-string/sportsbook
+      envVariable: ConnectionStrings__Sportsbook
+
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg
