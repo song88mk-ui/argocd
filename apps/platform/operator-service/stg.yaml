@@ -38,6 +38,10 @@ env:
   MessageBroker__RoutingKey: "r.bet.operator"
   MessageBroker__IsPriority: "true"
   MessageBroker__PrefetchCount: 1000
+  Custom__OrientalGaming__VendorName: "Song88"
+  Custom__OrientalGaming__PublicAPIKey: "wGf3Kd63roP6fZDXHOmeMv5fTfCvaVnd"
+  Custom__OrientalGaming__PrivateAPIKey: "fjfOLes3FEbe2ubdqFtIak4CFDXRk6Lg"
+  Custom__OrientalGaming__HighCurrenciesAsString: "IDRK,VNDK,MMKK,INRK,UZSK"
 
 livenessProbe:
 readinessProbe:
