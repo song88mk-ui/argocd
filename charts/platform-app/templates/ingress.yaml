@@ -44,17 +44,6 @@ spec:
                 name: response-404
                 port:
                   name: use-annotation
-          {{- range $p := .paths }}
-          - path: {{ $p.path }}
-            {{- with $p.pathType }}
-            pathType: {{ $p.pathType }}
-            {{- end }}
-            backend:
-              service:
-                name: {{ include "platform-app.fullname" $ }}
-                port:
-                  number: {{ $.Values.service.port }}
-          {{- end }}
           {{- range $p := .thirdPartyPaths }}
           - path: {{ $p.path }}
             {{- with $p.pathType }}
@@ -65,6 +54,17 @@ spec:
                 name: {{ $p.serviceName }}
                 port:
                   number: {{ $p.servicePort }}
+          {{- end }}
+          {{- range $p := .paths }}
+          - path: {{ $p.path }}
+            {{- with $p.pathType }}
+            pathType: {{ $p.pathType }}
+            {{- end }}
+            backend:
+              service:
+                name: {{ include "platform-app.fullname" $ }}
+                port:
+                  number: {{ $.Values.service.port }}
           {{- end }}
     {{- end }}
 {{- end }}
