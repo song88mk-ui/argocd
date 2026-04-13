@@ -55,5 +55,16 @@ spec:
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}
+          {{- range $p := .thirdPartyPaths }}
+          - path: {{ $p.path }}
+            {{- with $p.pathType }}
+            pathType: {{ $p.pathType }}
+            {{- end }}
+            backend:
+              service:
+                name: {{ $p.serviceName }}
+                port:
+                  number: {{ $p.servicePort }}
+          {{- end }}
     {{- end }}
 {{- end }}

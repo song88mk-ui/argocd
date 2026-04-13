@@ -42,5 +42,13 @@ ingress:
       - path: /
         pathType: Prefix
 
+    # Service that displays the current version of the deployed apps.
+    thirdPartyPaths:
+      - path: /version-manifest
+        pathType: Exact
+        serviceName: version-manifest
+        servicePort: 80
+
+
 metrics:
   enabled: false
