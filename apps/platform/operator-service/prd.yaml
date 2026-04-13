@@ -22,6 +22,12 @@ secrets:
     - key: mssql-connection-string-betting
       remoteKey: /prd/apps/mssql/connection-string/betting
       envVariable: ConnectionStrings__Betting
+    - key: platform-og-public-key
+      remoteKey: /stg/apps/platform/og/public-key
+      envVariable: Custom__OrientalGaming__PublicAPIKey
+    - key: platform-og-private-key
+      remoteKey: /stg/apps/platform/og/private-key
+      envVariable: Custom__OrientalGaming__PrivateAPIKey
 
 env:
   Telemetry__Enabled: "true"
@@ -39,8 +45,6 @@ env:
   MessageBroker__IsPriority: "true"
   MessageBroker__PrefetchCount: 1000
   Custom__OrientalGaming__VendorName: "Song88"
-  Custom__OrientalGaming__PublicAPIKey: "wGf3Kd63roP6fZDXHOmeMv5fTfCvaVnd"
-  Custom__OrientalGaming__PrivateAPIKey: "fjfOLes3FEbe2ubdqFtIak4CFDXRk6Lg"
   Custom__OrientalGaming__HighCurrenciesAsString: "IDRK,VNDK,MMKK,INRK,UZSK"
 
 livenessProbe:
