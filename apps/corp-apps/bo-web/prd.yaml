@@ -16,6 +16,9 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /prd/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
+    - key: metabase-secret-key
+      remoteKey: /prd/backoffice/metabase/secret-key
+      envVariable: Metabase__SecretKey
 
 env:
   Telemetry__Enabled: true
@@ -26,6 +29,7 @@ env:
   API__HubAPI: http://bo-ws-api:3000/bohub
   Region: HK
   SlackWebHoo: "https://hooks.slack.com/workflows/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"
+  Metabase__SiteUrl: "https://metabase.prd.song88.com"
 
 livenessProbe:
   httpGet:
