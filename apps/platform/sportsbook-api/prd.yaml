@@ -27,7 +27,10 @@ secrets:
     - key: betgenius-key
       remoteKey: /prd/apps/betgenius/key
       envVariable: Custom__BetGenius__Key
-
+    - key: mssql-connection-string-translation
+      remoteKey: /prd/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
+      
 env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
