@@ -1,0 +1,34 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/bg-translation-service
+  tag: latest
+
+fullnameOverride: "bg-translation-service"
+
+serviceAccount:
+  name: "bg-translation-service-sa"
+
+secrets:
+  - name: bg-translation-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-backoffice
+      remoteKey: /prd/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  MessageBroker__Port: 5671
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bg.translation"
+  MessageBroker__Consumer: "BG.Translation.Service"
