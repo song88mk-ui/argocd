@@ -1,0 +1,30 @@
+image:
+  repository: 418541840646.dkr.ecr.ap-south-1.amazonaws.com/bg-translation-service
+  tag: latest
+
+fullnameOverride: "bg-translation-service"
+
+serviceAccount:
+  name: "bg-translation-service-sa"
+
+secrets:
+  - name: bg-translation-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-backoffice
+      remoteKey: /dev/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+
+env:
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bg.translation"
+  MessageBroker__Consumer: "BG.Translation.Service"
