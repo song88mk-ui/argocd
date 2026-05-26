@@ -15,6 +15,9 @@ secrets:
     - key: mongodb-connection-string-sportsbook
       remoteKey: /stg/apps/mongodb-instance/connection-string/sportsbook
       envVariable: Custom__MongoDB-Sportsbook
+    - key: mssql-connection-string-translation
+      remoteKey: /stg/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
 
 env:
   MessageBroker__Queue: "q.sb.engine.09"
