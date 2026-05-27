@@ -19,6 +19,9 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /stg/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
+    - key: mssql-connection-string-translation
+      remoteKey: /stg/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
 
 env:
   Logging__Console__IncludeScopes: true

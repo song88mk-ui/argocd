@@ -19,6 +19,9 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /dev/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
+    - key: mssql-connection-string-translation
+      remoteKey: /dev/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
 
 env:
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
