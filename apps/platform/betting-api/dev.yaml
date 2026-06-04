@@ -7,6 +7,10 @@ fullnameOverride: "betting-api"
 serviceAccount:
   name: "betting-api-sa"
 
+service:
+  headless:
+    enabled: true
+
 secrets:
   - name: betting-api
     data:

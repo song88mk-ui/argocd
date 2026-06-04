@@ -9,6 +9,10 @@ serviceAccount:
 
 replicaCount: 2
 
+service:
+  headless:
+    enabled: true
+
 secrets:
   - name: betting-api
     data:

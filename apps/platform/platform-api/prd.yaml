@@ -25,6 +25,10 @@ env:
   API__PlatformBettingAPI: http://betting-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
 
+service:
+  headless:
+    enabled: true
+
 ingress:
   enabled: true
   className: "alb"

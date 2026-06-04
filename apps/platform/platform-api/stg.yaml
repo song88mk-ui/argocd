@@ -24,6 +24,10 @@ resources:
     cpu: 300m
     memory: 600Mi
 
+service:
+  headless:
+    enabled: true
+
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg

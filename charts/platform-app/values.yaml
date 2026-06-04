@@ -27,6 +27,8 @@ service:
   create: true
   type: ClusterIP
   port: 3000
+  headless:
+    enabled: false
 
 env:
   DOTNET_URLS: http://+:3000
