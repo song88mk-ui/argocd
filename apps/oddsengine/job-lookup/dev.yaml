@@ -37,3 +37,6 @@ env:
 
 livenessProbe:
 readinessProbe:
+
+metrics:
+  enabled: false
