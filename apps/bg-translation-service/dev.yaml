@@ -31,3 +31,6 @@ env:
   MessageBroker__Exchange: "e.central"
   MessageBroker__Queue: "q.bg.translation"
   MessageBroker__Consumer: "BG.Translation.Service"
+
+metrics:
+  enabled: false
