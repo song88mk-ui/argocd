@@ -25,6 +25,9 @@ env:
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
   MessageBroker__Port: 5671
+  API__PlatformSportsbookAPI__Port: "3000"
+  API__PlatformBettingAPI__Port: "3000"
+  API__PlatformAPI__Port: "3000"
 
 livenessProbe:
 readinessProbe:

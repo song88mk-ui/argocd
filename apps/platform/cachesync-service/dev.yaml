@@ -25,6 +25,9 @@ env:
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   MessageBroker__Host: rabbitmq-main-cluster.bet-genius-apps.svc
   MessageBroker__VirtualHost: "/"
+  API__PlatformSportsbookAPI__Port: "3000"
+  API__PlatformBettingAPI__Port: "3000"
+  API__PlatformAPI__Port: "3000"
 
 livenessProbe:
 readinessProbe:
