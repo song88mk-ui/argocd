@@ -15,6 +15,11 @@ readinessProbe:
   httpGet:
     path: /
 
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 5
+
 ingress:
   enabled: true
   className: "alb"
