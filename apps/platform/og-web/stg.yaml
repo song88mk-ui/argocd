@@ -35,7 +35,7 @@ ingress:
   className: "alb"
   annotations:
     alb.ingress.kubernetes.io/load-balancer-name: stg-eks-china-alb
-    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/group.name: china-apps
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
