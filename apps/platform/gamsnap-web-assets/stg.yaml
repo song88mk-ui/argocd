@@ -24,8 +24,8 @@ ingress:
   enabled: true
   className: "alb"
   annotations:
-    alb.ingress.kubernetes.io/load-balancer-name: stg-eks-zn-alb
-    alb.ingress.kubernetes.io/group.name: gamsnap-zn-apps
+    alb.ingress.kubernetes.io/load-balancer-name: stg-eks-gamsnap-alb
+    alb.ingress.kubernetes.io/group.name: gamsnap-apps
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
