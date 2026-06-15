@@ -1,0 +1,46 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-song88
+  tag: latest
+
+fullnameOverride: "platform-gamsnap-song88"
+
+serviceAccount:
+  name: "platform-gamsnap-song88-sa"
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: prd
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Custom__SB__Domain: sb.jmj19876.com
+  Custom__SB__ClientId: ED082939-6B40-41B7-95EC-CFDC75410F7E
+  Custom__SB__Currency: USD
+  Custom__SB__LanguageCode: EN
+  Custom__SB__OperatorToken: EDA2353F-56F6-4A62-851B-EC61140B6C0A
+  Custom__SB__UserId: 6F28EF85-5502-4F1C-88FD-2C6F0AFF3B53
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-gamsnap-alb
+    alb.ingress.kubernetes.io/group.name: gamsnap-apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/7d11e663-20a3-4368-aa6d-92bcdfc51f34
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+  hosts:
+  - host: jmj19876.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+metrics:
+  enabled: false

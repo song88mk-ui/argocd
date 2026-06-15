@@ -1,0 +1,43 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-web-assets
+  tag: latest
+
+fullnameOverride: "platform-gamsnap-web-assets"
+
+serviceAccount:
+  name: "platform-gamsnap-web-assets-sa"
+
+livenessProbe:
+  httpGet:
+    path: /
+
+readinessProbe:
+  httpGet:
+    path: /
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 5
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-gamsnap-alb
+    alb.ingress.kubernetes.io/group.name: gamsnap-apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/7d11e663-20a3-4368-aa6d-92bcdfc51f34
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+  hosts:
+  - host: assets.jmj19876.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+metrics:
+  enabled: false
