@@ -1,0 +1,43 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-web-assets
+  tag: latest
+
+fullnameOverride: "platform-og-web-assets"
+
+serviceAccount:
+  name: "platform-og-web-assets-sa"
+
+livenessProbe:
+  httpGet:
+    path: /
+
+readinessProbe:
+  httpGet:
+    path: /
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 5
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-og-alb
+    alb.ingress.kubernetes.io/group.name: og-apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/095dbf87-1cd4-443c-87bc-6e7434cb5f4a
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+  hosts:
+  - host: assets.jmj22222.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+metrics:
+  enabled: false
