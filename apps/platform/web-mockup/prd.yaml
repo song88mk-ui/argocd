@@ -19,7 +19,7 @@ env:
   API__PlatformAPI: http://xplatform-api:3000
   API__PlatformWebsocketAPI: http://xwebsocket-api:3000
   Config__BaseURL: http://xplatform-web-config:3000
-  CDN__BaseURL: http://assets.song88.com
+  CDN__BaseURL: https://assets.song88.com
   Custom__Layout__Version: 0
 
 ingress:
