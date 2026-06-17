@@ -7,11 +7,6 @@ fullnameOverride: "platform-og-web"
 serviceAccount:
   name: "platform-og-web-sa"
 
-autoscaling:
-  enabled: true
-  minReplicas: 3
-  maxReplicas: 5
-
 env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"

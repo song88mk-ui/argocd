@@ -7,11 +7,6 @@ fullnameOverride: "platform-song88"
 serviceAccount:
   name: "platform-song88-sa"
 
-autoscaling:
-  enabled: true
-  minReplicas: 2
-  maxReplicas: 5
-
 env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
