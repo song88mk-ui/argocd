@@ -22,6 +22,9 @@ secrets:
     - key: mssql-connection-string-sportsbook
       remoteKey: /dev/apps/mssql/connection-string/sportsbook
       envVariable: ConnectionStrings__Sportsbook
+    - key: mssql-connection-string-trading
+      remoteKey: /dev/apps/mssql/connection-string/trading
+      envVariable: ConnectionStrings__Trading      
     - key: mssql-connection-string-translation
       remoteKey: /dev/apps/mssql/connection-string/translation
       envVariable: ConnectionStrings__Translation
