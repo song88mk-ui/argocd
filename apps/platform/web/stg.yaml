@@ -30,6 +30,11 @@ env:
   Custom__OrientalGaming__PrivateAPIKey: fjfOLes3FEbe2ubdqFtIak4CFDXRk6Lg
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
 
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 5
+
 ingress:
   enabled: true
   className: "alb"
@@ -42,6 +47,11 @@ ingress:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/511ed09e-124c-4f7d-8974-561b1907b29e
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
     alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=3600
+    alb.ingress.kubernetes.io/target-group-attributes: >-
+      stickiness.enabled=true,
+      stickiness.type=lb_cookie,
+      stickiness.lb_cookie.duration_seconds=86400
 
   hosts:
   - host: sb.stg.song88.com
