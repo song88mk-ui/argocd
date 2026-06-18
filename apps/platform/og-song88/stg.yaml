@@ -23,6 +23,11 @@ env:
   Custom__SB__OperatorToken: 01936327-EF9C-4A6D-88F2-F11D8BD724C7
   Custom__SB__UserId: DA75B8EA-6ECA-43BB-F97E-08DA017C44E6
 
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+
 ingress:
   enabled: true
   className: "alb"
@@ -35,6 +40,10 @@ ingress:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/96ac9e68-145f-478f-9c01-16d9f83bf652
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
     alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/target-group-attributes: >-
+      stickiness.enabled=true,
+      stickiness.type=lb_cookie,
+      stickiness.lb_cookie.duration_seconds=86400
 
   hosts:
   - host: stg.jmj22222.com
