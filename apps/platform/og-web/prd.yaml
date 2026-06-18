@@ -30,6 +30,11 @@ env:
   Custom__OrientalGaming__PrivateKey: LATEST_PRIVATE_KEY
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
 
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 5
+
 ingress:
   enabled: true
   className: "alb"
@@ -42,6 +47,10 @@ ingress:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/095dbf87-1cd4-443c-87bc-6e7434cb5f4a
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
     alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/target-group-attributes: >-
+      stickiness.enabled=true,
+      stickiness.type=lb_cookie,
+      stickiness.lb_cookie.duration_seconds=86400
 
   hosts:
   - host: sb.jmj22222.com
