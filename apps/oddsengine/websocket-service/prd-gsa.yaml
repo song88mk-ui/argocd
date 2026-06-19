@@ -15,5 +15,5 @@ env:
   MessageBroker__Queue: "q.sb.engine.websocket.GSA"
   MessageBroker__Consumer: "OE.Engine.WebSocket.GSA"
   MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.gsa|r.bet.cashoutchange.gsa|r.wallet.gsa|r.oe.sb.engine.onvisitfavorites.gsa|r.oe.sb.engine.onvisitboostedfixtures.gsa|r.oe.sb.engine.onmarketsortorderchange.gsa"
-  Custom__ClientId: "247678B6-36A4-4291-2378-08DC9B1E2D21"
+  Custom__ClientId: "087DFD95-7412-4AD4-924D-9498C4434790"
   Custom__ClientCode: "GSA"
