@@ -31,7 +31,7 @@ env:
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 3
   maxReplicas: 5
 
