@@ -24,7 +24,7 @@ env:
   Custom__SB__UserId: 6F28EF85-5502-4F1C-88FD-2C6F0AFF3B53
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 2
   maxReplicas: 5
 
