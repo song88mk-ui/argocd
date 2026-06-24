@@ -30,6 +30,7 @@ env:
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__PlatformBettingAPI: http://betting-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
+  Custom__OrientalGaming__ClientIds: "256D6197-22A4-412E-852D-9A6611493618"
 
 service:
   headless:
