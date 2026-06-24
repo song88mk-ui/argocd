@@ -12,7 +12,7 @@ secrets:
     data:
     - key: platform-og-private-key
       remoteKey: /stg/apps/web/og/private-key
-      envVariable: Custom__OrientalGaming__PrivateKey
+      envVariable: Custom__OrientalGaming__PrivateAPIKey
 
 env:
   Telemetry__Enabled: "true"

@@ -27,7 +27,7 @@ env:
   Custom__MaximumConnections: 300
   Custom__MaintenanceConfigFile: Configs/maintenance.json
   Custom__Layout__Version: 0
-  Custom__OrientalGaming__PrivateKey: LATEST_PRIVATE_KEY
+  Custom__OrientalGaming__PrivateAPIKey: LATEST_PRIVATE_KEY
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
 
 autoscaling:
