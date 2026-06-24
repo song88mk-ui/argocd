@@ -10,12 +10,9 @@ serviceAccount:
 secrets:
   - name: web
     data:
-    - key: platform-og-public-key
-      remoteKey: /stg/apps/web/og/public-key
-      envVariable: Custom__OrientalGaming__PublicAPIKey
     - key: platform-og-private-key
       remoteKey: /stg/apps/web/og/private-key
-      envVariable: Custom__OrientalGaming__PrivateAPIKey
+      envVariable: Custom__OrientalGaming__PrivateKey
 
 env:
   Telemetry__Enabled: "true"
