@@ -8,7 +8,7 @@ serviceAccount:
   name: "platform-og-web-sa"
 
 secrets:
-  - name: web
+  - name: og-web
     data:
     - key: platform-og-public-key
       remoteKey: /stg/apps/web/og/public-key
