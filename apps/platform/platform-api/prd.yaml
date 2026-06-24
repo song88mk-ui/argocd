@@ -16,6 +16,12 @@ secrets:
     - key: mssql-connection-string-platform
       remoteKey: /prd/apps/mssql/connection-string/platform
       envVariable: ConnectionStrings__Platform
+    - key: platform-og-public-key
+      remoteKey: /prd/apps/web/og/public-key
+      envVariable: Custom__OrientalGaming__PublicAPIKey
+    - key: platform-og-private-key
+      remoteKey: /prd/apps/web/og/private-key
+      envVariable: Custom__OrientalGaming__PrivateAPIKey
 
 env:
   Telemetry__Enabled: true
