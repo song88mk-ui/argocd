@@ -6,6 +6,7 @@ service:
   create: false
 
 env:
+  Custom__Translation__UseContentKey: false
   Telemetry__Enabled: true
   Telemetry__Environment: dev
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"

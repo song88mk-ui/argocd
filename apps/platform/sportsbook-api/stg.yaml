@@ -41,6 +41,7 @@ resources:
     memory: 600Mi
 
 env:
+  Custom__Translation__UseContentKey: false
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
   Telemetry__Environment: stg

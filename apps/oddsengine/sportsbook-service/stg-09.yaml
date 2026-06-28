@@ -20,6 +20,7 @@ secrets:
       envVariable: ConnectionStrings__Translation
 
 env:
+  Custom__Translation__UseContentKey: false
   MessageBroker__Queue: "q.sb.engine.09"
   MessageBroker__Consumer: "OE.Sportsbook.Service.09"
   MessageBroker__RoutingKey: "r.oe.adapter.#.09"
