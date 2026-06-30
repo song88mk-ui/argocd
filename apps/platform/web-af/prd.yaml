@@ -1,0 +1,45 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-web-af
+  tag: latest
+
+fullnameOverride: "platform-web-af"
+
+serviceAccount:
+  name: "platform-web-af-sa"
+
+env: {}
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+
+service:
+  port: 8080
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-external-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/422461ef-9af2-4c32-b9b0-9cda6cfef53d
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=3600
+    alb.ingress.kubernetes.io/target-group-attributes: >-
+      stickiness.enabled=true,
+      stickiness.type=lb_cookie,
+      stickiness.lb_cookie.duration_seconds=86400
+
+  hosts:
+  - host: sb-af.song88.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+metrics:
+  enabled: false
