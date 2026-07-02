@@ -35,6 +35,7 @@ env:
   MessageBroker__Exchange: "e.central"
   MessageBroker__Queue: "q.bg.translation"
   MessageBroker__Consumer: "BG.Translation.Service"
+  Custom__Translation__Template: true
 
 metrics:
   enabled: false
