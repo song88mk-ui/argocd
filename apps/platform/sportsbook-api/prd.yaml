@@ -11,7 +11,7 @@ service:
   headless:
     enabled: true
 
-replicaCount: 3
+replicaCount: 1
 
 secrets:
   - name: sportsbook-api
