@@ -35,10 +35,10 @@ env:
   MessageBroker__RoutingKey: "r.bet.placement"
   Custom__DbContextTimeout: 180
   Custom__Cleanup__Enabled: true
-  Custom__Cleanup__IntervalMinutes: 60,
-  Custom__Cleanup__StartupDelaySeconds: 60,
-  Custom__Cleanup__RetentionDays: 30,
-  Custom__Cleanup__BatchSize: 2000,
+  Custom__Cleanup__IntervalMinutes: 60
+  Custom__Cleanup__StartupDelaySeconds: 60
+  Custom__Cleanup__RetentionDays: 30
+  Custom__Cleanup__BatchSize: 2000
   Custom__Cleanup__Prefixes: "SeId:,MaId:,FiId:"
 
 metrics:
