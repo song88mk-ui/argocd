@@ -37,3 +37,6 @@ env:
 
 metrics:
   enabled: false
+
+livenessProbe:
+readinessProbe:
