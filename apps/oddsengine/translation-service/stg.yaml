@@ -8,8 +8,8 @@ serviceAccount:
   name: "translation-service-sa"
 
 autoscaling:
-  enabled: true
-  minReplicas: 2
+  enabled: false
+  minReplicas: 1
   maxReplicas: 5
 
 secrets:
