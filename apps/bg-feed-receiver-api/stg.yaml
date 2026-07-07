@@ -24,16 +24,17 @@ resources:
     cpu: 300m
     memory: 600Mi
 
-livenessProbe:
-  httpGet:
-    path: /healthz
-    port: 3000
-  periodSeconds: 30
-readinessProbe:
-  httpGet:
-    path: /healthz
-    port: 3000
-  initialDelaySeconds: 5
+# TODO: Add back when the root cause of the crashes is fixed.
+livenessProbe: {}
+  # httpGet:
+  #   path: /healthz
+  #   port: 3000
+  # periodSeconds: 30
+readinessProbe: {}
+  # httpGet:
+  #   path: /healthz
+  #   port: 3000
+  # initialDelaySeconds: 5
 
 ingress:
   enabled: true
