@@ -22,6 +22,15 @@ secrets:
     - key: platform-og-private-key
       remoteKey: /stg/apps/web/og/private-key
       envVariable: Custom__OrientalGaming__PrivateAPIKey
+    # v1/cachepreload publishes OnTranslationChange (2026-07 translation-flow redesign);
+    # appsettings ships MessageBroker credentials empty, so they MUST be injected here —
+    # without them the publish throws and the endpoint 500s on translation payloads.
+    - key: rabbitmq-username
+      remoteKey: /stg/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /stg/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
 
 replicaCount: 2
 
@@ -41,6 +50,8 @@ env:
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__PlatformBettingAPI: http://betting-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
+  MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  MessageBroker__Port: 5671
 
 ingress:
   enabled: true

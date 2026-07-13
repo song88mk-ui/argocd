@@ -22,6 +22,15 @@ secrets:
     - key: platform-og-private-key
       remoteKey: /prd/apps/web/og/private-key
       envVariable: Custom__OrientalGaming__PrivateAPIKey
+    # v1/cachepreload publishes OnTranslationChange (2026-07 translation-flow redesign);
+    # appsettings ships MessageBroker credentials empty, so they MUST be injected here —
+    # without them the publish throws and the endpoint 500s on translation payloads.
+    - key: rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
 
 env:
   Telemetry__Enabled: true
@@ -31,6 +40,8 @@ env:
   API__PlatformBettingAPI: http://betting-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
   Custom__OrientalGaming__ClientIds: "256D6197-22A4-412E-852D-9A6611493618"
+  MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  MessageBroker__Port: 5671
 
 service:
   headless:
