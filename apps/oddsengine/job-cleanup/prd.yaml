@@ -34,8 +34,8 @@ env:
   MessageBroker__Port: 5671
   Custom__Enabled: true
   Custom__SportRetention: -30
-  Custom__UtcWindowHours__Start: 13
-  Custom__UtcWindowHours__End: 22
+  Custom__UtcWindowHours__Start: 1
+  Custom__UtcWindowHours__End: 24
   Custom__DbContextTimeout: 180
 
 livenessProbe:
