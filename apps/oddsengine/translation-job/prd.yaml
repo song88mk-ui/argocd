@@ -29,7 +29,7 @@ env:
   MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
   MessageBroker__Port: 5671
   Custom__DbContextTimeout: 180
-  Custom__Cleanup__Enabled: true
+  Custom__Cleanup__Enabled: false
   Custom__Cleanup__IntervalMinutes: 60
   Custom__Cleanup__StartupDelaySeconds: 60
   Custom__Cleanup__RetentionDays: 30
