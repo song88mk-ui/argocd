@@ -16,9 +16,15 @@ secrets:
     - key: rabbitmq-password
       remoteKey: /prd/apps/rabbitmq/password
       envVariable: MessageBroker__Password
+    - key: mssql-connection-string-backoffice
+      remoteKey: /prd/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
     - key: mssql-connection-string-translation
       remoteKey: /prd/apps/mssql/connection-string/translation
       envVariable: ConnectionStrings__Translation
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /prd/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: Custom__MongoDB-Sportsbook
 
 env:
   Logging__Console__IncludeScopes: true
