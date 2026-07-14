@@ -41,6 +41,7 @@ env:
   Custom__Cleanup__RetentionDays: 30
   Custom__Cleanup__BatchSize: 2000
   Custom__Translation__SeedActiveSnapshot: true
+  Custom__Translation__CacheSeed: true
 
 metrics:
   enabled: false
