@@ -39,6 +39,9 @@ env:
   Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
   MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
   MessageBroker__Port: 5671
+  # Cap in-flight deliveries: the 1000 default let the 30-min consumer ack timeout expire on
+  # buffered messages during backlogs, causing mass redelivery loops (2026-07-15 incident).
+  MessageBroker__PrefetchCount: "10"
   Custom__Translation__CacheSeed: true
 
 metrics:
