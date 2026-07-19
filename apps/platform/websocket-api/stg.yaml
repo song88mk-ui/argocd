@@ -7,6 +7,10 @@ fullnameOverride: "websocket-api"
 serviceAccount:
   name: "websocket-api-sa"
 
+# NOTE: Excessive logging. Can be removed once the logs are cleared.
+podAnnotations:
+  fluentbit.io/exclude: "true"
+
 secrets:
   - name: websocket-api
     data:

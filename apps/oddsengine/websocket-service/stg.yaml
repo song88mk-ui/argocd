@@ -5,6 +5,10 @@ image:
 service:
   create: false
 
+# NOTE: Excessive logging. Can be removed once the logs are cleared.
+podAnnotations:
+  fluentbit.io/exclude: "true"
+
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg
