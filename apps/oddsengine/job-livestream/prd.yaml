@@ -10,6 +10,10 @@ service:
 serviceAccount:
   name: "job-livestream-sa"
 
+# NOTE: Excessive logging. Can be removed once the logs are cleared.
+podAnnotations:
+  fluentbit.io/exclude: "true"
+
 secrets:
   - name: job-livestream
     data:
