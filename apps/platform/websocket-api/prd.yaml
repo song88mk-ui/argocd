@@ -25,6 +25,11 @@ env:
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   Custom__UseMessagePack: true
 
+resources:
+  requests:
+    cpu: 700m
+    memory: 600Mi
+
 ingress:
   enabled: true
   className: "alb"
