@@ -14,6 +14,11 @@ secrets:
       remoteKey: /prd/apps/web/og/private-key
       envVariable: Custom__OrientalGaming__PrivateAPIKey
 
+resources:
+  requests:
+    cpu: 100m
+    memory: 700M
+
 env:
   Telemetry__Enabled: "true"
   Telemetry__MetricsPort: "8080"
