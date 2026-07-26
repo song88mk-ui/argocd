@@ -23,6 +23,11 @@ secrets:
       remoteKey: /prd/apps/mongodb-instance/connection-string/trading
       envVariable: Custom__MongoDB-Trading
 
+resources:
+  requests:
+    cpu: 200m
+    memory: 1Gi
+
 env:
   Logging__Console__IncludeScopes: true
   Logging__Console__FormatterName: "json"
