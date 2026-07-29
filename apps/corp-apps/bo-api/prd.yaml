@@ -50,6 +50,8 @@ env:
   API__RabbitMqApi__SA__Uri: http://rabbitmq-api.platform.svc:3000
   API__SportsbookAPI__HK__Uri: http://sportsbook-api.platform:3000
   API__SportsbookAPI__SA__Uri: http://sportsbook-api.platform:3000
+  API__WebProps__Uri: https://platform-webprops.song88.com
+  API__WebProps__Security__ApiKey: s@ng88
   Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
   IsStaging: true
 
