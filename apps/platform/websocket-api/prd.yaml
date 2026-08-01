@@ -27,7 +27,7 @@ env:
 
 resources:
   requests:
-    cpu: 700m
+    cpu: 1
     memory: 600Mi
 
 ingress:
