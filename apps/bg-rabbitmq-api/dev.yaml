@@ -1,0 +1,50 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/bg-rabbitmq-api
+  tag: latest
+
+fullnameOverride: "bg-rabbitmq-api"
+
+serviceAccount:
+  name: "bg-rabbitmq-api-sa"
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+  periodSeconds: 5
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+  initialDelaySeconds: 3
+
+secrets:
+  - name: bg-rabbitmq-api
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 600Mi
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: ""
+  MessageBroker__Consumer: ""
+  MessageBroker__RoutingKey: ""

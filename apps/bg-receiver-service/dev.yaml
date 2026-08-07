@@ -1,0 +1,36 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/bg-receiver-service
+  tag: latest
+
+fullnameOverride: "bg-receiver-service"
+
+serviceAccount:
+  name: "bg-receiver-service-sa"
+
+secrets:
+  - name: bg-receiver-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mongodb-connection-string
+      remoteKey: /dev/apps/mongodb-instance/connection-string/trading
+      envVariable: Custom__MongoDB-Trading
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bg.receiver"
+  MessageBroker__Consumer: "BG.Receiver.Service"
+  MessageBroker__RoutingKey: "r.bg.onprocessmessage|r.bg.onmarketclose"
+  Custom__StatisticsBaseURI: "https://gsm-widgets.betstream.betgenius.com/multisportgametracker"

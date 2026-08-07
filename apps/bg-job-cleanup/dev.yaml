@@ -1,0 +1,23 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/bg-job-cleanup
+  tag: latest
+
+fullnameOverride: "bg-job-cleanup"
+
+serviceAccount:
+  name: "bg-job-cleanup-sa"
+
+replicaCount: 1
+
+secrets:
+  - name: bg-job-cleanup
+    data:
+    - key: mongodb-connection-string
+      remoteKey: /dev/apps/mongodb-instance/connection-string/trading
+      envVariable: Custom__MongoDB-Trading
+
+env:
+  Custom__Enabled: true
+  Custom__SportRetention: "-30"
+  Custom__UtcWindowHours__Start: "1"
+  Custom__UtcWindowHours__End: "10"
