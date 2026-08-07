@@ -36,8 +36,9 @@ readinessProbe:
     port: 3000
   initialDelaySeconds: 5
 
+# The feed is forwarded by the fanout-proxy to both STG and DEV environments
 ingress:
-  enabled: true
+  enabled: false
   annotations:
     alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
     alb.ingress.kubernetes.io/group.name: apps
