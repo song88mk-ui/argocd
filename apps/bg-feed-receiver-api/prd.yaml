@@ -35,7 +35,7 @@ livenessProbe:
   httpGet:
     path: /healthz
     port: 3000
-  periodSeconds: 5
+  periodSeconds: 30
 readinessProbe:
   httpGet:
     path: /healthz
