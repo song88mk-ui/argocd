@@ -35,6 +35,7 @@ env:
   Custom__MaintenanceConfigFile: Configs/maintenance.json
   Custom__Layout__Version: 0
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
+  Results__ProxyHosts__song88.com: "https://results.stg.song88.com"
 
 autoscaling:
   enabled: true

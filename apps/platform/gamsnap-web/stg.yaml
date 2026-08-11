@@ -28,6 +28,7 @@ env:
   Custom__MaintenanceConfigFile: Configs/maintenance.json
   Custom__Layout__Version: 0
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
+  Results__ProxyHosts__jmj19876.com: "https://results.stg.jmj19876.com"
 
 autoscaling:
   enabled: true
