@@ -37,7 +37,7 @@ env:
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 3
   maxReplicas: 5
 
@@ -70,5 +70,5 @@ metrics:
 resources:
   requests:
     cpu: 100m
-    memory: 512Mi
+    memory: 900Mi
 

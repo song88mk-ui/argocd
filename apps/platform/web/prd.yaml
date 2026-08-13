@@ -17,7 +17,7 @@ secrets:
 resources:
   requests:
     cpu: 100m
-    memory: 700M
+    memory: 900Mi
 
 env:
   Telemetry__Enabled: "true"
