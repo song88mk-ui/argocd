@@ -9,6 +9,24 @@ service:
 podAnnotations:
   fluentbit.io/exclude: "true"
 
+replicaCount: 1
+
+autoscaling:
+  enabled: false
+
+secrets:
+  - name: websocket-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /stg/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /stg/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: internal-api-key
+      remoteKey: /stg/apps/internal-api-key
+      envVariable: Custom__InternalAPIKey
+
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg
@@ -22,6 +40,9 @@ env:
   Custom__UseMessagePack: "true"
   Custom__IsOEEnabled: "false"
   Custom__AsianClientCodes: "TSO,S88"
+  MessageBroker__Queue: "q.sb.engine.websocket"
+  MessageBroker__Consumer: "OE.Engine.WebSocket"
+  MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.|r.bet.cashoutchange.|r.wallet.|r.oe.sb.engine.onvisitfavorites.|r.oe.sb.engine.onvisitboostedfixtures.|r.oe.sb.engine.onmarketsortorderchange."
 
 livenessProbe:
 readinessProbe:
