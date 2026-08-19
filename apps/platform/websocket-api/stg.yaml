@@ -18,6 +18,11 @@ secrets:
       remoteKey: /stg/apps/mssql/connection-string/platform
       envVariable: ConnectionStrings__Platform
 
+resources:
+  requests:
+    cpu: 1.5
+    memory: 600Mi
+
 env:
   Telemetry__Enabled: true
   Telemetry__Environment: stg
