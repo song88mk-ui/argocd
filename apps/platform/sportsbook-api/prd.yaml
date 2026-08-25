@@ -39,6 +39,9 @@ secrets:
     - key: mssql-connection-string-translation
       remoteKey: /prd/apps/mssql/connection-string/translation
       envVariable: ConnectionStrings__Translation
+
+livenessProbe: {}
+readinessProbe: {}
       
 env:
   Custom__Translation__UseContentKey: false

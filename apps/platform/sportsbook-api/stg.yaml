@@ -33,7 +33,7 @@ secrets:
       remoteKey: /stg/apps/mssql/connection-string/translation
       envVariable: ConnectionStrings__Translation
 
-replicaCount: 2
+replicaCount: 1
 
 resources:
   requests:
