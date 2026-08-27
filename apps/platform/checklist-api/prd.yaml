@@ -40,17 +40,17 @@ ingress:
   enabled: true
   className: "alb"
   annotations:
-    alb.ingress.kubernetes.io/load-balancer-name: prd-eks-external-alb
+    alb.ingress.kubernetes.io/load-balancer-name: prd-jmj-bet-alb
     alb.ingress.kubernetes.io/group.name: apps
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/422461ef-9af2-4c32-b9b0-9cda6cfef53d
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-east-1:525375333516:certificate/774b1b69-f97a-4f85-8e87-43e7e8d1c51d
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
     alb.ingress.kubernetes.io/healthcheck-path: /healthz
 
   hosts:
-  - host: cl-api.song88.com
+  - host: cl-api.jmj.bet
     paths:
       - path: /
         pathType: Prefix
