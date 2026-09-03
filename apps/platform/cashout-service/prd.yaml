@@ -22,6 +22,12 @@ secrets:
     - key: mssql-connection-string-betting
       remoteKey: /prd/apps/mssql/connection-string/betting
       envVariable: ConnectionStrings__Betting
+    - key: custom-gts-client-id
+      remoteKey: /prd/apps/platform/gts-client-id
+      envVariable: Custom__GTSClientID
+    - key: custom-gts-client-secret
+      remoteKey: /prd/apps/platform/gts-client-secret
+      envVariable: Custom__GTSClientSecret
 
 env:
   Telemetry__Enabled: "true"
@@ -36,6 +42,8 @@ env:
   Custom__IsMTSEnabled: false
   Custom__Delay: 7000
   API__PlatformBettingAPI: http://betting-api:3000
+  API__GTSAuthAPI: "https://auth.geniussports.com"
+  API__GTSAPI: "https://gw1.risk.api.geniussports.com"
 
 # TODO:  create probes for services
 livenessProbe:
