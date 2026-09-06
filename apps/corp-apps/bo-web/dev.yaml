@@ -1,0 +1,56 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/backoffice-bo-web
+  tag: latest
+
+fullnameOverride: "bo-web"
+
+secrets:
+  - name: bo-web-service
+    data:
+    - key: security-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: API__AuthenticationAPI__Security__APIKey
+    - key: jwt-key
+      remoteKey: /dev/apps/auth/jwt-key
+      envVariable: API__AuthenticationAPI__JWT__Key
+    - key: mssql-connection-string-backoffice
+      remoteKey: /dev/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  API__Backoffice__Uri: http://bo-api:3000
+  API__Backoffice__Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
+  API__HubAPI: http://bo-ws-api:3000/bohub
+  Region: HK
+  SlackWebHoo: "https://hooks.slack.com/workflows/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"
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: dev-apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/995131fd-9d16-42fe-80c8-1fab7e33d6ab
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+  hosts:
+  - host: bo.dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix

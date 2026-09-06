@@ -1,0 +1,22 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/corp-apps-internal-docs
+  tag: latest
+
+fullnameOverride: "internal-docs-web"
+
+secrets:
+  - name: internal-docs-web
+    data:
+    - key: github-client-secret
+      remoteKey: /dev/song88/internal-docs/client-secret
+      envVariable: GITHUB_CLIENT_SECRET
+    - key: github-client-id
+      remoteKey: /dev/song88/internal-docs/client-id
+      envVariable: GITHUB_CLIENT_ID
+
+env:
+  OAUTH2_PROXY_COOKIE_SECRET: vsJjHpRma0s5EeLVVn7i2kUBs-q43xZgr9MAWMF8OXE=
+  OAUTH2_PROXY_REDIRECT_URL: https://docs-dev.s88platform.com
+
+livenessProbe:
+readinessProbe:

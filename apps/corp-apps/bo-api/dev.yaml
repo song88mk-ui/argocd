@@ -1,0 +1,84 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/backoffice-bo-api
+  tag: latest
+
+fullnameOverride: "bo-api"
+
+secrets:
+  - name: bo-api-service
+    data:
+    - key: security-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: API__AuthenticationAPI__Security__APIKey
+    - key: jwt-key
+      remoteKey: /dev/apps/auth/jwt-key
+      envVariable: API__AuthenticationAPI__JWT__Key
+    - key: mssql-connection-string-backoffice
+      remoteKey: /dev/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /dev/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: Custom__MongoDB-Sportsbook
+    - key: mssql-connection-string-sportsbook
+      remoteKey: /dev/apps/mssql/connection-string/sportsbook
+      envVariable: ConnectionStrings__Sportsbook
+    - key: mssql-connection-string-trading
+      remoteKey: /dev/apps/mssql/connection-string/trading
+      envVariable: ConnectionStrings__Trading
+    - key: mssql-connection-string-translation
+      remoteKey: /dev/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient: Warning
+  API__Maintenance__Uri: http://bo-maintenance-api:3000
+  API__Maintenance__Security__APIKey: AFB3AC4724BD479D9E39
+  API__AuthenticationAPI__Uri: http://auth-api.platform.svc:3000
+  API__AuthenticationAPI__JWT__Issuer: bo.auth.api
+  API__PlatformAPI__HK__APIKey: PXcEbJ3SqDyt8Ee5
+  API__PlatformAPI__HK__Uri: http://platform-api.platform.svc:3000
+  API__PlatformAPI__SA__APIKey: PXcEbJ3SqDyt8Ee5
+  API__PlatformAPI__SA__Uri: http://platform-api.platform.svc:3000
+  API__TradingAPI__HK__APIKey: xgB3eM5b8FDn9msu
+  API__TradingAPI__HK__Uri: http://api.oddsengine.svc:3000
+  API__TradingAPI__SA__APIKey: xgB3eM5b8FDn9msu
+  API__TradingAPI__SA__Uri: http://api.oddsengine.svc:3000
+  API__SportsbookAPI__HK__Uri: http://sportsbook-api.platform:3000
+  API__SportsbookAPI__SA__Uri: http://sportsbook-api.platform:3000
+  API__RabbitMqApi__HK__Uri: http://rabbitmq-api.platform.svc:3000
+  API__RabbitMqApi__SA__Uri: http://rabbitmq-api.platform.svc:3000
+  API__WebProps__Uri: https://platform-webprops.dev.song88.com
+  API__WebProps__Security__ApiKey: s@ng88
+  Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
+  IsStaging: true
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: dev-apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/995131fd-9d16-42fe-80c8-1fab7e33d6ab
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+
+  hosts:
+  - host: bo-api.dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix

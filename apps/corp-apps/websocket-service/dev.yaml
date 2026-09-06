@@ -1,0 +1,39 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/backoffice-websocket-service
+  tag: latest
+
+fullnameOverride: "bo-ws-service"
+
+service:
+  create: false
+livenessProbe:
+readinessProbe:
+
+secrets:
+  - name: websocket-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bo.websocket"
+  MessageBroker__Consumer: "BO.WebSocket.Service"
+  MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.oe.bm.engine.notifications"
+  MessageBroker__IsPriority: true
+  MessageBroker__IsExclusive: true
+  Custom__WebSocketAPI: "http://bo-ws-api:3000/bohub"
+  Custom__AsianClientCodes: "G02,TSO,S88"
+  API__PlatformAPI__Uri: "http://platform-api.platform.svc:3000"
+  API__PlatformAPI__APIKey: "04a4cfdd40428ad"
+  API__PlatformSportsbook__Uri: "http://sportsbook-api.platform.svc:3000"
