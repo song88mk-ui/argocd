@@ -1,0 +1,40 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/of-recovery-service
+  tag: latest
+
+fullnameOverride: "of-recovery-service"
+
+serviceAccount:
+  name: "of-recovery-service-sa"
+
+secrets:
+  - name: recovery-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /dev/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: ConnectionStrings__MongoDB-Sportsbook
+
+env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Logging__LogLevel__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__PrefetchCount: "1000"
+
+livenessProbe:
+readinessProbe:
