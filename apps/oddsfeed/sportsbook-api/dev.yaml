@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-sportsbook-api-sa"
 
 secrets:
-  - name: sportsbook-api
+  - name: of-sportsbook-api
     data:
     - key: mongodb-connection-string-sportsbook
       remoteKey: /dev/apps/mongodb-instance/connection-string/sportsbook

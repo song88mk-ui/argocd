@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-cancellation-service-sa"
 
 secrets:
-  - name: cancellation-service
+  - name: of-cancellation-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username

@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-job-resettlement-sa"
 
 secrets:
-  - name: job-resettlement-retry
+  - name: of-job-resettlement-retry
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username

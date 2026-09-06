@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-betting-api-sa"
 
 secrets:
-  - name: betting-api
+  - name: of-betting-api
     data:
     - key: mssql-connection-string-ofbetting
       remoteKey: /dev/apps/mssql/connection-string/ofbetting

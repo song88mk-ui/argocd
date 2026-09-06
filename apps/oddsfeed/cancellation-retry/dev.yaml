@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-cancellation-retry-sa"
 
 secrets:
-  - name: cancellation-retry
+  - name: of-cancellation-retry
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username

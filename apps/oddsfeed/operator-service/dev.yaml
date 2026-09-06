@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-operator-service-sa"
 
 secrets:
-  - name: operator-service
+  - name: of-operator-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username

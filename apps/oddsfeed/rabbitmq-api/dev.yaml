@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-rabbitmq-api-sa"
 
 secrets:
-  - name: rabbitmq-api
+  - name: of-rabbitmq-api
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username

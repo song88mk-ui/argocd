@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-placement-service-sa"
 
 secrets:
-  - name: placement-service
+  - name: of-placement-service
     data:
     - key: rabbitmq-username
       remoteKey: /stg/apps/rabbitmq/username

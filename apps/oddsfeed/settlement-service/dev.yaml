@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-settlement-service-sa"
 
 secrets:
-  - name: settlement-service
+  - name: of-settlement-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username

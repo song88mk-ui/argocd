@@ -8,7 +8,7 @@ serviceAccount:
   name: "of-recovery-service-sa"
 
 secrets:
-  - name: recovery-service
+  - name: of-recovery-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
