@@ -5,7 +5,7 @@ image:
 fullnameOverride: "bo-ws-api"
 
 serviceAccount:
-  name: "websocket-api-sa"
+  name: "bo-websocket-api-sa"
 
 env:
   Telemetry__Enabled: true
