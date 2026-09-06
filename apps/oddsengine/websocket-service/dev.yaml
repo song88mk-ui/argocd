@@ -15,7 +15,7 @@ autoscaling:
   enabled: false
 
 secrets:
-  - name: websocket-service
+  - name: oev2-websocket-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username

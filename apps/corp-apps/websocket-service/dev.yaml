@@ -10,7 +10,7 @@ livenessProbe:
 readinessProbe:
 
 secrets:
-  - name: websocket-service
+  - name: bo-websocket-service
     data:
     - key: rabbitmq-username
       remoteKey: /dev/apps/rabbitmq/username
