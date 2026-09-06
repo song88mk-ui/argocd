@@ -1,0 +1,49 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-translation-service
+  tag: latest
+
+fullnameOverride: "translation-service"
+
+serviceAccount:
+  name: "translation-service-sa"
+
+autoscaling:
+  enabled: false
+
+secrets:
+  - name: translation-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-backoffice
+      remoteKey: /dev/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+    - key: mssql-connection-string-translation
+      remoteKey: /dev/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /dev/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: Custom__MongoDB-Sportsbook
+
+env:
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  # Cap in-flight deliveries: the 1000 default let the 30-min consumer ack timeout expire on
+  # buffered messages during backlogs, causing mass redelivery loops (2026-07-15 incident).
+  MessageBroker__PrefetchCount: "10"
+  Custom__Translation__CacheSeed: true
+
+metrics:
+  enabled: false
+
+livenessProbe:
+readinessProbe:

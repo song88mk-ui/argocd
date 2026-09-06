@@ -1,0 +1,33 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-keepalive
+  tag: latest
+
+fullnameOverride: "job-keepalive"
+
+service:
+  create: false
+
+serviceAccount:
+  name: "job-keepalive-sa"
+
+secrets:
+  - name: job-keepalive
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+
+livenessProbe:
+readinessProbe:

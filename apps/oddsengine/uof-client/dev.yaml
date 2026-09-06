@@ -1,0 +1,43 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-uof-client
+  tag: latest
+
+service:
+  create: false
+
+secrets:
+  - name: uof-client
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: external-rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: ExternalMessageBroker__Username
+    - key: external-rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: ExternalMessageBroker__Password
+    - key: mssql-connection-string-trading
+      remoteKey: /dev/apps/mssql/connection-string/trading
+      envVariable: Custom__Trading
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  # same for now but diff vhost
+  ExternalMessageBroker__Host: rabbitmq-main-cluster
+  ExternalMessageBroker__Port: 5672
+  ExternalMessageBroker__VirtualHost: "/ext"
+  ExternalMessageBroker__Exchange: "e.central"
+  API__PlatformAPI: "http://platform-api.platform.svc:3000"
+
+livenessProbe:
+readinessProbe:

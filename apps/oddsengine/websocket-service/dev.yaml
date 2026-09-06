@@ -1,0 +1,48 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-websocket-service
+  tag: latest
+
+service:
+  create: false
+
+# NOTE: Excessive logging. Can be removed once the logs are cleared.
+podAnnotations:
+  fluentbit.io/exclude: "true"
+
+replicaCount: 1
+
+autoscaling:
+  enabled: false
+
+secrets:
+  - name: websocket-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: internal-api-key
+      remoteKey: /dev/apps/internal-api-key
+      envVariable: Custom__InternalAPIKey
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  Custom__WebSocketAPI: "http://websocket-api.platform.svc:3000/platform"
+  Custom__PlatformAPI: "http://platform-api.platform.svc:3000"
+  Custom__UseMessagePack: "true"
+  Custom__IsOEEnabled: "false"
+  Custom__AsianClientCodes: "TSO,S88"
+  MessageBroker__Queue: "q.sb.engine.websocket"
+  MessageBroker__Consumer: "OE.Engine.WebSocket"
+  MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.*|r.bet.cashoutchange.*|r.wallet.*|r.oe.sb.engine.onvisitfavorites.*|r.oe.sb.engine.onvisitboostedfixtures.*|r.oe.sb.engine.onmarketsortorderchange.*"
+
+livenessProbe:
+readinessProbe:

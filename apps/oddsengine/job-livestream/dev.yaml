@@ -1,0 +1,42 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-livestream
+  tag: latest
+
+fullnameOverride: "job-livestream"
+
+service:
+  create: false
+
+serviceAccount:
+  name: "job-livestream-sa"
+
+# NOTE: Excessive logging. Can be removed once the logs are cleared.
+podAnnotations:
+  fluentbit.io/exclude: "true"
+
+secrets:
+  - name: job-livestream
+    data:
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /dev/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: Custom__MongoDB-Sportsbook
+    - key: betgenius-user
+      remoteKey: /dev/apps/betgenius/user
+      envVariable: Custom__BetGenius__User
+    - key: betgenius-password
+      remoteKey: /dev/apps/betgenius/password
+      envVariable: Custom__BetGenius__Password
+    - key: betgenius-key
+      remoteKey: /dev/apps/betgenius/key
+      envVariable: Custom__BetGenius__Key
+
+env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: true
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Custom__Enabled: true
+  Custom__BetGenius__Uri: "https://api.geniussports.com/"
+  Custom__BetGenius__Env: "UAT"
+
+livenessProbe:
+readinessProbe:

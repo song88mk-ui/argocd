@@ -1,0 +1,42 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-lookup
+  tag: latest
+
+fullnameOverride: "job-lookup"
+
+service:
+  create: false
+
+serviceAccount:
+  name: "job-lookup-sa"
+
+secrets:
+  - name: job-lookup
+    data:
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /dev/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: Custom__MongoDB-Sportsbook
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  Telemetry__Environment: dev
+  Telemetry__Enabled: true
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.oe.job.lookup"
+  MessageBroker__Consumer: "OE.Job.Lookup"
+  MessageBroker__RoutingKey: "r.oe.adapter.onmarketchange.#"
+
+livenessProbe:
+readinessProbe:
+
+metrics:
+  enabled: false
