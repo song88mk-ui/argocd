@@ -1,0 +1,53 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-sportsbook-api
+  tag: latest
+
+fullnameOverride: "sportsbook-api"
+
+serviceAccount:
+  name: "sportsbook-api-sa"
+
+service:
+  headless:
+    enabled: true
+
+secrets:
+  - name: sportsbook-api
+    data:
+    - key: mongodb-connection-string-sportsbook
+      remoteKey: /dev/apps/mongodb-instance/connection-string/sportsbook
+      envVariable: ConnectionStrings__MongoDB-Sportsbook
+    - key: mssql-connection-string-sportsbook
+      remoteKey: /dev/apps/mssql/connection-string/sportsbook
+      envVariable: ConnectionStrings__Sportsbook
+    - key: betgenius-user
+      remoteKey: /dev/apps/betgenius/user
+      envVariable: Custom__BetGenius__User
+    - key: betgenius-password
+      remoteKey: /dev/apps/betgenius/password
+      envVariable: Custom__BetGenius__Password
+    - key: betgenius-key
+      remoteKey: /dev/apps/betgenius/key
+      envVariable: Custom__BetGenius__Key
+    - key: mssql-connection-string-translation
+      remoteKey: /dev/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 400Mi
+
+env:
+  Custom__Translation__UseContentKey: false
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  API__RabbitMQAPI: http://rabbitmq-api:3000
+  Custom__BetGenius__Uri: "https://api.geniussports.com/"
+  Custom__BetGenius__Env: "UAT"
+  Custom__HasReplica: false

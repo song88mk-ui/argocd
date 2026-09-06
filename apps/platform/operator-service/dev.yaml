@@ -1,0 +1,49 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-operator-service
+  tag: latest
+
+fullnameOverride: "operator-service"
+
+serviceAccount:
+  name: "operator-service-sa"
+
+secrets:
+  - name: operator-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-platform
+      remoteKey: /dev/apps/mssql/connection-string/platform
+      envVariable: ConnectionStrings__Platform
+    - key: mssql-connection-string-betting
+      remoteKey: /dev/apps/mssql/connection-string/betting
+      envVariable: ConnectionStrings__Betting
+    - key: platform-og-public-key
+      remoteKey: /dev/apps/web/og/public-key
+      envVariable: Custom__OrientalGaming__PublicAPIKey
+    - key: platform-og-private-key
+      remoteKey: /dev/apps/web/og/private-key
+      envVariable: Custom__OrientalGaming__PrivateAPIKey
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__Queue: "q.bet.operator"
+  MessageBroker__Consumer: "Platform.Operator.Service"
+  MessageBroker__RoutingKey: "r.bet.operator"
+  MessageBroker__IsPriority: "true"
+  MessageBroker__PrefetchCount: 1000
+
+livenessProbe:
+readinessProbe:

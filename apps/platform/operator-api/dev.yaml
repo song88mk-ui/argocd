@@ -1,0 +1,56 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-operator-api
+  tag: latest
+
+fullnameOverride: "operator-api"
+
+serviceAccount:
+  name: "operator-api-sa"
+
+secrets:
+  - name: operator-api
+    data:
+    - key: mssql-connection-string-platform
+      remoteKey: /dev/apps/mssql/connection-string/platform
+      envVariable: ConnectionStrings__Platform
+    - key: auth-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: Custom__AuthApiKey
+    - key: custom-wallet-apikey
+      remoteKey: /dev/apps/platform/wallet-api/api-key
+      envVariable: Custom__WalletAPIKey
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 300Mi
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  API__AuthAPI: http://auth-api:3000
+  API__WalletAPI: http://wallet-api:3000
+  API__PlatformAgentReportsAPI: http://agent-reports-api:3000
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/511ed09e-124c-4f7d-8974-561b1907b29e
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /swagger
+
+  hosts:
+  - host: operator-api.dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix

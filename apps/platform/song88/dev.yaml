@@ -1,0 +1,50 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-song88
+  tag: latest
+
+fullnameOverride: "platform-song88"
+
+serviceAccount:
+  name: "platform-song88-sa"
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Custom__SB__Domain: sb.dev.song88.com
+  Custom__SB__ClientId: FFDECDB4-10A7-4AEC-9D93-40DEC796CBE9
+  Custom__SB__Currency: USD
+  Custom__SB__LanguageCode: EN
+  Custom__SB__OperatorToken: 01936327-EF9C-4A6D-88F2-F11D8BD724C7
+  Custom__SB__UserId: DA75B8EA-6ECA-43BB-F97E-08DA017C44E6
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/511ed09e-124c-4f7d-8974-561b1907b29e
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/target-group-attributes: >-
+      stickiness.enabled=true,
+      stickiness.type=lb_cookie,
+      stickiness.lb_cookie.duration_seconds=86400
+
+  hosts:
+  - host: dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+metrics:
+  enabled: false

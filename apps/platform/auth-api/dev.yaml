@@ -1,0 +1,44 @@
+---
+# auth is on separate repo, but included as part of the platform services
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-auth-api
+  tag: latest
+
+fullnameOverride: "auth-api"
+
+serviceAccount:
+  name: "auth-api-sa"
+
+secrets:
+  - name: auth-api
+    data:
+    - key: security-api-key
+      remoteKey: /dev/apps/auth/security-api-key
+      envVariable: Security__ApiKey
+    - key: jwt-key
+      remoteKey: /dev/apps/auth/jwt-key
+      envVariable: JWT__Key
+    - key: mssql-connection-string-auth
+      remoteKey: /dev/apps/mssql/connection-string/auth
+      envVariable: Context__Auth
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 300Mi
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  JWT__Issuer: bo.auth.api
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+readinessProbe:
+  httpGet:
+    path: /healthz

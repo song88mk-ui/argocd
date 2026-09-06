@@ -1,0 +1,65 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-web
+  tag: latest
+
+fullnameOverride: "platform-web"
+
+serviceAccount:
+  name: "platform-web-sa"
+
+secrets:
+  - name: web
+    data:
+    - key: platform-og-private-key
+      remoteKey: /dev/apps/web/og/private-key
+      envVariable: Custom__OrientalGaming__PrivateAPIKey
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
+  Logging__Console__IncludeScopes: true
+  Logging__Console__FormatterName: "json"
+  Logging__Console__FormatterOptions__SingleLine: true
+  Logging__Console__FormatterOptions__UseUtcTimestamp: true
+  Logging__Console__FormatterOptions__TimestampFormat: "yyyy-MM-dd HH:mm:ss.fff Z"
+  Logging__LogLevel__System.Net.Http.HttpClient.IPlatformRepository: Warning
+  Logging__LogLevel__System.Net.Http.HttpClient.platform-api: Warning
+  Logging__LogLevel__System.Net.Http.HttpClient.Default: Warning
+  API__PlatformAPI: http://platform-api:3000
+  API__PlatformWebsocketAPI: http://websocket-api:3000/platform
+  Config__BaseURL: http://platform-webprops-api:3000
+  CDN__BaseURL: https://assets.dev.song88.com
+  Custom__UseMessagePack: true
+  Custom__MaximumConnections: 300
+  Custom__MaintenanceConfigFile: Configs/maintenance.json
+  Custom__Layout__Version: 0
+  Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
+  Results__ProxyHosts__song88.com: "https://results.dev.song88.com"
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/511ed09e-124c-4f7d-8974-561b1907b29e
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=3600
+    alb.ingress.kubernetes.io/target-group-attributes: >-
+      stickiness.enabled=true,
+      stickiness.type=lb_cookie,
+      stickiness.lb_cookie.duration_seconds=86400
+
+  hosts:
+  - host: sb.dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+metrics:
+  enabled: false

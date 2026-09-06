@@ -1,0 +1,40 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-cashoutstake-service
+  tag: latest
+
+fullnameOverride: "cashoutstake-service"
+
+serviceAccount:
+  name: "cashoutstake-service-sa"
+
+metrics:
+  enabled: false
+
+secrets:
+  - name: cashoutstake-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-betting
+      remoteKey: /dev/apps/mssql/connection-string/betting
+      envVariable: ConnectionStrings__Betting
+    - key: mssql-connection-string-sportsbook
+      remoteKey: /dev/apps/mssql/connection-string/sportsbook
+      envVariable: ConnectionStrings__Sportsbook
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+
+livenessProbe:
+readinessProbe:

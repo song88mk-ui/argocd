@@ -1,0 +1,36 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-cachesync-service
+  tag: latest
+
+fullnameOverride: "cachesync-service"
+
+serviceAccount:
+  name: "cachesync-service-sa"
+
+secrets:
+  - name: cachesync-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  API__PlatformSportsbookAPI__Port: "3000"
+  API__PlatformBettingAPI__Port: "3000"
+  API__PlatformAPI__Port: "3000"
+
+livenessProbe:
+readinessProbe:
+
+metrics:
+  enabled: false

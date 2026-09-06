@@ -1,0 +1,44 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-webprops-api
+  tag: latest
+
+fullnameOverride: "platform-webprops-api"
+
+serviceAccount:
+  name: "webprops-api-sa"
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 3000
+
+env:
+  PORT: 3000
+  BUCKET_NAME: song88-dev-webprops
+  CACHE_API_KEY: "s@ng88"
+
+metrics:
+  enabled: false
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/511ed09e-124c-4f7d-8974-561b1907b29e
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+
+  hosts:
+  - host: platform-webprops.dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix

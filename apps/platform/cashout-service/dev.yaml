@@ -1,0 +1,42 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-cashout-service
+  tag: latest
+
+fullnameOverride: "cashout-service"
+
+serviceAccount:
+  name: "cashout-service-sa"
+
+metrics:
+  enabled: false
+
+secrets:
+  - name: cashout-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-betting
+      remoteKey: /dev/apps/mssql/connection-string/betting
+      envVariable: ConnectionStrings__Betting
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__PrefetchCount: 1000
+  Custom__IsMTSEnabled: false
+  Custom__Delay: 7000
+  API__PlatformBettingAPI: http://betting-api:3000
+
+# TODO:  create probes for services
+livenessProbe:
+readinessProbe:

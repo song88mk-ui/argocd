@@ -1,0 +1,52 @@
+---
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-clientplatform-api
+  tag: latest
+
+fullnameOverride: "clientplatform-api"
+
+serviceAccount:
+  name: "clientplatform-api-sa"
+
+replicaCount: 1
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 400Mi
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  API__PlatformAPI: http://platform-api:3000
+  API__PlatformAPIReadonly: http://platform-api-ro:3000
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/511ed09e-124c-4f7d-8974-561b1907b29e
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /v1/probe
+
+  hosts:
+  - host: client-api.dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix
+
+livenessProbe:
+  httpGet:
+    path: /v1/probe
+    port: http
+readinessProbe:
+  httpGet:
+    path: /v1/probe
+    port: http

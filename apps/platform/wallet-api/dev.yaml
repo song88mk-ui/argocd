@@ -1,0 +1,29 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-wallet-api
+  tag: latest
+
+fullnameOverride: "wallet-api"
+
+serviceAccount:
+  name: "wallet-api-sa"
+
+secrets:
+  - name: wallet-api
+    data:
+    - key: mssql-connection-string-wallet
+      remoteKey: /dev/apps/mssql/connection-string/wallet
+      envVariable: ConnectionStrings__Wallet
+    - key: custom-wallet-apikey
+      remoteKey: /dev/apps/platform/wallet-api/api-key
+      envVariable: Custom__APIKey
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  Custom__UseMessagePack: "true"
+
+livenessProbe:
+readinessProbe:

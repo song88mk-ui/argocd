@@ -1,0 +1,57 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-provider-service
+  tag: latest
+
+fullnameOverride: "provider-service"
+
+serviceAccount:
+  name: "provider-service-sa"
+
+secrets:
+  - name: provider-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: custom-gts-client-id
+      remoteKey: /dev/apps/platform/gts-client-id
+      envVariable: Custom__GTSClientID
+    - key: custom-gts-client-secret
+      remoteKey: /dev/apps/platform/gts-client-secret
+      envVariable: Custom__GTSClientSecret
+    - key: custom-ably-api-key
+      remoteKey: /dev/apps/platform/ably-api-key
+      envVariable: Custom__Ably__ApiKey
+    - key: custom-ably-channel
+      remoteKey: /dev/apps/platform/ably-api-channel
+      envVariable: Custom__Ably__Channel
+
+env:
+  Telemetry__Enabled: "true"
+  Telemetry__MetricsPort: "8080"
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+  MessageBroker__IsPriority: "true"
+  MessageBroker__Queue: "q.bet.provider"
+  MessageBroker__Consumer: "Platform.Provider.Service"
+  MessageBroker__RoutingKey: "r.bet.cancellation|r.bet.operator"
+  API__GTSAuthAPI: "https://uat.auth.geniussports.com"
+  API__GTSAPI: "https://gw1.uat.risk.api.geniussports.com"
+  API__MTSAuthAPI: "https://mts-auth-ci.betradar.com"
+  API__MTSMaxStakeAPI: "https://mts-api-ci.betradar.com"
+  Custom__IsProviderEnabled: true
+  Custom__TestBetClientCodes: "QTE,KRJ,GSA,OGE,G01,G02"
+  Custom__MTSBookmakerId: 32280
+  Custom__GTSBookmakerId: 10939
+  Custom__Ably__ChannelCount: 1
+
+livenessProbe:
+readinessProbe:

@@ -1,0 +1,69 @@
+---
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/platform-platform-api
+  tag: latest
+
+fullnameOverride: "platform-api"
+
+serviceAccount:
+  name: "platform-api-sa"
+
+secrets:
+  - name: platform-api
+    data:
+    - key: mssql-connection-string-platform
+      remoteKey: /dev/apps/mssql/connection-string/platform
+      envVariable: ConnectionStrings__Platform
+    - key: platform-og-public-key
+      remoteKey: /dev/apps/web/og/public-key
+      envVariable: Custom__OrientalGaming__PublicAPIKey
+    - key: platform-og-private-key
+      remoteKey: /dev/apps/web/og/private-key
+      envVariable: Custom__OrientalGaming__PrivateAPIKey
+    # v1/cachepreload publishes OnTranslationChange (2026-07 translation-flow redesign);
+    # appsettings ships MessageBroker credentials empty, so they MUST be injected here —
+    # without them the publish throws and the endpoint 500s on translation payloads.
+    - key: rabbitmq-username
+      remoteKey: /dev/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /dev/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 400Mi
+
+service:
+  headless:
+    enabled: true
+
+env:
+  Telemetry__Enabled: true
+  Telemetry__Environment: dev
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
+  API__PlatformBettingAPI: http://betting-api:3000
+  API__PlatformSportsbookAPI: http://sportsbook-api:3000
+  MessageBroker__Host: rabbitmq-main-cluster
+  MessageBroker__Port: 5672
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: dev-eks-alb
+    alb.ingress.kubernetes.io/group.name: apps
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:172065883315:certificate/511ed09e-124c-4f7d-8974-561b1907b29e
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-Res-2021-06
+    alb.ingress.kubernetes.io/healthcheck-path: /swagger
+
+  hosts:
+  - host: platform-api.dev.song88.com
+    paths:
+      - path: /
+        pathType: Prefix
