@@ -35,8 +35,8 @@ env:
   MessageBroker__Port: 5672
   MessageBroker__VirtualHost: "/"
   MessageBroker__Exchange: "e.central"
-  Custom__WebSocketAPI: "http://websocket-api.platform.svc:3000/platform"
-  Custom__PlatformAPI: "http://platform-api.platform.svc:3000"
+  Custom__WebSocketAPI: "http://websocket-api.dev.svc:3000/platform"
+  Custom__PlatformAPI: "http://platform-api.dev.svc:3000"
   Custom__UseMessagePack: "true"
   Custom__IsOEEnabled: "false"
   Custom__AsianClientCodes: "TSO,S88"

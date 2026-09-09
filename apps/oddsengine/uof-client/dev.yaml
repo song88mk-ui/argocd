@@ -37,7 +37,7 @@ env:
   ExternalMessageBroker__Port: 5672
   ExternalMessageBroker__VirtualHost: "/ext"
   ExternalMessageBroker__Exchange: "e.central"
-  API__PlatformAPI: "http://platform-api.platform.svc:3000"
+  API__PlatformAPI: "http://platform-api.dev.svc:3000"
 
 livenessProbe:
 readinessProbe:
