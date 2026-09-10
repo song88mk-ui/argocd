@@ -35,6 +35,7 @@ env:
   MessageBroker__PrefetchCount: 1000
   Custom__IsMTSEnabled: false
   Custom__Delay: 7000
+  Custom__TestBetClientCodes: "QTE,KRJ,GSA,OGE,G01,G02"
   API__PlatformBettingAPI: http://betting-api:3000
 
 # TODO:  create probes for services

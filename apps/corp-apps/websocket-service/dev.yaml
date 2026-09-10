@@ -33,7 +33,7 @@ env:
   MessageBroker__IsPriority: true
   MessageBroker__IsExclusive: true
   Custom__WebSocketAPI: "http://bo-ws-api:3000/bohub"
-  Custom__AsianClientCodes: "G02,TSO,S88"
+  Custom__AsianClientCodes: "G01,TSO,S88"
   API__PlatformAPI__Uri: "http://platform-api.dev.svc:3000"
   API__PlatformAPI__APIKey: "04a4cfdd40428ad"
   API__PlatformSportsbook__Uri: "http://sportsbook-api.dev.svc:3000"
