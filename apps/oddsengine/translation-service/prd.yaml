@@ -45,6 +45,12 @@ env:
   Custom__Cleanup__BatchSize: 2000
   Custom__Translation__SeedActiveSnapshot: true
   Custom__Translation__CacheSeed: true
+  # GM-784: the legacy-TranslationCache bridge copies ZH into TranslationCache2 and marks the
+  # row PROCESSED = 1 in SQL only. update.py's worklist is PROCESSED = 0, so nothing ever
+  # announces those rows downstream and the names render English on the sportsbook until a
+  # Backoffice re-save or a service restart. The image defaults this to true; keep it off
+  # until the bridge is removed from the image entirely.
+  Custom__Translation__CacheBackfill: false
 
 metrics:
   enabled: false
