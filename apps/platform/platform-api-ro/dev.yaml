@@ -24,3 +24,4 @@ env:
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   API__PlatformBettingAPI: http://betting-api:3000
   API__PlatformSportsbookAPI: http://sportsbook-api:3000
+  API__WebProps__Uri: http://platform-webprops-api:3000
