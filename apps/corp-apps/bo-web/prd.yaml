@@ -33,7 +33,7 @@ env:
   Region: HK
   SlackWebHoo: "https://hooks.slack.com/workflows/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"
   Metabase__SiteUrl: "https://metabase.prd.song88.com"
-  Metabase__DashboardId: "2"
+  Metabase__DashboardId: "36"
   Metabase__Email: "devops@song88.com"
 
 livenessProbe:
