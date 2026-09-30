@@ -38,6 +38,9 @@ env:
   Custom__UseMessagePack: true
   Custom__MaximumConnections: 300
   Custom__MaintenanceConfigFile: Configs/maintenance.json
+  Custom__MaintenanceWhitelistedIPs__0: "3.7.178.117"
+  Custom__MaintenanceWhitelistedIPs__1: "13.204.106.185"
+  Custom__MaintenanceWhitelistedIPs__2: "95.40.172.189"
   Custom__Layout__Version: 0
   Custom__OrientalGaming__HighCurrenciesAsString: IDRK,VNDK,MMKK,INRK,UZSK
 
