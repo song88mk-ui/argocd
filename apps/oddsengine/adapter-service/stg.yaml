@@ -19,6 +19,9 @@ secrets:
     - key: rabbitmq-password
       remoteKey: /stg/apps/rabbitmq/password
       envVariable: MessageBroker__Password
+    - key: mssql-connection-string-translation
+      remoteKey: /stg/apps/mssql/connection-string/translation
+      envVariable: ConnectionStrings__Translation
 
 env:
   Telemetry__Enabled: true

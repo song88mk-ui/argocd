@@ -23,6 +23,9 @@ secrets:
     - key: mssql-connection-string-trading
       remoteKey: /prd/apps/mssql/connection-string/trading
       envVariable: Custom__Trading
+    - key: uof-client-api-key
+      remoteKey: /prd/apps/uof-client-api-key
+      envVariable: API__APIKey
 
 env:
   Telemetry__Enabled: true

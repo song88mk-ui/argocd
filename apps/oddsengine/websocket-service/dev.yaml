@@ -26,6 +26,9 @@ secrets:
     - key: internal-api-key
       remoteKey: /dev/apps/internal-api-key
       envVariable: Custom__InternalAPIKey
+    - key: websocket-api-key
+      remoteKey: /dev/apps/websocket-api-key
+      envVariable: Custom__APIKey
 
 env:
   Telemetry__Enabled: true
