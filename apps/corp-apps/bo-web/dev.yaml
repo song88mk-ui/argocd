@@ -16,6 +16,9 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /dev/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
+    - key: metabase-sso-secret-key
+      remoteKey: /dev/backoffice/metabase/sso-secret-key
+      envVariable: Metabase__SsoSecretKey
 
 env:
   Telemetry__Enabled: true
