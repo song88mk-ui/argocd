@@ -22,6 +22,9 @@ secrets:
     - key: platform-og-private-key
       remoteKey: /stg/apps/web/og/private-key
       envVariable: Custom__OrientalGaming__PrivateAPIKey
+    - key: webprops-security-api-key
+      remoteKey: /stg/apps/web/webprops/security-api-key
+      envVariable: API__WebProps__Security__ApiKey
     # v1/cachepreload publishes OnTranslationChange (2026-07 translation-flow redesign);
     # appsettings ships MessageBroker credentials empty, so they MUST be injected here —
     # without them the publish throws and the endpoint 500s on translation payloads.
