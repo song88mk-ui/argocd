@@ -25,8 +25,11 @@ env:
   Serilog__MinimumLevel__Override__System.Net.Http.HttpClient.OtlpTraceExporter: "Warning"
   MessageBroker__Host: rabbitmq-main-cluster
   MessageBroker__Port: 5672
+  API__PlatformSportsbookAPI__Host: sportsbook-api-headless.dev.svc.cluster.local
   API__PlatformSportsbookAPI__Port: "3000"
+  API__PlatformBettingAPI__Host: betting-api-headless.dev.svc.cluster.local
   API__PlatformBettingAPI__Port: "3000"
+  API__PlatformAPI__Host: platform-api-headless.dev.svc.cluster.local
   API__PlatformAPI__Port: "3000"
 
 livenessProbe:
