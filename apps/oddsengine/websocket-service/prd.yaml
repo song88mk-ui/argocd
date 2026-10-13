@@ -45,7 +45,7 @@ env:
   Custom__AsianClientCodes: "TSO,S88"
   MessageBroker__Queue: "q.sb.engine.websocket"
   MessageBroker__Consumer: "OE.Engine.WebSocket"
-  MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.*|r.bet.cashoutchange.*|r.wallet.*|r.oe.sb.engine.onvisitfavorites.*|r.oe.sb.engine.onvisitboostedfixtures.*|r.oe.sb.engine.onmarketsortorderchange.*|r.oe.cachesync.onwebpropschange.*"
+  MessageBroker__RoutingKey: "r.oe.sb.engine.onoddschange|r.oe.sb.engine.onbetstopfixture|r.oe.sb.engine.onbetstopglobal|r.bet.betstatus.*|r.bet.cashoutchange.*|r.wallet.*|r.oe.sb.engine.onvisitfavorites.*|r.oe.sb.engine.onvisitboostedfixtures.*|r.oe.sb.engine.onmarketsortorderchange.*|r.oe.sb.engine.onoddstableleaguesortorderchange.*|r.oe.cachesync.onwebpropschange.*"
 
 livenessProbe:
 readinessProbe:
