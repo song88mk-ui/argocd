@@ -5,7 +5,7 @@ fullnameOverride: "uof-client-g02"
 env:
   MessageBroker__Queue: "q.uof.engine.client.G02"
   MessageBroker__Consumer: "OE.Engine.UOF.client.G02"
-  MessageBroker__RoutingKey: "r.oe.adapter.#.#|r.oe.uof.heartbeat|r.of.recovery.#.g02"
+  MessageBroker__RoutingKey: "r.oe.adapter.*.*|r.oe.uof.heartbeat|r.of.recovery.#.g02"
   Custom__ClientId: "FFDECDB4-10A7-4AEC-9D93-40DEC796CBE9"
   Custom__ClientCode: "G02"
 
