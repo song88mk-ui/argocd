@@ -7,6 +7,15 @@ fullnameOverride: "bg-receiver-service"
 serviceAccount:
   name: "bg-receiver-service-sa"
 
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+
 secrets:
   - name: bg-receiver-service
     data:
