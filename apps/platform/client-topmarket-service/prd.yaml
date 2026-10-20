@@ -1,0 +1,33 @@
+image:
+  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-client-topmarket-service
+  tag: latest
+
+fullnameOverride: "client-topmarket-service"
+
+serviceAccount:
+  name: "client-topmarket-service-sa"
+
+secrets:
+  - name: client-topmarket-service
+    data:
+    - key: rabbitmq-username
+      remoteKey: /prd/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /prd/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-betting
+      remoteKey: /prd/apps/mssql/connection-string/betting
+      envVariable: ConnectionStrings__Betting
+
+env:
+  MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
+  MessageBroker__Port: 5671
+  MessageBroker__VirtualHost: "/"
+  MessageBroker__Exchange: "e.central"
+
+metrics:
+  enabled: false
+
+livenessProbe:
+readinessProbe:
