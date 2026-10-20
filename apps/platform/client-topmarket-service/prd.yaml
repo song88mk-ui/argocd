@@ -1,5 +1,5 @@
 image:
-  repository: 525375333516.dkr.ecr.ap-south-1.amazonaws.com/platform-client-topmarket-service
+  repository: 525375333516.dkr.ecr.ap-east-1.amazonaws.com/platform-client-topmarket-service
   tag: latest
 
 fullnameOverride: "client-topmarket-service"
