@@ -22,6 +22,9 @@ secrets:
     - key: metabase-sso-secret-key
       remoteKey: /prd/backoffice/metabase/sso-secret-key
       envVariable: Metabase__SsoSecretKey
+    - key: metabase-api-key
+      remoteKey: /prd/backoffice/metabase/api-key
+      envVariable: Metabase__ApiKey
 
 env:
   Telemetry__Enabled: true
