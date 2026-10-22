@@ -38,6 +38,7 @@ env:
   Metabase__SiteUrl: "https://metabase.prd.song88.com"
   Metabase__DashboardId: "36"
   Metabase__Email: "devops@song88.com"
+  Metabase__IdleCleanup__Enabled: "true"
 
 livenessProbe:
   httpGet:

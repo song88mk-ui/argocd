@@ -31,6 +31,7 @@ env:
   API__Backoffice__Security__ApiKey: 9a8ad73dd129bf49754242e44988b3e7e39f0a05
   API__HubAPI: http://bo-ws-api:3000/bohub
   Region: HK
+  Metabase__IdleCleanup__Enabled: "true"
   SlackWebHoo: "https://hooks.slack.com/workflows/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"
 
 livenessProbe:
