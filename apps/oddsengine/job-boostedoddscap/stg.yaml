@@ -1,0 +1,41 @@
+image:
+  repository: 172065883315.dkr.ecr.ap-south-1.amazonaws.com/oev2-job-boostedoddscap
+  tag: latest
+
+fullnameOverride: "job-boostedoddscap"
+
+service:
+  create: false
+
+serviceAccount:
+  name: "job-boostedoddscap-sa"
+
+secrets:
+  - name: job-boostedoddscap
+    data:
+    - key: rabbitmq-username
+      remoteKey: /stg/apps/rabbitmq/username
+      envVariable: MessageBroker__Username
+    - key: rabbitmq-password
+      remoteKey: /stg/apps/rabbitmq/password
+      envVariable: MessageBroker__Password
+    - key: mssql-connection-string-trading
+      remoteKey: /stg/apps/mssql/connection-string/trading
+      envVariable: ConnectionStrings__Trading
+    - key: mssql-connection-string-backoffice
+      remoteKey: /stg/apps/mssql/connection-string/backoffice
+      envVariable: ConnectionStrings__Backoffice
+
+env:
+  Telemetry__Environment: stg
+  Telemetry__Enabled: true
+  Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+  MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
+  MessageBroker__Port: 5671
+  Email__BackofficeUrl: "https://bo.stg.song88.com"
+  Email__Smtp__Host: "TODO"
+  Email__Smtp__Username: "TODO"
+  Email__Smtp__Password: "TODO"
+
+livenessProbe:
+readinessProbe:
