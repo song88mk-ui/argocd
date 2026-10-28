@@ -42,7 +42,7 @@ secrets:
 
 livenessProbe: {}
 readinessProbe: {}
-      
+
 env:
   Custom__Translation__UseContentKey: false
   Telemetry__Enabled: "true"

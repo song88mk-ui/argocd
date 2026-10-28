@@ -76,4 +76,3 @@ ingress:
         pathType: Prefix
         serviceName: version-manifest
         servicePort: 80
-

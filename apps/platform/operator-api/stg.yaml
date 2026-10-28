@@ -22,7 +22,6 @@ secrets:
       remoteKey: /stg/apps/platform/wallet-api/api-key
       envVariable: Custom__WalletAPIKey
 
-replicaCount: 2
 
 resources:
   requests:

@@ -1,0 +1,25 @@
+# yamllint configuration used by the "Lint YAML" workflow.
+# Run locally with: yamllint .
+extends: default
+
+ignore: |
+  # Helm templates are Go templates, not plain YAML.
+  charts/*/templates/
+
+rules:
+  # ARNs, connection strings and routing keys make long lines unavoidable.
+  line-length: disable
+  # Values files don't use the `---` document marker.
+  document-start: disable
+  indentation:
+    spaces: 2
+    # Both indented and non-indented lists are used across the repo.
+    indent-sequences: whatever
+  # Allow GitHub Actions' `on:` key.
+  truthy:
+    check-keys: false
+  # Comment style issues are reported but don't fail the build.
+  comments:
+    level: warning
+  comments-indentation:
+    level: warning

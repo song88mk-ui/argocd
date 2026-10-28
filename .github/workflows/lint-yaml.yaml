@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+    paths:
+      - "**.yaml"
+      - "**.yml"
+      - ".yamllint.yaml"
+      - ".github/workflows/lint-yaml.yaml"
+
+permissions:
+  contents: read
+
+jobs:
+  yamllint:
+    name: yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6
+
+      - name: Setup Nix
+        uses: DeterminateSystems/nix-installer-action@c5a866b6ab867e88becbed4467b93592bce69f8a  # main
+        with:
+          # Must be able to read the private FlyingCockatoo/nix-flakes repo that holds the dev shell.
+          github-token: ${{ secrets.DEV_FLAKES_TOKEN }}
+
+      - name: Lint YAML files
+        run: nix develop github:FlyingCockatoo/nix-flakes#argocd --command yamllint --format github .

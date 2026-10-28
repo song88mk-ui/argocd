@@ -35,7 +35,6 @@ secrets:
       remoteKey: /stg/apps/rabbitmq/password
       envVariable: MessageBroker__Password
 
-replicaCount: 2
 
 resources:
   requests:
@@ -82,4 +81,3 @@ ingress:
         pathType: Prefix
         serviceName: version-manifest
         servicePort: 80
-

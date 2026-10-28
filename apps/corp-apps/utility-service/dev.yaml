@@ -34,4 +34,4 @@ env:
   MessageBroker__Consumer: "BO.Utility.Service"
   MessageBroker__RoutingKey: "r.bo.util.#"
   Custom__Hub: "http://bo-ws-api:3000/bohub"
-  Custom__AzureStorage: "http://localhost" #todo
+  Custom__AzureStorage: "http://localhost"  # TODO
