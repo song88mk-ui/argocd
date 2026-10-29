@@ -67,4 +67,4 @@ ingress:
         pathType: Prefix
 
 metrics:
-  enabled: false
+  enabled: true
