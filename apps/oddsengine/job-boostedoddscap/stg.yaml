@@ -25,6 +25,15 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /stg/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
+    - key: smtp-host
+      remoteKey: /stg/smtp/host
+      envVariable: Email__Smtp__Host
+    - key: smtp-username
+      remoteKey: /stg/smtp/username
+      envVariable: Email__Smtp__Username
+    - key: smtp-password
+      remoteKey: /stg/smtp/password
+      envVariable: Email__Smtp__Password
 
 env:
   Telemetry__Environment: stg
@@ -33,9 +42,6 @@ env:
   MessageBroker__Host: b-e244ede6-0d6a-4c12-be31-90e96fa9126b.mq.ap-south-1.on.aws
   MessageBroker__Port: 5671
   Email__BackofficeUrl: "https://bo.stg.song88.com"
-  Email__Smtp__Host: "TODO"
-  Email__Smtp__Username: "TODO"
-  Email__Smtp__Password: "TODO"
 
 livenessProbe:
 readinessProbe:

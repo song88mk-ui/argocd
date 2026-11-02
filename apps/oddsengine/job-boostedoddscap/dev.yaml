@@ -25,6 +25,15 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /dev/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
+    - key: smtp-host
+      remoteKey: /dev/smtp/host
+      envVariable: Email__Smtp__Host
+    - key: smtp-username
+      remoteKey: /dev/smtp/username
+      envVariable: Email__Smtp__Username
+    - key: smtp-password
+      remoteKey: /dev/smtp/password
+      envVariable: Email__Smtp__Password
 
 env:
   Telemetry__Environment: dev
@@ -33,9 +42,6 @@ env:
   MessageBroker__Host: rabbitmq-main-cluster
   MessageBroker__Port: 5672
   Email__BackofficeUrl: "https://bo.dev.song88.com"
-  Email__Smtp__Host: "TODO"
-  Email__Smtp__Username: "TODO"
-  Email__Smtp__Password: "TODO"
 
 livenessProbe:
 readinessProbe:

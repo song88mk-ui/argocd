@@ -25,6 +25,15 @@ secrets:
     - key: mssql-connection-string-backoffice
       remoteKey: /prd/apps/mssql/connection-string/backoffice
       envVariable: ConnectionStrings__Backoffice
+    - key: smtp-host
+      remoteKey: /prd/smtp/host
+      envVariable: Email__Smtp__Host
+    - key: smtp-username
+      remoteKey: /prd/smtp/username
+      envVariable: Email__Smtp__Username
+    - key: smtp-password
+      remoteKey: /prd/smtp/password
+      envVariable: Email__Smtp__Password
 
 env:
   Telemetry__Environment: prd
@@ -33,9 +42,6 @@ env:
   MessageBroker__Host: b-bfc99daf-fb92-4742-af20-8bcf6bd1f118.mq.ap-east-1.on.aws
   MessageBroker__Port: 5671
   Email__BackofficeUrl: "https://bo.song88.com"
-  Email__Smtp__Host: "TODO"
-  Email__Smtp__Username: "TODO"
-  Email__Smtp__Password: "TODO"
 
 livenessProbe:
 readinessProbe:
