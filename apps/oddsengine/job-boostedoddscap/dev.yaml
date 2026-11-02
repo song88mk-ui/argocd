@@ -41,6 +41,7 @@ env:
   Serilog__WriteTo__0__Args__formatter: "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
   MessageBroker__Host: rabbitmq-main-cluster
   MessageBroker__Port: 5672
+  Custom__Enabled: true
   Email__BackofficeUrl: "https://bo.dev.song88.com"
 
 livenessProbe:
