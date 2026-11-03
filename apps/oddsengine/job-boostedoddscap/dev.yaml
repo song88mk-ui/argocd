@@ -43,6 +43,8 @@ env:
   MessageBroker__Port: 5672
   Custom__Enabled: true
   Email__BackofficeUrl: "https://bo.dev.song88.com"
+  Email__Enabled: true
+  Email__OverrideRecipient: "support@song88.com,ateanila@song88.com"
 
 livenessProbe:
 readinessProbe:
