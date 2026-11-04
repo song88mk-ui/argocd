@@ -22,6 +22,12 @@ secrets:
     - key: mssql-connection-string-translation
       remoteKey: /dev/apps/mssql/connection-string/translation
       envVariable: ConnectionStrings__Translation
+    - key: mssql-connection-string-trading
+      remoteKey: /dev/apps/mssql/connection-string/trading
+      envVariable: ConnectionStrings__Trading
+    - key: internal-api-key
+      remoteKey: /dev/apps/internal-api-key
+      envVariable: API__APIKey
 
 env:
   Telemetry__Enabled: true
@@ -34,6 +40,7 @@ env:
   MessageBroker__Queue: "q.oe.adapter"
   MessageBroker__Consumer: "OE.Adapter.Service"
   MessageBroker__RoutingKey: "r.bg.receiver.#|r.uof.#"
+  API__PlatformAPI: "http://platform-api.dev.svc:3000"
 
 livenessProbe:
 readinessProbe:
